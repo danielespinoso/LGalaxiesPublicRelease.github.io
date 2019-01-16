@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta http-equiv="expires" content="0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" ><!-- force latest IE document(compatibility) mode -->
+        <title>Galformod Project - Henriques 2015a</title>
+        <meta name="description" content="Documentation for L-Galaxies, the Munich                                                                                                
+                                          model for following the formation                                                                                                       
+                                          and evolution of galaxies within                                                                                                        
+                                          Millennium-like simulations"/>
+        <meta name="keywords" content="LGalaxies, L-Galaxies, galaxy formation,                                                                                                   
+                                       Henriques2015, Munich model"/>
+        <!-- script type="text/javascript"      src="inputmodelform/inputmodelform.nocache.js" ></script-->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+        <script type="text/javascript" src="http://galformod.mpa-garching.mpg.de/public/LGalaxies/jquery.datatables-1.9.4.js"></script>
+
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+        <!-- galformod common css/js -->
+        <link type="text/css" rel="stylesheet" href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/galformod-mpaci.css"/>
+        <link type="text/css" rel="stylesheet" href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/galformod-jquery-mpaci.css"/>
+        <script type="text/javascript" src="http://galformod.mpa-garching.mpg.de/public/LGalaxies/galformod.js"></script>
+        <link type="text/css" rel="stylesheet" href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/portal-mpaci.css"/>
+
+
+        <link rel="stylesheet" type="text/css" href="mystyle.css">
+
+        <style type="text/css">
+                body, table td, select {
+                font-size:                              large !important;
+                }
+                div.section {
+                        padding-bottom:         20px;
+                }
+
+                table.dataTable th {
+                        background:                     inherit;
+                }
+                table.dataTable th.sorting_asc {
+                        background:                     url("common/img/jquery-mpaci/datatables/All_Sorting_TriangleAscending_15_Success.png") no-repeat scroll right center tran\
+sparent;
+                }
+                table.dataTable th.sorting_desc {
+                        background:                     url("common/img/jquery-mpaci/datatables/All_Sorting_TriangleDescending_15_Success.png") no-repeat scroll right center tra\
+nsparent;
+                }
+                table.dataTable tr.even td.sorting_1, table.dataTable tr.odd td.sorting_1 {
+                background-color:       inherit;
+                }
+                table.dataTable tr td {
+                        text-align:                     center;
+                }
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="body" >
+
+    <a href="http://www.mpa-garching.mpg.de" title="organization home"><div class="logo_mpa" ></div></a>
+
+    <a class="limpid" href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/"  >
+      <div>
+        <h1 class="title" >L-Galaxies, Munich Galaxy Formation Model</h1>
+        <h1 class="subtitle" >Home</h1>
+      </div>
+    </a>
+
+    <div class="mynavpanel" >
+      <div id='cssmenu_vertical'>
+        <ul>
+          <li><a href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/Workshop/index.html"target="_self"><span>workshop</span></a></li>
+          <li><a href="http://gavo.mpa-garching.mpg.de/MyMillennium/" target="_self"><span>database</span></a></li>
+          <!--<li><a href="http://galformod.mpa-garching.mpg.de/portal"target="_self"><span>GALFORMOD</span></a></li>-->
+          <li class='last'><a href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/OutReach/index.php"target="_self"><span>general public</span></a></li>
+          <li class='last'><a href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/contact.html"target="_self"><span>contact</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+  <div class="content" >
+      <div id="synopsis" class="section" >
+        <!--    <h2 class="cap" >Henriques2015a: Model</h2> -->
+
+        <!--<p align="justify">-->
+      </div>
+
+
+   <div id='cssmenu'>
+      <ul>
+        <li class='active'><a href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/index.php"><span>Home</span></a>
+        </li>
+        <li class='has-sub'>
+          <a href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/running_the_model.php">
+            <span>Running the Model</span></a>
+          <ul>
+            <li class='has-sub'><a href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/makefile_input.php"><span>Makefile & Input options</span></a>
+              <!--<ul>                                                                                                                                                            
+                  <li><a href='#'><span>Sub Product</span></a></li>                                                                                                               
+                  <li class='last'><a href='#'><span>Sub Product</span></a></li>                                                                                                  
+                </ul> -->
+            </li>
+            <li class='has-sub'><a href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/mcmc.php"><span>MCMC Sampling</span></a>
+              <!--<ul>                                                                                                                                                            
+                  <li><a href='#'><span>Sub Product</span></a></li>                                                                                                               
+                  <li class='last'><a href='#'><span>Sub Product</span></a></li>                                                                                                  
+                </ul>-->
+            </li>
+          </ul>
+        </li>
+        <li><a href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/description.php"><span>Model Description</span></a></li>
+        <li class='has-sub'>
+          <a href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/downloads.php">
+            <span>Downloads</span></a>
+          <ul>
+            <li><a href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/plots_data.php"><span>Data
+            from published plots</span></a>
+            </li>
+            <li><a href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/animations.php"><span>Animations</span></a>
+            </li>
+          </ul>
+        </li>
+
+	<li class='last'><a href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/protected_projects_and_people/projects_and_people.php"><span>Projects
+              & People</span></a></li>
+      </ul>
+    </div>
+
+
+   <br>
+      <br>
+      <br>
+      <p style="text-align:justify"><FONT size="3">
+          Over the years, L-Galaxies evolved from being a galaxy formation model into a
+          large international collaboration of students, postdocs and group leaders
+          interested in contributing into the development of a self-consistent simulation of the formation
+          and evolution of galaxies from the very early universe until the
+          present day. In recent years significant effort was devoted into
+          creating a vibrant and supportive network, currently with nodes in
+          three different continents
+          (see <a href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/protected_projects_and_people/projects_and_people.php">
+            <FONT size="4" COLOR="3388AA">people</FONT></a>), in order to
+            significantly extend the predictive capabilities of the
+            model. These include studies of the partition between different
+            gas phases, super-massive black hole physics and x-ray emission
+            properties, the distribution of heavy elements and the properties
+            of Milky-way like galaxies.
+          <br>
+          <br>
+          2015 marked a milestone for the development of L-Galaxies with its
+          first public release (for the source code of the model corresponding to
+          the henriques et al. 2015 version). This
+          coincided with a workshop in which more than 30 young students and
+          posdocs, from outside our direct collaboration, learned how to run
+          the model and analyse its predictions. The input from the members
+          of the collaboration, and the participants on the workshop, helped
+          to create these pages with the hope of allowing a growing community
+          to make use of the model in order to interpret observational data
+          and better understand the physics that shape galaxy formation and evolution.
+
+      </FONT></p>
+
+<br>
+<br>
+<br>
+      <p style="text-align:justify"><FONT size="3">
+          Semi-analytic models of galaxy formation are built on a description
+          of the redshift evolution of the mass and number density of dark
+          matter halos in terms of their merger history (the so-called merger
+          trees). The evolution of the baryonic component hosted by these
+          halos is then followed by means of a set of parametrised, physically
+          based equations, to describe the physical processes that affect
+          galaxy formation and evolution. The Munich galaxy formation model
+          includes physical prescriptions for processes such as gas cooling,
+          star formation, supernova feedback, formation and growth of black
+          holes, AGN feedback and galaxy interactions and mergers that have
+          been gradually developed over the years. A few simple slides
+          describing the main components of the model can be found in
+          <a href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/LGalaxies_slides.pdf">
+            <FONT size="4" COLOR="3388AA">LGalaxies_slides.pdf</FONT>
+          </a>.
+      </FONT></p>
+
+   <br>
+      <p style="text-align:justify"><FONT size="3"> The recent
+          Henriques2015a release scales the Millennium and Millennium-II
+          simulations to the cosmology of the first year PLANCK data.
+          MCMC methods were used to explore the full high-dimensional
+          parameter space of the galaxy formation model in order to identify
+          regions which could reproduce the observed abundances and
+          quenched fractions of galaxies as a function of stellar mass from
+          z=3 down to z=0. Matching these more extensive and more
+          precise observational results required a delayed reincorporation
+          of wind ejecta, a lower surface density threshold for turning
+          cold gas into stars, the elimination of ram-pressure stripping
+          in haloes less massive than <FONT size="2"
+          color="grey">\(∼10^{14} M_{\odot}\)</FONT>, and a modification
+          to the radio mode feedback model. These changes cure the most obvious
+          failings of previous versions of the model, namely the overly early formation
+          of low-mass galaxies and the overly large fraction of them that are
+          passive at late times. 4 million  CPU hours were used, and over
+          <b>20 million representations of the Universe were evaluated</b>,
+          in order to build this model.
+      </FONT></p>
+
+      <br>
+      <p style="text-align:justify"><FONT size="3">
+          Catalogues released for this model include snapshots of the
+          (sub)halo and galaxy populations with extended photometric
+          coverage and star formation and metallicity histories, as well
+          as lightcones with photometry based on two different stellar
+          population synthesis models. These are available in the
+          <a href="http://gavo.mpa-garching.mpg.de/Millennium/">
+            <FONT size="3" COLOR="3388AA"> Millennium Database</FONT></a>.
+      </FONT></p>
+
+      <br>
+      <p><FONT size="3">Full description of the current model release: </FONT><a href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/munich_sam.pdf"><FONT size="4" COLOR\
+="3388AA">L-Galaxies_Documentation.pdf</FONT></a>
+      </p>
+      <p><FONT size="3">MNRAS
+      article: </FONT><a href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/Henriques2014a.pdf"><FONT size="4"
+      COLOR="3388AA">Henriques et al., 2015, MNRAS, 451, 2663</FONT></a>
+      </p>
+
+      <br>
+      <p style="text-align:justify">
+        <FONT size="3">The first </FONT>
+        <a href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/Workshop/index.html">
+          <FONT size="3" COLOR="3388AA"> L-Galaxies Workshop </FONT></a>
+        <FONT size="3"> took place at MPA, Garching (10-12, Feb., 2016). The
+          Henriques2015a version of the L-Galaxies code was publicly released
+          and ~40 participants followed the tutorials on how to run it, modify it and
+          use the MCMC sampler. </FONT>
+      </p>
+
+
+   <br>
+      <br>
+      <p><FONT size="3" COLOR=black> A snapshot of the dark matter only simulation:</FONT></p>
+      <br>
+      <img style="width:812px;height:325px;" class="ImageBorder2"
+      src="http://galformod.mpa-garching.mpg.de/public/LGalaxies/images/millennium_cut_new.png"/>
+      <br>
+      <br>
+      <p><FONT size="3" COLOR=black>On the left, simulated galaxies seen through a lightcone, on the
+      right, real data from HST:</FONT></p>
+      <br>
+      <img src="http://galformod.mpa-garching.mpg.de/public/LGalaxies/images/MROBS_UDF_OCT2012.png" class="ImageBorder2" style="width:812px;height:352px">
+
+
+
+    </div>
+
+  </div>
+
+
+
+
+</body>
+
+
+</html>
