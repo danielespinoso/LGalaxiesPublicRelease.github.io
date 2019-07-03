@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Hen15 Model</title>
+    <meta charset="UTF-8">
+  
+    <link rel="stylesheet" href="style.css">  
+    <link rel="stylesheet" href="topnav.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<meta charset="UTF-8">
+	<meta name="keywords" content="L-Galaxies, LGalaxies, SAM, galaxy, formation, models">
+	<meta name="author" content="Bruno Henriques">
+	<meta http-equiv="refresh" content="60">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta name="google-site-verification" content="HVG7Wn4SVibWVZmkOcxlBdtRj_cuxOHZfftkt2KPCkg" />
+
+	<meta property="og:title" content="Hen15 Model"/>
+	<meta property="og:description" content="L-Galaxies Model of Galaxy Formation"/>
+	<meta property="og:url" content="https://lgalaxiespublicrelease.github.io">
+	<meta property="og:image" content="https://lgalaxiespublicrelease.github.io/front.png">
+
+	<link rel="icon" href="./front.png">
+
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script> var BaseURLGalformod = "http://galformod.mpa-garching.mpg.de/public/LGalaxies/";</script>
+    
+</head>
+
+<body style="font-family:lucida grande;color:#3B3B3C">
+
+	<!-- top navigation panel -->
+	<script src="topnav.js"></script>
+
+	<div class="top_logo">
+		<div class="my_heading1">Henriques et al. 2015</div>		
+		<div id="top_logo_mask1"> </div>
+		<div id="top_logo_mask2"> </div>
+		<div id="top_logo_mask3"> </div>
+		<div id="top_logo_mask4"> </div>
+	</div> 
+
+
+	
+	<table  class="model_description_menu" style="border-collapse: collapse">                                                                                                                                                                                     
+        <tr style="text-align:center;">                                                                                                                                                                                                                          
+          <td style="border-radius: 6px 0px 0px 6px;"> <a href="./Hen15_index.html">Running the Model</a></td>                                                                                                                                                                                                                                                 
+          <td> <a href="./Hen15_makefile_input.html">Makefile & Inputs</a> </td>                                                                                                                                                                                                                                                 
+          <td> <a href="./Hen15_mcmc.html">MCMC</a> </td>                                                                                                                                                                                                                                                 
+          <td style="border-radius: 0px 6px 6px 0px;"> <a href="./Hen15_figures_and_data.html">Data from Plots</a> </td>                                                                                                                                                                                                                                                 
+        </tr>                                                                                                                                                                                                                                                   
+    </table>                  
+      
+	<div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>Files needed to run the model</p>
+		</div>
+		
+		<div class="main_box_text_box"> 
+		 
+		 
+			<p style="padding:10px 0px 10px 0px">Download the source code for the model from the L-Galaxies GitHub Repository:
+			   <a class="general_link" href="https://github.com/LGalaxiesPublicRelease/LGalaxies_PublicRepository/releases/tag/Henriques2015"> LGalaxies_Repository</FONT></a>
+			</p>
+						
+			
+        	<p>Download the dark matter merger trees into ./MergerTrees/ contained in the source code folder (choose from: 1st line
+               (only a few trees), 2nd line (all trees in the millennium) or 3rd line (all trees in the millennium in 5 separate files);
+               the 4th is needed if you plan to run MCMC):
+            </p>
+            
+            <p> <ul  style="margin: 5px 2vw 5px 2vw"> 
+				<li>Subset of Millennium merger trees (10/512 of the volume): 
+				    <script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MR_MergerTrees.tar'><div id='intermediate_link'>"+"MR_MergerTrees.tar</div></a>")</script>
+				</li> 
+				<li>All Millennium merger trees (full volume):
+					<script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MR_allMergerTrees.tar'><div id='intermediate_link'>"+"MR_allMergerTrees.tar</div></a>")</script>
+				</li>
+				<li>Full volume in 5 files:
+					<script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MR_MergerTrees_0_99.tar'><div id='intermediate_link'>"+"Trees0_99.tar</div></a>")</script>
+					<script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MR_MergerTrees_100_199.tar'><div id='intermediate_link'>"+"Trees100_199.tar</div></a>")</script>
+					<script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MR_MergerTrees_200_299.tar'><div id='intermediate_link'>"+"Trees200_299.tar</div></a>")</script>
+					<script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MR_MergerTrees_300_399.tar'><div id='intermediate_link'>"+"Trees300_399.tar</div></a>")</script>
+					<script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MR_MergerTrees_400_511.tar'><div id='intermediate_link'>"+"Trees400_511.tar</div></a>")</script>
+				</li>
+				<li>Representative sample of trees for MCMC mode:
+					<script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MCMC_MergerTrees.tar'><div id='intermediate_link'>"+"MCMC_MergerTrees.tar</div></a>")</script>
+				</li>				
+			</ul> </p>
+                           
+			<p style="padding:0px 0px 10px 0px">Untar files: "tar -xvf MR_MergerTrees.tar". A folder, MR (or MCMC), should be created.  </p>        
+
+
+			<p>Download the Stellar Population Synthesis tables, needed for photometry, into the root of the directory containing the source code:
+			   <script>document.write("<a class='general_link' href='"+BaseURLGalformod+"run_model/SpecPhotTables.tar'>"+"SpecPhotTables.tar</a>")</script>
+			</p>
+       
+			<p style="padding:0px 0px 10px 0px"> Untar the file: "tar -xvf SpecPhotTables.tar". A folder, SpecPhotTables, should be created.</p>
+
+
+			<p>The source code for the model also contains various scripts to analyse its output. ./AuxCode/Python/ for Python and
+               ./AuxCode/Idl/ for IDL (the python plots are done using a jupyter notebook). These compare model predictions with a
+               number of observational datasets:</p>	
+
+			<p> <ul  style="margin: 5px 2vw 5px 2vw"> 
+            	<li> <script>document.write("<a class='general_link' href='"+BaseURLGalformod+"run_model/data.tar'>"+"data.tar</a>")</script> </li>         
+       		</ul></p>
+
+        	<p style="padding:0px 0px 10px 0px">which should be extracted into the corresponding Python or IDL directory.</p>
+
+			<p style="color:black; font-size:1.1em;"><u>MergerTrees for MRII and MR-WMAP7:</u></p>
+			<p> <ul  style="margin: 5px 2vw 5px 2vw"> 
+				<li>MRII trees: 
+				    <script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MRII_MergerTrees_0_1.tar'><div id='intermediate_link'>"+"MRII_Trees0_1.tar</div></a>")</script>
+					<script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MRII_MergerTrees_2_39.tar'><div id='intermediate_link'>"+"MRII_Trees2_39.tar</div></a>")</script>
+					<script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MRII_MergerTrees_40_79.tar'><div id='intermediate_link'>"+"MRII_Trees40_79.tar</div></a>")</script>
+					<script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MRII_MergerTrees_80_199.tar'><div id='intermediate_link'>"+"MRII_Trees80_199.tar</div></a>")</script>
+					<script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MRII_MergerTrees_200_511.tar'><div id='intermediate_link'>"+"MRII_Trees200_511.tar</div></a>")</script>
+				<li>MRII tree aux files:
+					<script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MRII_MergerTrees_aux_0_1.tar'><div id='intermediate_link'>"+"MRII_Trees_aux0_1.tar</div></a>")</script>
+					<script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MRII_MergerTrees_aux_2_39.tar'><div id='intermediate_link'>"+"MRII_Trees_aux2_39.tar</div></a>")</script>
+					<script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MRII_MergerTrees_aux_40_79.tar'><div id='intermediate_link'>"+"MRII_Trees_aux40_79.tar</div></a>")</script>
+					<script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MRII_MergerTrees_aux_80_199.tar'><div id='intermediate_link'>"+"MRII_Trees_aux80_199.tar</div></a>")</script>
+					<script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MRII_MergerTrees_aux_200_511.tar'><div id='intermediate_link'>"+"MRII_Trees_aux200_511.tar</div></a>")</script>
+				</li>
+				<li>MRII dbids files:
+					<script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MRII_MergerTrees_dbids.tar'><div id='intermediate_link'>"+"MRII_MergerTrees_dbids.tar</div></a>")</script>
+				</li>
+				<li>MR-WMAP7 trees:
+					<script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MR7_MergerTrees_0_9.tar'><div id='intermediate_link'>"+"MR7_Trees_0_9.tar</div></a>")</script>
+					<script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MR7_MergerTrees_10_99.tar'><div id='intermediate_link'>"+"MR7_Trees_10_99.tar</div></a>")</script>
+					<script>document.write("<a href='"+BaseURLGalformod+"run_model/MergerTrees/MR7_MergerTrees_100_511.tar'><div id='intermediate_link'>"+"MR7_Trees_100_511.tar</div></a>")</script>				
+				</li>				
+			</ul> </p>
+		
+						
+		
+		</div>	
+		
+	</div>	
+	
+     
+     
+     <div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>Compiling the code</p>
+		</div>
+		
+		<div class="main_box_text_box"> 
+		 		            
+			<p>To compile the code simply run make on the command line. This will follow compiling instructions from 3 Makefiles:</p>
+       
+            <p><ul  style="margin: 5px 2vw 5px 2vw;"> 
+            	<li>
+            		<b>Makefile</b>: standard Makefile listing all the object files. Here you can switch between standard
+					or MCMC mode (by choosing between My_Makefile_options or My_Makefile_options_MCMC). <b>You will also need to choose a                                                                                                                                                                                    
+                	SYSTYPE</b>. This variable links to library paths defined in Makefile_compilers. You can try to use one of the systems
+					available, but you will likely have to create your own (SYSTYPE="MyMachine" might work for MACs). 
+				</li>
+              	<li>
+              		<b>My_Makefile_options</b> (or My_Makefile_options_MCMC): lists the makefile options that you want to be compiled (Makefile_options lists
+                	all the available options and is not used). 
+                </li>
+                <li> 
+                	<b>Makefile_compilers</b>: libraries for different systems are listed here. You can add your own by defining a new SYSTYPE. 
+                </li>
+			</ul></p>
+       
+       
+       
+			<p style="color:black; font-size:1.1em;"><u>Installing gsl and openmpi libraries on a mac:</u></p>
+				
+				
+			<p> By default, SYSTYPE = "MyMachine" in Makefile. Under "ifeq ($(SYSTYPE),"MyMachine")", in Makefile_compilers, the paths to the
+            necessary libraries are specified. Installing these libraries on a mac is straightforward if you have Homebrew
+            installed (a software to manage the installation of others). This is installed by default on new macs and you just need to follow these steps:</p>
+
+            <p><ul  style="margin: 5px 2vw 5px 2vw;"> 
+				<li><b>Install gsl:</b> "brew install gsl"</li>
+                In principle the gsl libraries will be installed in their default location. This is already specified in
+                Makefile_compilers, under "ifeq ($(SYSTYPE),"MyMachine")", with the lines:
+                <br>
+                GSL_INCL = -I/usr/local/include
+                <br>
+                GSL_LIBS = -L/usr/local/lib
+                
+				<br>
+				<br>			
+
+              	<li><b>Install openmpi:</b> "brew install open-mpi"</li>
+              	In principle the openmpi libraries will be installed in their default location. This is already specified in
+                Makefile_compilers, under "ifeq ($(SYSTYPE),"MyMachine")", with the lines:
+                <br>
+                GSL_INCL = -I/usr/local/Cellar/open-mpi/1.10.1/include
+                <br>
+                GSL_LIBS = -L/usr/local/opt/libevent/lib
+                -L/usr/local/Cellar/open-mpi/1.10.1/lib
+                <br>
+                If the compilation misses the openmpi libraries, you can locate them using: "mpicc -showme".				
+			</ul></p>
+		
+		
+		</div>	
+		
+	</div>	
+	
+	
+	<div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>Running the code</p>
+		</div>
+		
+		<div class="main_box_text_box"> 		 						
+			
+        	<p> After the code has been compiled, an executable called <b>L-Galaxies</b> will be created. To run the code simply execute the file
+            	in the command line giving it an input.par file (see <a class="general_link" href="#Input_files">Input files</a> below) as a runtime argument:
+            </p>
+        	<p> <b> ./L-Galaxies  ./input/input_Henriques2015_MR_W1_PLANCK.par</b> </p>
+      
+        	<p> With this input file, as downloaded from the online repository, you will be running exactly the Henriques2015 version of L-Galaxies.</p>
+       
+        	<p> The variables FirstFile and LastFile, in the input file, define the first and last dark matter merger tree files in which
+			    the galaxy formation model will be run. These correspond to sub-volumes of the dark matter simulation. As default, only file 5 is
+			    computed (a subvolume roughly representative of the full simulation) but you have files 0-9 in the download package (the full
+			    Millennium simulation ocrresponds to files 0-511).
+        	</p>
+
+			<p> (later, to run the code in parallel, you might want to us thee bash scripts available in ./AuxCode/Run/, e.g. cosma.bash.) </p>
+
+            
+            <br>
+			<p style="color:black; font-size:1.1em;"><u>Check list for errors while reading the inputs:</u></p>
+			
+			<p> The first task done by the galaxy formation model is to read the inputs. If some inputs are missing or the specified paths are incorrect, you
+            	will get an error. Here is a check list on what to look for:
+        	</p>
+
+			<p><ul  style="margin: 5px 2vw 5px 2vw;"> 
+	      		<li><b>Parameter file not found</b>: If at run time you write the wrong name for the input file after "./L-Galaxies" you will
+              		get the following error: "Parameter file ./input/input_Henriques15_MR_W1_PLANC.par not found". Followed
+              		by a line for each parameter supposed to be read from the input file saying that it is missing.
+              	</li>
+              	<li><b>Zlist:</b>: If the file with the list of dark matter redshifts is incorrectly specified you will get 
+              		the following error:"code termination on task=0, function read_zlist(), file                                                                                                                                                                                    
+              		code/init.c, line 180: can't read output list in file './input/zlists/zlist_planck_MR1.txt'"
+              	</li>
+              	<li><b>Output redshifts:</b>:If the file with the list of output redshifts is incorrectly specified you will get the following
+                	error: "code termination on task=0, function read_output_snaps(), file code/init.c, line 323: file `./input/desired_output_redshifts1.txt' not found"
+              	</li>
+              	<li><b>Inconsistent NOUT:</b>: If the value of OPT += -DNOUT=28 specified in My_Makefile_options is larger than the number of outputs defined
+                	in FileWithOutputRedshifts, you will get the following error: "code termination on task=0, function read_output_snaps(),                                                                                                                                                                                      
+                	file code/init.c, line 332: I/O error in file './input/desired_output_redshifts.txt"
+              	</li>
+              	<li><b>SpecPhot folder:</b>:If the file with the containing the spectro and photometric tables is incorrectly specified specified you will get the following
+                	error: "code termination on task=0, function setup_LumTables_precomputed(), file code/model_spectro_photometric.c, line 61: file                                                                                                                                                                                                   
+             		`./SpecPhotTables1//PhotTables/M05_Chabrier_Metallicity_list.dat' not found."
+              	</li>
+              	<li><b>SpecPhotProperties:</b>: If you specify the wrong PhotPrefix or SpecPhotIMF, or you combine them wrongly with the
+              		My_Makefile_options (M05, BC03 or CB07) you will get the following error:"code termination on task=0, function                                                                                                                                                                                             
+              		setup_LumTables_precomputed(), file code/model_spectro_photometric.c, line 103: file                                                                                                                                                                                                  
+              		`./SpecPhotTables//PhotTables/PLANCK_M0_Chabrier_Phot_Table_MR_MagU_m0.0010.dat' not found."
+	      		</li>
+              	<li><b>SimulationDir:</b>:If you specify SimulationDir incorrectly, you will get the following error: "code termination                                                                                                                                                                                  
+              		on task=0, function load_all_auxdata(), file code/update_type_two.c, line 206: Can't open file `./MergerTrees/MR1//treedata/treeaux_063.5'"
+				</li>
+			</ul></p>
+
+			
+			
+			<br>
+			<p style="color:black; font-size:1.1em;"><u>Input files for different models:</u></p>
+								
+			<p> After you are familiar with running the Henriques2015 version of L-Galaxies you can try other versions by using a
+            	pre-defined selection of input files and MAKEFILE options. A number of input files for different models are available  in
+            	/input/, with the following naming convection:</p>
+            
+            <p style="margin-top:5px"><b>input_&quotModelName_Simulation&quot_&quotOriginalCosmology&quot_&quotTargetCosmology&quot.par</b><p></b>
+           
+
+			<p><ul style="margin: 5px 2vw 5px 2vw;"> 
+            	<li>
+            		<b>./input/input_Henriques15_MR_W1_PLANCK.par</b>: input file for the Henriques2015a model for the Millennium Simulation.
+            	</li>
+              	<li>
+              		<b>./input/input_Henriques15_MRII_W1_PLANCK.par</b>: input file for the Henriques2015a model for the MillenniumII Simulation
+               		(requires OPT += -DMRII in My_Makefile_options).
+               	</li>
+        	</ul></p>
+        	
+        	<p>Inputs for previous versions of the model:</p>           
+       		<p><ul  style="margin: 5px 2vw 5px 2vw;"> 
+            	<li><b>./input/LegacyModels_inputs/input_Henriques13_MR_W1_W7.par</b>: input file for
+                	the Henriques2013 model for the Millennium Simulation (requires OPT += -DHENRIQUES13 in My_Makefile_options).
+                </li>
+                <li><b>./input/LegacyModels_inputs/input_Henriques13_MRII_W1_W7.par</b>: input file for the Henriques2015a model for 
+                	the MillenniumII Simulation (requires OPT += -DHENRIQUES13 and OPT += -DMRII in My_Makefile_options).
+                </li>
+              	<li><b>./input/LegacyModels_inputs/input_Guo13_MR_W1_W7.par</b>: input file for the Guo2013 model for the 
+              		Millennium Simulation (requires OPT += -DGuo13 in My_Makefile_options).
+              	</li>
+                <li><b>./input/LegacyModels_inputs/input_Guo13_MRII_W1_W7.par</b>: input file for the Guo2013 model for the 
+                	MillenniumII Simulation (requires OPT += -DGuo13 and OPT += -DMRII in My_Makefile_options).
+                </li>
+                <li><b>./input/LegacyModels_inputs/input_Guo11_MR_W1_W1.par</b>: input file for the Guo2011 model for the 
+                	Millennium Simulation (requires OPT += -DGuo11 in My_Makefile_options).
+                </li>
+                <li><b>./input/LegacyModels_inputs/input_Guo11_MRII_W1_W1.par</b>: input file for the Guo2011 model for the 
+                	MillenniumII Simulation (requires OPT += -DGuo11 and OPT += -DMRII in My_Makefile_options).
+                </li>
+        	</ul></p>
+        	
+       
+        	<p> A range of files without a model name are available for new model development: ./input/input_MR_W1_PLANCK.par and 
+        		./input/input_MRII_W1_PLANCK.par (PLANCK year1 cosmology), ./input/input_MR_W1_W7.par and ./input/input_MRII_W1_W7.par 
+        		(WMAP7 cosmology), ./input/input_MR_W1_W1.par and ./input/input_MRII_W1_W1.par (WMAP1 cosmology).
+			</p>
+
+			<p>	<b><u>Running different models will likely change the output structure. Always make sure you are trying to read the correct
+            	LGalaxies_struct in your plotting routines. If the new models have different cosmologies you will also need to adjust the 
+            	Volume and Hubble_h used in plots.</u></b>
+        	</p>
+        	
+		</div>	
+		
+	</div>	
+	
+	
+	
+	<div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>Analysing the Output</p>
+		</div>
+		
+		<div class="main_box_text_box"> 
+		 	
+			<p> After the galaxy formation model has finished, output galaxy catalogues will be created in the output directory (./output/ is
+				the default). One file will be created for each of the dark matter simulation sub volumes (just file number 5 as default, 
+				0-9 available in the download package, a total of 512 for the full Millennium simulation). In normal mode, one
+				file will be created for each output snapshot (1 file per subvolume and 1 file per snapshot):
+        	</p>
+        	
+			<p> SA_z56.42_0, SA_z56.42_1, ..., SA_z56.42_511
+            <br> ...
+            <br> SA_z0.05_0, SA_z0.05_1, ..., SA_z0.05_511
+            <br> SA_z0.03_0, SA_z0.03_1, ..., SA_z0.03_511
+            <br> SA_z0.00_0, SA_z0.00_1, ..., SA_z0.00_511
+        	</p>
+
+        	<p> If +OPT = -DGALAXYTREE, all snapshots, for a given sub-volume, will be in a single file:</p>
+        	
+        	<p>SA_galtree_0,  SA_galtree_1, ..., SA_galtree_511</p>
+
+        	<p> Python and Idl scripts to read the model output and produce a few simple plots can be downloaded on the top of the page. Critically
+				you will need to know the galaxy structure written into the output files. <b>If you run make metadata, in the root directory, the
+				output structue will be written into ./AuxCode/awk/idl/LGalaxy.pro. <u>This will likely change if you change the Makefile options.</u></b>
+			</p>		
+		
+		</div>	
+		
+	</div>	
+	
+	
+	<div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>Credits & Copyright</p>
+		</div>
+		
+		<div class="main_box_text_box">  
+		
+        	<p>The source code for the Munich model of galaxy formation and evolution, L-Galaxies, is published under
+           	   the <a class="general_link" href="http://www.gnu.org/licenses/"> GNU General Public License</a>. 
+           	   If you make use of the code in a scientific paper, please include the following line in the acknowledgements:
+            </p>      
+        
+        	<p>"This work used the 2015 public version of the Munich model of galaxy formation and evolution: L-Galaxies. The source code and a full                                                                                                                                                                                        
+         	   description  of the model are available at https://lgalaxiespublicrelease.github.io/"
+         	</p>
+        	
+        	<p> Different parts of the code were developed and published in works y different authors. The current version of the model was
+         	    presented in Henriques et al. 2015 and additional references can be found in its supplementary material. Included in
+			    the public release are a new module for the detailed chemical enrichment, presented in Yates et al. 2013, and the possibility
+			    to use clustering as a constraint for MCMC, introduced in van Daalen et al. 2015. The sampling of large parameter spaces using MCMC was
+			    introduced in the model in Henriques et al. 2009.></p>
+			
+        	<p>Significant previous contributions to the current version of the model include: White & Rees 1978; White & Frenk 1991; Kauffmann,
+			   White & Guiderdoni 1993; Kauffmann, Nusser & Steinmetz 1996; Kauffmann et al. 1999; Springel et al. 2001, 2005; De Lucia et al.
+			   2004; Croton et al. 2006; De Lucia & Blaizot 2007; Guo et al. 2011, 2013.; Henriques et al. 2013. 
+            </p>
+
+
+						
+		
+		</div>	
+		
+	</div>	
+   
+    
+    
+   
+	
+	
+  
+</body>
+</html>

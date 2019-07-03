@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Hen15 Figs & Data</title>
+    <meta charset="UTF-8">
+  
+    <link rel="stylesheet" href="style.css">  
+    <link rel="stylesheet" href="topnav.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<meta charset="UTF-8">
+	<meta name="keywords" content="L-Galaxies, LGalaxies, SAM, galaxy, formation, models">
+	<meta name="author" content="Bruno Henriques">
+	<meta http-equiv="refresh" content="60">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta name="google-site-verification" content="HVG7Wn4SVibWVZmkOcxlBdtRj_cuxOHZfftkt2KPCkg" />
+
+	<meta property="og:title" content="Hen15 Figs & Data"/>
+	<meta property="og:description" content="L-Galaxies Model of Galaxy Formation"/>
+	<meta property="og:url" content="https://lgalaxiespublicrelease.github.io">
+	<meta property="og:image" content="https://lgalaxiespublicrelease.github.io/front.png">
+
+	<link rel="icon" href="./front.png">
+
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script> var BaseURLGalformod = "http://galformod.mpa-garching.mpg.de/public/LGalaxies/";</script>
+    
+</head>
+
+<body style="font-family:lucida grande;color:#3B3B3C">
+
+	<!-- top navigation panel -->
+	<script src="topnav.js"></script>
+
+	<div class="top_logo">
+		<div class="my_heading1">Hen15 Figs & Data</div>		
+		<div id="top_logo_mask1"> </div>
+		<div id="top_logo_mask2"> </div>
+		<div id="top_logo_mask3"> </div>
+		<div id="top_logo_mask4"> </div>
+	</div> 
+
+
+	
+	<table  class="model_description_menu" style="border-collapse: collapse">                                                                                                                                                                                     
+        <tr style="text-align:center;">                                                                                                                                                                                                                          
+          <td style="border-radius: 6px 0px 0px 6px;"> <a href="./Hen15_index.html">Running the Model</a>  </td>                                                                                                                                                                                                                                                 
+          <td> <a href="./Hen15_makefile_input.html">Makefile & Inputs</a> </td>                                                                                                                                                                                                                                                 
+          <td> <a href="./Hen15_mcmc.html">MCMC</a> </td>                                                                                                                                                                                                                                                 
+          <td style="border-radius: 0px 6px 6px 0px;"> <a href="./Hen15_figures_and_data.html">Data from Plots</a> </td>                                                                                                                                                                                                                                                 
+        </tr>                                                                                                                                                                                                                                                   
+    </table>                  
+      
+	<div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>Plots presented in Henriques2015a</p>
+		</div>
+		
+		<div class="main_box_text_box"> 
+		 
+        	<p> This page has <b>download links for all the theoretical properties and combined observational data plotted in the paper</b> 
+        		and a description of the figures. 
+        	</p>
+        		
+        	<p>	As in the paper, all theoretical stellar masses have been convolved with a gaussian in log(M*), with width increasing 
+        		with redshift, in order to account for the uncertainties in observational stellar mass determinations. The scatter is 
+        		assumed to have similar redshift dependence to that found by Ilbert et al. 2013, but larger size (a gaussian with 
+        		dispersion 0.08x(1+z) instead of 0.04x(1+z)). This is still considerably smaller than what was found by 
+        		Conroy et al. 2009 even neglecting IMF uncertainties (0.3 at z=0 and 0.6 at z=2). 
+			</p>
+			
+			<p> All stellar masses derived from observations using Bruzual and Charlot 2003 stellar populations at z>=1 have been corrected 
+				by -0.14 dex. This is the conversion from masses derived with Bruzual and Charlot 2003 to Maraston 2005 found by Sanchez et al. 2011. 
+			</p>
+			
+			<p> We find good convergence between predictions based on the Millennium and MillenniumII simulations for all galaxies with 
+				log(M*)>9.5. In all plots the Millennium Simulation was used to derive properties for galaxies with log(M*)>9.5 and the 
+				Millennium-II to derive properties at lower mass.
+            </p>
+            							
+		</div>	
+		
+	</div>	
+	
+     
+     
+	<div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>Evolution of the Stellar Mass Function between z=0 and z=3</p>
+		</div>
+		
+		<div class="main_box_text_box"> 
+		 	
+		 	<table>
+        	<!--<img style="width:812px;height:325px;" src="http://galformod.mpa-garching.mpg.de/public/LGalaxies/images/smf.png"/> -->
+        		<tr>
+        			<td><img style="width:34vw;" class="paper_plots" src="./images/smf.png"/></td>
+        			<td> Henriques2015: <a class="general_link" href="./paper_data/Hen15">H15a_SMF.txt</a><br><br>
+        				 Henriques2013: <a class="general_link" href="./paper_data/Hen15">H13_SMF.txt</a><br><br>
+        				 Guo2013: <a class="general_link" href="./paper_data/Hen15">Guo13_SMF.txt</a><br><br>
+        				 Combined observational SMF (blue symbols): <a class="general_link" href="./paper_data/Hen15">Obs_SMF.txt</a><br><br>						
+        			</td>
+        		</tr>
+        	</table>	
+		
+		</div>	
+		
+	</div>	
+	
+	<div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>The Evolution of K- and B-band Luminosity Functions between z=0 and z=3 (not in the paper)</p>
+		</div>
+		
+		<div class="main_box_text_box"> 
+		 	
+		 	<table>
+        	<!--<img style="width:812px;height:325px;" src="http://galformod.mpa-garching.mpg.de/public/LGalaxies/images/smf.png"/> -->
+        		<tr>
+        			<td><img style="width:25vw;" class="paper_plots" src="./images/smf.png"/></td>
+        			<td><img style="width:25vw;" class="paper_plots" src="./images/smf.png"/></td>
+        		</tr>
+        	</table>	
+		
+		</div>	
+		
+	</div>	
+	
+	
+	<div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>Mass Growth</p>
+		</div>
+		
+		<div class="main_box_text_box"> 
+		 	
+		 	<table>
+        	<!--<img style="width:812px;height:325px;" src="http://galformod.mpa-garching.mpg.de/public/LGalaxies/images/smf.png"/> -->
+        		<tr>
+        			<td><img style="width:34vw;" class="paper_plots" src="./images/smf.png"/></td>
+        			<td> Henriques2015a mass growth using match in cumulative number density: <a class="general_link" href="./paper_data/Hen15">cmd.txt</a><br><br>
+        				 Henriques2015a true mass growth: <a class="general_link" href="./paper_data/Hen15">cmd_true.txt</a><br><br>
+        				 Observed mass growth matching cumulative number densities from the combined stellar mass functions:  <a class="general_link" href="./paper_data/Hen15">cmd_obs.txt</a><br><br>				
+        			</td>
+        		</tr>
+        	</table>	
+		
+		</div>	
+		
+	</div>	
+
+	
+	
+   
+    
+    
+   
+	
+	
+  
+</body>
+</html>

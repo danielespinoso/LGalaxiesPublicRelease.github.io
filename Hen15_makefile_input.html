@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Hen15 Make & Inputs</title>
+    <meta charset="UTF-8">
+  
+    <link rel="stylesheet" href="style.css">  
+    <link rel="stylesheet" href="topnav.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<meta charset="UTF-8">
+	<meta name="keywords" content="L-Galaxies, LGalaxies, SAM, galaxy, formation, models">
+	<meta name="author" content="Bruno Henriques">
+	<meta http-equiv="refresh" content="60">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta name="google-site-verification" content="HVG7Wn4SVibWVZmkOcxlBdtRj_cuxOHZfftkt2KPCkg" />
+
+	<meta property="og:title" content="Hen15 Make & Inputs"/>
+	<meta property="og:description" content="L-Galaxies Model of Galaxy Formation"/>
+	<meta property="og:url" content="https://lgalaxiespublicrelease.github.io">
+	<meta property="og:image" content="https://lgalaxiespublicrelease.github.io/front.png">
+
+	<link rel="icon" href="./front.png">
+
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script> var BaseURLGalformod = "http://galformod.mpa-garching.mpg.de/public/LGalaxies/";</script>
+    
+</head>
+
+<body style="font-family:lucida grande;color:#3B3B3C">
+
+	<!-- top navigation panel -->
+	<script src="topnav.js"></script>
+
+	<div class="top_logo">
+		<div class="my_heading1">Hen15 Make & Inputs</div>		
+		<div id="top_logo_mask1"> </div>
+		<div id="top_logo_mask2"> </div>
+		<div id="top_logo_mask3"> </div>
+		<div id="top_logo_mask4"> </div>
+	</div> 
+
+
+	
+	<table  class="model_description_menu" style="border-collapse: collapse">                                                                                                                                                                                     
+        <tr style="text-align:center;">                                                                                                                                                                                                                          
+          <td style="border-radius: 6px 0px 0px 6px;"> <a href="./Hen15_index.html">Running the Model</a>  </td>                                                                                                                                                                                                                                                 
+          <td> <a href="./Hen15_makefile_input.html">Makefile & Inputs</a> </td>                                                                                                                                                                                                                                                 
+          <td> <a href="./Hen15_mcmc.html">MCMC</a> </td>                                                                                                                                                                                                                                                 
+          <td style="border-radius: 0px 6px 6px 0px;"> <a href="./Hen15_figures_and_data.html">Data from Plots</a> </td>                                                                                                                                                                                                                                                 
+        </tr>                                                                                                                                                                                                                                                   
+    </table>                  
+      
+	<div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>Overview of Makefile and input options</p>
+		</div>
+		
+		<div class="main_box_text_box"> 
+			
+			<p> A number of usefull options are available in the makefile and input files. These range from running a completely 
+				different version of the galaxy formation model, changing the stellar populations used to compute photometric 
+				properties, use a different dark matter simulation, or simply changing the number of outputs snapshots or 
+				output properties. Below is a quicky overview of a few key options:</p>
+
+			<ul  style="margin: 5px 2vw 5px 2vw"> 
+				<li  style="margin: 0px 0px 10px 0px"><u>run different dark matter sub-volumes</u>: change <b>FirstFile</b> and <b>LastFile</b> in input***.par.</li>
+				<li  style="margin: 0px 0px 10px 0px"><u>change the output snapshots</u>: <b>OPT += -DNOUT</b> changes the number and the list is in <b>FileWithOutputRedshifts</b> 
+					defined in the input***.par (./input/desired_output_redshifts.txt by default).</li>
+				<li  style="margin: 0px 0px 10px 0px"><u>use diferent implementations of physical modules</u>: different treatments of some processes are available as 
+					input options. These are listed under "Switches for different physical models" in input***.par.</li>
+				<li  style="margin: 0px 0px 10px 0px"><u>change the model parameters</u>: a variety of parameters can be changed under "Parameters of physical model" in input***.par</li>
+				<li  style="margin: 0px 0px 10px 0px"><u>change stellar population models</u>: choose between <b>OPT += -DM05</b>, <b>OPT += -DBC03</b> and <b>OPT += -DCB07</b> and 
+					change <b>PhotPrefix</b> and <b>SpecPhotIMF</b> in input***.par accordingly.</li>
+				<li  style="margin: 0px 0px 10px 0px"><u>photometry</u>: there are makefile options that control if rest-frame (<b>OPT += -DOUTPUT_REST_MAGS</b>) or 
+					observed-frame magnitudes (<b>OPT += -DCOMPUTE_OBS_MAGS+OPT += -DOUTPUT_OBS_MAGS</b>) are outputted. 
+					The number of bands written to the output file is controled by <b>OPT += -DNMAG=40</b> (40 bands written by default). 
+					The list of bands is in <b>FileWithFilterNames</b>, defined in the input***.par.</li>
+				<li  style="margin: 0px 0px 10px 0px"><u>use a different dark matter simulation</u>: makefile options are available to run the code on <b>MRII</b> or <b>PHOENIX</b>. 
+					These must be used with the apropriate input***.par files (with the corresponding prefix on the name). 
+					Input files for other simulations can be created by changing the input variables under the "Simulation" and 
+					"Cosmological parameters" headers and the value for <b>MAXSNAPS</b> in allvars.h (number of snapshots of the dark matter simulation).</li>
+			</ul>
+           
+						
+		
+		</div>	
+		
+	</div>	
+	
+	<div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>My_Makefile_options</p>
+		</div>
+		
+		<div class="main_box_text_box"> 
+			
+			<p><b><u>Changing the makefile options might change the output structure. Always make sure you are trying to read the correct 
+				LGalaxies_struct in your plotting routines.
+			</u></b></p>
+
+			<p><u>Options that control I/O and speed:</u></p>
+			<ul  style="margin: 5px 2vw 5px 2vw"> 
+				<li><b>OPT += -DOVERWRITE_OUTPUT</b>: overwrite output files if they exist</li>
+				<li><b>OPT += -DNOUT=28</b>: define the number of output snapshots (read from /input/desired_output_redshifts.txt).</li>
+				<li><b>OPT += -DPARALLEL</b>: if ON, the code will be run in parallel. Each processor will run on a different dark matter tree file.</li>
+				<li><b>OPT += -DGALAXYTREE</b>: the entire galaxy tree (including long long IDs will be outputted)</li>
+				<li><b>OPT += -DLOADIDS</b>: loads the tree_dbids files. This is needed for OPT += -DGALAXYTREE and is useful if one needs to follow 
+					progenitors/descendants while running the code.</li>
+				<li><b>OPT += -DUPDATETYPETWO</b>: uses information from the most bounded particle at the time haloes get disrupted to track the dynamics 
+					of orphan galaxies. Crucial to properly track the dynamics of satellites in simulations with resolution below MRII.</li>	
+			</ul>
+           	
+			<p><u>Options to choose the dark matter simulation:</u></p>
+			<ul  style="margin: 5px 2vw 5px 2vw"> 
+				<li><b>OPT += -DMRII</b>: run the model on the MillenniumII Simulation (when combined with input_MRII_***.par input files)</li>	
+				<li><b>OPT += -DPHOENIX</b>:</li>	
+			</ul>
+			
+			<p><u>Options to run pre-defined models:</u></p>
+			<ul  style="margin: 5px 2vw 5px 2vw"> 
+				<li><b>OPT += -DGUO10</b>: run the Guo2011 model (when combined with input_Guo11_***.par input files)</li>	
+				<li><b>OPT += -DGUO13</b>: run the Guo2013 model (when combined with input_Guo13_***.par input files)</li>	
+				<li><b>OPT += -DHENRIQUES13</b>: run the Henriques2013 model (when combined with input_Henriques13_***.par input files)</li>	
+			</ul>
+
+			<p><u>Option to control the output of star formation histories:</u></p>
+			<ul  style="margin: 5px 2vw 5px 2vw"> 
+				<li><b>OPT += -DSTAR_FORMATION_HISTORY</b>: star formation histories are recorded. Option required in order to use OPT += -DPOST_PROCESS_MAGS and 
+					detailed chemical enrichment. The number of bins to be outputted is defined in allvars.h, default: SFH_NMERGE 3, SFH_NBIN 20.</li>	
+			</ul>
+			
+			<p><u>Options that control the output of emission properties:</u></p>
+			<ul  style="margin: 5px 2vw 5px 2vw"> 
+				<li><b>OPT += -DCOMPUTE_SPECPHOT_PROPERTIES</b>: needs to be ON for any emission properties to be computed.</li>	
+				<li><b>OPT += -DPOST_PROCESS_MAGS</b>: Compute the magnitudes in post-processing. If ON, magnitudes are computed from 
+					star formation histories after galaxy evolution has been computed. It speeds up the code significantly and requires OPT += -DSTAR_FORMATION_HISTORY.</li>	
+			</ul>
+			
+			<p> Emission properties in the code are calculated from pre-computed photometry tables. These give the emission in different filters, 
+				per unit solar mass, as a function of age and metallicity. For a given episode of star formation, the metallicity and age of the 
+				population at the output redshifts are interpolated in the tables to give the right emission properties. For observed-frame magnitudes, 
+				it is also necessary to compute a table of redshifted emission, as a function of age and metallicity, for each filter and for each 
+				output redshift. For the list of snapshots in the Millennium and MillenniumII simulations, photometric tables are already available for 
+				WMAP1, WMAP7 and PLANCK cosmologies (you can use OPT += -DPHOTTABLES_PRECOMPUTED). For other simulations, or cosmologies, tables need 
+				to be computed on the fly using OPT += -DSPEC_PHOTABLES_ON_THE_FLY.</p>
+			<ul  style="margin: 5px 2vw 5px 2vw"> 
+				<li><b>OPT += -DPHOTTABLES_PRECOMPUTED</b>: use pre-computed photometry tables.</li>
+				<li><b>OPT += -DSPEC_PHOTABLES_ON_THE_FLY</b>: compute photometry tables on the fly</li>
+				<li><b>OPT += -DFULL_SPECTRA</b>: output full spectra, instead of magnitudes in different filters.</li>
+				<li><b>OPT += -DAB</b>: compute emission properties in the AB reference system.</li>
+				<li><b>OPT += -DVEGA</b>: compute emission properties in the Vega reference system.</li>
+			</ul>
+							
+			<p> Type of photometric properties to be computed. The list of magnitudes is read from ./input/Filter_Names.txt 
+				and the number of magnitudes is given my the Makefile option NMAG.</p>
+			<ul  style="margin: 5px 2vw 5px 2vw"> 
+				<li><b>OPT += -DOUTPUT_REST_MAGS</b>: output rest-frame magnitudes.</li>
+				<li><b>OPT += -DCOMPUTE_OBS_MAGS</b>: compute observed-frame magnitudes.</li>
+				<li><b>OPT += -DOUTPUT_OBS_MAGS</b>: output observed-frame magnitudes.</li>
+				<li><b>OPT += -DICL</b>: output luminosities for the intra-cluster light</li>
+				<li><b>OPT += -DOUTPUT_MOMAF_INPUTS</b>: output luminosities for lightcone construction.</li>
+				<li><b>OPT += -DKITZBICHLER</b>: output luminosities for lightcone construction.</li>
+			</ul>
+							
+			<p> Choose the stellar population synthesis model to use. PhotPrefix in input_***.par needs to be changed accordingly.</p>
+			<ul  style="margin: 5px 2vw 5px 2vw"> 
+				<li><b>OPT += -DM05</b>: use Maraston 2005 stellar populations.</li>
+				<li><b>OPT += -DBC03</b>: use Bruzual & Charlot 2003 stellar populations.</li>
+				<li><b>OPT += -DCB07</b>: use Charlot & Bruzual 2007 stellar populations.</li>
+				<li><b>OPT += -DNMAG</b>: number of filters for which luminosities will be computed.</li>
+			</ul>
+
+			<p style="color:black; font-size:1.1em; margin:40px 0 20px 0;"><u>Detailed Chemical Enrichment:</u></p>
+			<ul  style="margin: 5px 2vw 5px 2vw"> 
+				<li><b>OPT += -DDETAILED_METALS_AND_MASS_RETURN</b>: Switches on the detailed chemical enrichment model described in Yates et al. 2013.</li>
+			</ul>
+			<p> This option incorporates a detailed calculation of chemical enrichment into the galaxy formation model. Instead of assuming that a fixed 
+				yield of metals is formed and immediately returned into the ISM in each star formation event, the mass of each element produced in stars 
+				of different masses (i.e. ages) and initial metallicities is computed. The fraction of mass and elements returned into the ISM is then 
+				computed over time taking into account stellar evolution. Stellar winds and the death of stars in different types of SN will then return 
+				different elements and inject energy into the surrounding medium.</p>
+
+			<ul  style="margin: 5px 2vw 5px 2vw"> 
+				<li><b>OPT += -DFEEDBACK_COUPLED_WITH_MASS_RETURN</b>: Switches on coupling between SN feedback and the chemical enrichment model. 
+					This option makes the SN feedback dependent on the actual amount of material released by SNe and stellar winds at time t, rather 
+					than on the amount of mass formed into stars at time t. This allows the feedback from an given stellar population to be more 
+					realistically delayed and distributed over time.</li>
+				<li><b>OPT += -DINDIVIDUAL_ELEMENTS</b>: Switches on tracking of individual chemical elements. This option allows the 11 chemical 
+					elements (H, He, C , N, O, Ne, Mg, Si, S, Ca, and Fe) considered to be self-consistently tracked, as they are produced and 
+					distributioned through the various components of a galaxy. When switched off, only the total metal mass (i.e. the sum of 
+					the individual elements considered) is tracked.</li>
+				<li><b>OPT += -DMETALRICHWIND</b>: Switches on galactic winds with a metallicity independent of that in the ISM. This option allows 
+					a user-defined (or see -DGASDENSITYWIND) fraction, f_wind, of the ejecta from SNe-II in the stellar disc to be deposited directly 
+					in the hot gas of a galaxy. If -DINDIVIDUAL_ELEMENTS is on, the chemical composition of this 'metal-rich wind' is identical to the 
+					composition of the SNe-II ejecta. Note that any SNe exploding in the stellar bulge directly enrich the hot gas 
+					(but see -DBULGE_TO_COLD). Direct depositing of ejecta from SN-Ia in the stellar disc into the hot gas is controlled by the 
+					-DSNIATOHOT option. Ejecta from AGB stars in the stellar disc is always assumed to only enrich the cold gas.</li>
+				<li><b>OPT += -DMAINELEMENTS</b>: Switches on tracking of only five key chemical elements (H, He, O, Mg, and Fe). Only works when the 
+					-DINDIVIDUAL_ELEMENTS option is on.</li>
+				<li><b>OPT += -DSNIATOHOT</b>: Switches on direct enrichment of the CGM/ICM by SNe-Ia in the stellar disc. This option allows 100% of the 
+					ejecta from SNe-Ia in the stellar disc to be directly deposited into the hot gas. When off, 100% of this ejecta is deposited into 
+					the cold gas. Note that any SNe exploding in the stellar bulge directly enrich the hot gas (but see -DBULGE_TO_COLD). Direct depositing 
+					of ejecta from SN-II in the stellar disc into the hot gas is controlled by the -DMETALRICHWIND option. Ejecta from AGB stars in the 
+					stellar disc is always assumed to only enrich the cold gas.</li>
+				<li><b>OPT += -DGASDENSITYFWIND</b>: Switches on metal-rich galactic winds with a strength inversely proportional to the density of the ISM 
+					(see Yates et al. 2013, section 6.3.3). This option allows the value of f_wind (the fraction of SN-II ejecta directly deposited into the 
+					hot gas) to be inversely proportional to the gas density of the cold gas.</li>
+				<li><b>OPT += -DBULGE_TO_COLD</b>: Switches on enrichment of the ISM by stars in the stellar bulge. This option allows SNe-Ia, SNe-II, and AGB 
+					stars in the stellar bulge to directly enrich the cold gas. When off, their ejecta directly enriches the hot gas.</li>
+				<li><b>OPT += -DPORTINARI</b>: Switches on the SN-II stellar yields of Portinari et al. (1999). This option loads the SN-II stellar yield 
+					tables provided by Portinari et al. (1998) for use in the chemical enrichment model.</li>
+				<li><b>OPT += -DCHIEFFI</b>: Switches on the SN-II stellar yields of Chieffi et al. (2004). This option loads the SN-II stellar yield tables 
+					provided by Chieffi et al. (2004) for use in the chemical enrichment model.</li>
+				<li><b>OPT += -DBIMODALDTD</b>: Switches on the bi-modal SN-Ia DTD of Mannucci et al. (2006) (see Yates et al. 2013, section 4.1). This option 
+					makes the chemical enrichment model assume a bi-modal SN-Ia delay-time distribution (DTD) when calculating the amount of SN-Ia ejecta 
+					released at any given time after star formation.</li>
+				<li><b>OPT += -DGAUSSIANDTD</b>: Switches on the narrow Gaussian SN-Ia DTD of Strolger et al. (2004) (see Yates et al. 2013, section 4.1). 
+					This option makes the chemical enrichment model assume a narrow Gaussian SN-Ia delay-time distribution (DTD) when calculating the amount of 
+					SN-Ia ejecta released at any given time after star formation.</li>
+				<li><b>OPT += -DPOWERLAWDTD</b>: Switches on the power-law SN-Ia DTD of Maoz et al. (2012) (see Yates et al. 2013, section 4.1). This option 
+					makes the chemical enrichment model assume a power-law SN-Ia delay-time distribution (DTD) when calculating the amount of SN-Ia ejecta 
+					released at any given time after star formation.</li>
+				<li><b>OPT += -DRUITERDTD</b>: Switches on the bi-modal SN-Ia DTD of Ruiter et al. (2011). This option makes the chemical enrichment model 
+					assume a bi-modal SN-Ia delay-time distribution (DTD), based on the sub-Chandrasekhar-mass detonation model described by 
+					Ruiter et al. (2011), when calculating the amount of SN-Ia ejecta released at any given time after star formation.</li>
+			</ul>			
+					
+					
+					
+					
+						
+		
+		</div>	
+		
+	</div>	
+	
+     
+   
+    <div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>Input Options</p>
+		</div>
+		
+		<div class="main_box_text_box"> 
+			<p style="color:black; font-size:1.2em;"><u>Available options in input_***.par:</u></p>
+			
+			<p> At run time, an input file (ending in .par) must be passed to the executable as an argument. 
+				The parameters and different options available in those files are described here.</p>
+			<ul  style="margin: 5px 2vw 5px 2vw"> 
+				<li><b>FileNameGalaxies</b>: specifies the pre-fix for the output files.</li>
+				<li><b>FirstFile</b>: the millennium simulations are divided into 512 subvolumes. This variable specifies the first sub-volume 
+					to be computed.</li>
+				<li><b>LastFile</b>: this variable specifies the last sub-volume to be computed (to compute galaxy properties in the 
+					entire simulation set FirstFile to 0 and LastFile to 511).</li>
+				<li><b>FileWithOutputRedshifts</b>: specifies the name of the file containing the desired output redshifts, 
+					./input/desired_output_redshifts.txt by default (see section Additional input files for a description of the file).</li>
+				<li><b>McFile</b>: specifies the file containing inputs for the Okamoto2008 reionization model. Used if ReionizationModel=0 
+					in input_***_.par</li>
+				<li><b>CoolFunctionsDir</b>: file containing the cooling functions.</li>
+			</ul>
+			
+			<p><u>Options related to emission properties:</u></p>
+			<ul  style="margin: 5px 2vw 5px 2vw"> 
+				<li><b>SpecPhotDir</b>: specifies the directory containing pre-computed photometry tables and full spectra from SPS models.</li>
+				<li><b>PhotPrefix</b>: specifies the prefix of the photometry tables to be used. Should be adjusted according to the 
+					cosmology and stellar population synthesis model to be used (the former is defined by the input_***.par file, the latter in My_Makefile_options).</li>
+				<li><b>SpecPhotIMF</b>: specifies the IMF to be used to compute luminosities. In order to get a fully consistent model, 
+					the values for the instantaneous recycled fraction, metal yield and SN energy should be adjusted when Chabrier is not selected.</li>
+				<li><b>FileWithFilterNames</b>:specifies the name of the file containing the filters for which luminosities will be 
+					computed (see section Additional input files for a description of the file).</li>
+			</ul>
+			
+			<p><u>Options related to the dark matter simulation and I/O:</u></p>
+			<ul  style="margin: 5px 2vw 5px 2vw"> 
+				<li><b>SimulationDir</b>: specifies the directory containing the dark matter merger trees (these must be placed in a subdirectory called /treedata/)</li>
+				<li><b>LastDarkMatterSnapShot</b>: number of the last snapshot of the dark matter simulation (under sub-find naming this will be suffix of the files to be read).</li>
+				<li><b>Hashbits</b>: used to generate peano-hilbert keys.</li>
+				<li><b>OutputDir</b>: directory where the galaxy catalogues will be outputted.</li>
+				<li><b>MaxMemSize</b>: maximum memory (in Mb) allocated for each core.</li>
+			</ul>
+
+			<p><u>Options related to the Cosmology assumed:</u></p>
+			<ul  style="margin: 5px 2vw 5px 2vw"> 
+				<li><b>ScalePos</b>: scale factor to be applied to lengths in order to scale the original cosmology of the dark matter simulation.</li>
+				<li><b>ScaleMass</b>: scale factor to be applied to masses in order to scale the original cosmology of the dark matter simulation.</li>
+			</ul>
+
+			<p style="margin: 0px 0px 0px 1vw;"><u>Target Cosmology:</u></p>
+			<ul  style="margin: 5px 2vw 5px 3vw"> 
+				<li><b>BaryonFrac</b>: fb, Sigma8: σ8</li>
+				<li><b>FileWithZList</b>: file with scale factors for the outputs of the dark matter simulation (simulation dependent).</li>
+				<li><b>PartMass</b>: particle mass of the dark matter simulation, original particle mass x ScaleMass (simulation dependent).</li>
+				<li><b>BoxSize</b>: box size of the dark matter simulation, original box size x ScalePos (simulation dependent).</li>
+				<li><b>Omega</b>: Ωm, OmegaLambda: ΩΛ, Hubble_h: h</li>
+			</ul>
+
+			<p style="margin: 0px 0px 0px 1vw;"><u>Original Cosmology:</u></p>				
+			<ul  style="margin: 5px 2vw 5px 3vw"> 
+				<li><b>FileWithZList_OriginalCosm</b>: scale factors for the outputs of the dark matter simulation (simulation dependent).</li>
+				<li><b>PartMass_OriginalCosm</b>: particle mass of the dark matter simulation (simulation dependent)</li>
+				<li><b>BoxSize_OriginalCosm</b>: box size of the dark matter simulation(simulation dependent)</li>
+				<li><b>Omega_OriginalCosm</b>: Ωm, OmegaLambda_OriginalCosm: ΩΛ, Hubble_h_OriginalCosm: h</li>
+			</ul>			
+			
+			<p><u><b>If you use a different cosmology you will need to adjust the BoxSize and Hubble_h used in your plotting routines.</b></u></p>
+
+
+
+           
+			<p style="color:black; font-size:1.2em;"><u>Switches for different physical models:</u></p>
+			<p> A number of switches for different physical models are available in the input files. These will change the 
+				treatment of specific physical processes and are fully documented in the input files. In general the standard 
+				model is defined by the value 0 (except the last two of these variables).</p>
+				
+			<p style="color:black; font-size:1.2em;"><u>Parameters of the physical model:</u></p>
+			<p> The free parameters of the physical model can be adjusted in the input files. These will change the efficiencies 
+				of different physical processes and are fully documented on the input files (including references to equations or 
+				sections in the supplementary material of Henriques et al. 2015).</p>
+				
+			<p style="color:black; font-size:1.2em;"><u>Additional input files in /input/:</u></p>			
+			<ul  style="margin: 5px 2vw 5px 2vw"> 
+				<li  style="margin: 0px 0px 10px 0px"><b>desired_output_redshfits.txt</b>: list of redshifts to be outputted (the closest available snapshots 
+					from the simulation will be selected). The number of values to be read, NOUT, is defined in My_Makefile_options, except if 
+					GALAXYTREE option is selected (in which case all snapshots are outputted).</li>
+				<li  style="margin: 0px 0px 10px 0px"><b>Filter_Names.txt</b>: Names and wavelengths for the filters for which magnitudes will be outputted. 
+					The number should match the value of NMAG defined in My_Makefile_options. Please see section Switches for different physical models for 
+					details on how to predict different photometric properties.</li>
+				<li  style="margin: 0px 0px 10px 0px"><b>./zlists/zlist_"cosmology"_"simulation".txt</b>: list of scale factors for the snapshots of the dark matter simulation.</li>
+				<li  style="margin: 0px 0px 10px 0px"><b>Mc.txt</b>: file with inputs for the Okamoto2008 reionization model. Used if ReionizationModel=0 in input_***_.par</li>
+			</ul>
+			
+		</div>	
+		
+	</div>	
+    
+   
+	
+	
+  
+</body>
+</html>

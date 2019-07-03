@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Hen15 MCMC</title>
+    <meta charset="UTF-8">
+  
+    <link rel="stylesheet" href="style.css">  
+    <link rel="stylesheet" href="topnav.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<meta charset="UTF-8">
+	<meta name="keywords" content="L-Galaxies, LGalaxies, SAM, galaxy, formation, models">
+	<meta name="author" content="Bruno Henriques">
+	<meta http-equiv="refresh" content="60">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta name="google-site-verification" content="HVG7Wn4SVibWVZmkOcxlBdtRj_cuxOHZfftkt2KPCkg" />
+
+	<meta property="og:title" content="Hen15 MCMC"/>
+	<meta property="og:description" content="L-Galaxies Model of Galaxy Formation"/>
+	<meta property="og:url" content="https://lgalaxiespublicrelease.github.io">
+	<meta property="og:image" content="https://lgalaxiespublicrelease.github.io/front.png">
+
+	<link rel="icon" href="./front.png">
+
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script> var BaseURLGalformod = "http://galformod.mpa-garching.mpg.de/public/LGalaxies/";</script>
+    
+</head>
+
+<body style="font-family:lucida grande;color:#3B3B3C">
+
+	<!-- top navigation panel -->
+	<script src="topnav.js"></script>
+
+	<div class="top_logo">
+		<div class="my_heading1">Hen15 MCMC</div>		
+		<div id="top_logo_mask1"> </div>
+		<div id="top_logo_mask2"> </div>
+		<div id="top_logo_mask3"> </div>
+		<div id="top_logo_mask4"> </div>
+	</div> 
+
+
+	
+	<table  class="model_description_menu" style="border-collapse: collapse">                                                                                                                                                                                     
+        <tr style="text-align:center;">                                                                                                                                                                                                                          
+          <td style="border-radius: 6px 0px 0px 6px;"> <a href="./Hen15_index.html">Running the Model</a>  </td>                                                                                                                                                                                                                                                 
+          <td> <a href="./Hen15_makefile_input.html">Makefile & Inputs</a> </td>                                                                                                                                                                                                                                                 
+          <td> <a href="./Hen15_mcmc.html">MCMC</a> </td>                                                                                                                                                                                                                                                 
+          <td style="border-radius: 0px 6px 6px 0px;"> <a href="./Hen15_figures_and_data.html">Data from Plots</a> </td>                                                                                                                                                                                                                                                 
+        </tr>                                                                                                                                                                                                                                                   
+    </table>                  
+      
+	<div class="main_box">  
+
+		<div class="main_box_top">	<p>Compiling & Running</p>	</div>
+		
+		<div class="main_box_text_box"> 
+		 
+			<p> In order to perform the MCMC sampling the code should be compiled using My_Makefile_options_MCMC. To do so, in Makefile, 
+				replace <FONT style='color:red'>"My_Makefile_options"</FONT> with: <FONT  style='color:blue'>"My_Makefile_options_MCMC"</FONT> in lines 23 and 40 of Makefile. Then simply run the executable 
+				file generated using an mcmc input.par file as a run time argument. MCMC input files have "mcmc" in the name and follow the 
+				same naming convention as other input files. </p>
+
+			<p> Two input files are currently available:</p>
+			<ul  style="margin: 5px 2vw 5px 3vw"> 
+				<li><b>./input/MCMC_inputs/input_Henriques15_mcmc_MR_W1_PLANCK.par</b>: mcmc sampling for the standard Henriques2015 model using a sample of trees 
+					from the Millennium simulation.</li>
+				<li><b>./input/MCMC_inputs/input_Henriques15_mcmc_MR_plus_MRII_W1_PLANCK.par</b>: mcmc sampling for the standard Henriques2015 model using a sample 
+					of trees from the Millennium and Millennium II simulations. This allows the model to be constrained over a much broader dynamical range.</li>
+			</ul>
+			<p> <b>There are also bash scripts available to run the code in parallel, in ./AuxCode/Run/, e.g.: cosma.bash</b>. After the burn out phase it is equivalent 
+				to have a single MCMC chain with a lot of steps, or a lot of chains with a few steps. Since the galaxy formation model takes a relatively long 
+				time to run (from 5 to 10 minutes) it is better to run smaller chains in multiple cores. Typically, one can get convergence after 2 days on 100 
+				cores for 10 parameters.</p>
+
+			<p> A fundamental difference between running the code in 'MCMC' or 'normal' mode is the output produced. In 'normal mode', the code runs once in each 
+				dark matter sub-volume and one galaxy catalogue is produced per sub-volume. In 'MCMC mode', the code runs in a representative set of dark matter 
+				merger trees, for a large number of times, and the output is a single file (per processor), with a list of parameter values and a corresponding 
+				likelihood. If the code is not run in parallel, a file is written in the output directory with the comparison between the model and each 
+				observational constraint. This can be used for debugging.</p>        
+           
+		</div>	
+		
+	</div>	
+	
+    
+    <div class="main_box">  
+
+		<div class="main_box_top">	<p>Quick Guide to include more Parameters or Observational Constraints</p>	</div>
+		
+		<div class="main_box_text_box"> 		 
+
+			<p> If you are just starting to use the MCMC you'll likely want to try to constrain different parameters in the model 
+				with different observational constrains. It is recommended that you start with what is currently available and from 
+				which you can easily choose by using the parameters switches at ./input/MCMC_inputs/MCMCParameterPriorsAndSwitches.txt, 
+				the observational constraints switches at ./input/MCMC_inputs/MCMCObsConstraints.txt and the observational constraints 
+				weights at ./input/MCMC_inputs/MCMCWeightsObsConstraints.txt. All these are described in the next section and allow you 
+				to select any combination of parameters to be sampled, and any combination of pre-defined constraints, with different 
+				weights, to be used at any redshifts.
+			</p>			
+           
+		</div>	
+		
+	</div>	 
+     
+	
+	
+	<div class="main_box">  
+
+		<div class="main_box_top">	<p>Makefile & Input Options</p>	</div>
+		
+		<div class="main_box_text_box"> 		 
+
+				<p style="color:black; font-size:1.2em;"><u>Makefile options:</u></p>
+				<p> Makefile options for the MCMC are simple. Once the Makefile has been changed to compile using 
+					My_Makefile_options_MCMC that has <b>OPT += -DMCMC</b> on. That, in combination with the right input file, 
+					switches the code into MCMC mode. In addition, there is the option to use a sample both with 
+					Millennium and MillenniumII merger trees: <b>OPT += -DMR_PLUS_MRII</b> (which requires the appropriate input file).</p>
+
+				<p> When OPT += -DMCMC is selected an additional OPT += -DHALOMODEL option is available. This will compute satellite 
+					profiles using a halo model, allowing the correlation function of galaxies to be accurately calculated from a very 
+					small subset of dark matter haloes. This makes it possible to use clustering measurements as observational 
+					constraints in the MCMC sampling. Further details are given in section Halo Model below.</p>
+
+				<p style="color:black; font-size:1.2em;"><u>MCMC input files:</u></p>
+				<p> A large number of additional inputs are needed in MCMC mode.</p>
+
+				<p style="color:black; font-size:1.2em;"><u>Parameters to be sampled:</u></p>
+				<ul  style="margin: 5px 2vw 5px 3vw"> 
+					<li><b>MCMCParameterPriorsAndSwitches</b>: This file list the parameters sampled in the MCMC. It contains priors and a switch for each parameter.</li>
+					A parameter is only used in the sampling if the switch is turned to 1. For parameters with switch=1, the values are not read from input_mcmc_***.par.
+
+					<li style="margin: 5px 0 0 0"><b>MCMCStartingParFile</b>: File containing starting values for all parameters to be sampled. Parameters are only read from this file if the output 
+						from previous runs is not available at ./output/senna_g*_**.txt . The number of values in this file must correspond to the numbers of parameters 
+						with switch=1.</li>
+					If there is a previous output available at ./output/senna_g*_**.txt the starting values are read from these files and set to the last available step. 
+					Therefore, when re-starting in mcmc mode, the code continues from where it stopped (MCMC_Initial_Par_Displacement=0 when re-starting).
+				</ul>
+				
+				<p style="color:black; font-size:1.2em;"><u>Observational constraints:</u></p>
+				<ul  style="margin: 5px 2vw 5px 3vw"> 
+					<li><b>MCMCObsConstraints</b>: file containing the names of observational constraints to be used.</li>
+					The first number in the file is the maximum number of observational constraints available (it must be the same as 
+					MCMCNConstraints in mcmc_vars.h). Then, there is the number of redshifts for which constraints are available (<b>must 
+					be smaller than NOUT</b>) and the values for those redshifts (<b>these must correspond to the outputs of the galaxy 
+					formation model listed in ./input/MCMC_inputs/desired_output_redshifts_mcmc.txt</b>). For each observational constraint a 
+					type of test is listed, in addition to a switch for each redshift available.
+					
+					<li><b>MCMCWeightsObsConstraints</b>: file specifying a weight for each observational constraint at each redshift.</li>
+					
+					<li><b>ObsConstraintsDir</b>: folder containing the data for the observational constraints to be used.</li>
+					<b>There must a file in this directory corresponding to each constraint and redshift listed in MCMCObsConstraints, e.g. 
+					StellarMassFunction_z0.10.txt</b>. The files contain binned values in standard format: <b>x_bin_low, x_bin_high, y_value, err_y_value</b>, 
+					with the first line in each file containing the number of bins.
+				</ul>
+
+				<p style="color:black; font-size:1.2em;"><u>General inputs:</u></p>
+				<ul  style="margin: 5px 2vw 5px 3vw"> 
+					<li><b>ChainLength</b>: number of steps for each chain.</li>
+					<li><b>Time_Dependent_PhysPar</b>: switch to allow parameters values to vary between desired output redshifts.</li>
+					<li><b>MCMCMode</b>: 0 for normal MCMC, 1 to only accept parameters sets that give higher likelihood and find the maximum quicker 
+						(likely to get stuck in a local maximum if a small number of chains is used).</li>
+					<li><b>MCMC_LogStep_Size</b>: size of the log_normal step. Regulate in order to get a final acceptance rate between 10-40%.</li>
+					<li><b>MCMC_Initial_Par_Displacement</b>: initial displacement to be applied to all parameters in log_normal space. 
+						Ideally large to start each chain in very different places. In practice it cannot be too large as it will cause a lot of the chains 
+						to wonder to zero likelihood regions.</li>
+					<li><b>MCMC_Minimum_Obs_Error</b>: force a minimum error on observational constraints (a value of 10% is probably a good idea).</li>
+				</ul>
+
+				<p style="color:black; font-size:1.2em;"><u>Dark matter merger trees:</u></p>
+				<p> In MCMC mode, in order to run the galaxy formation model in a reasonable time, a representative set of dark matter merger trees 
+					is used instead of the full volume of the N-body simulations. Therefore, there is a dark matter tree file containing the set of 
+					pre-selected trees (see Appendix B of <a class="general_link" href="hen13">Henriques et al., 2013, MNRAS, 431, 3373</a>) and an 
+					MCMCSampleFile containing the IDs and weights of the FOF groups to be selected from those trees.</p>
+				<p>Name of sample file containing IDs and weights: <br>'MCMCSampleFilePrefix'_sample_allz_nh_'MCMCSampleFile'snapnum.txt</p>
+				<ul  style="margin: 5px 2vw 5px 3vw"> 
+					<li><b>MCMCSampleDir</b>: directory for sample file</li>
+					<li><b>MCMCSampleFilePrefix</b>: prefix of sample file</li>
+					<li><b>MCMCSampleFile</b>: number of trees in sample file</li>
+					<li><b>MCMCTreeSampleFile</b>: name of file containing the representative sample of dark matter merger trees.</li>
+				</ul>
+           
+		</div>	
+		
+	</div>	 
+	
+	<div class="main_box">  
+
+		<div class="main_box_top">	<p>Analysing the Output</p>	</div>
+		
+		<div class="main_box_text_box"> 		 
+
+				<p> For each core, an output file is written into the output directory: <b>senna_gNN_ii.txt</b>. Where NN is the last character of the route 
+					directory of the model and ii is the core number. In each of this files, one line will be printed per MCMC step containing: 
+					weight(normally=1),−log10(likelihood),log10(P1),log10(P2),...,log10(Pn) .</p>
+
+				<p> The output can be analysed using the public COSMO_MC package includes contains a number of very useful tests. Alternatively, 
+					mcmc_read_chains.pro has simple idl scripts to produce plots of 1D marginalised regions and of some parameter efficiencies.</p>
+
+				<p> <b>"sort -r -nk2 ./output/senna*" will sort all the output steps of the MCMC, giving the parameters for the highest likelihood value last.</b></p>
+
+
+           
+		</div>	
+		
+	</div>	 
+	
+	<div class="main_box">  
+
+		<div class="main_box_top">	<p>MCMC in depth</p>	</div>
+		
+		<div class="main_box_text_box"> 		 
+
+			<p style="color:black; font-size:1.2em;"><u>Including New Parameters:</u></p>
+			<p> If you would like to include additional parameters into the sampling that is relatively straightforward. If the parameter was not 
+				present before in the semi-analytic model you will have to include it in the <b>input_***.par</b> file and read it in in <b>read_parameters.c</b>. 
+				In addition, you will have to pass the parameter value from the MCMC to the semi-analytic model in function <b>void read_mcmc_par 
+				(int snapnum)</b>. Finally, you will have to include the new parameter in the input file <b>./input/MCMC_inputs/MCMCParameterPriorsAndSwitches.txt</b>
+				and increase the value for the number of parameters at the top.
+			</p>
+
+			<p style="color:black; font-size:1.2em;"><u>Including New Observational Constraints:</u></p>
+			<p> Including a new observational constraint is slightly more complex and basically involves <b>changes in the input files, 
+				mcmc_likelihood() and mcmc_save.c()</b>. The first thing to do is to increase the number of observational constraints defined in 
+				<b>mcmc_vars.h</b>: "#define MCMCNConstraints" and at the top of <b>./input/MCMC_inputs/MCMCObsConstraints.txt</b> and 
+				<b>./input/MCMC_inputs/MCMCWeightsObsConstraints.txt</b>. Then, the new observational constraint(s) must be included in these two input files. 
+				A type of statistical test needs to be specified together with switches and weights for all output redshifts. Then a file with the same 
+				name specified in these files must be added to the directory ./ObsConstraints/ for all the redshifts to be used.</p> 
+
+			<p> After the inputs, mcmc_save.c() and mcmc_likelihood() must be changed. If a property not used before by the mcmc is needed, this must 
+				be saved in <b>mcmc_save.c</b> (section mcmc_save below). Then, a method of binning the theoretical predictions and a statistical test must be 
+				included in <b>mcmc_likelihood()</b>. Section mcmc_likelihood below explains how to use the functions already present in the code and how to include new ones.<p> 
+
+			<p style="color:black; font-size:1.2em;"><u>MCMC files in depth:</u></p>
+			<p>The code related to the MCMC sampling is divided into 4 main files:</p>
+			<ul  style="margin: 5px 2vw 5px 3vw"> 
+				<li><b>mcmc.c</b>: file containing most of the functions that control the mcmc. These include a main function called senna() that 
+					controls the sampling and calls the galaxy formation model, sam(), and analyses the returned value of likelihood. It also contains 
+					functions to read information about the observational constrains and the dark matter sample of trees and to propose new values 
+					for the parameters at each step.</li>
+				<li><b>mcmc_likelihood.c</b>: file containing the functions binning model galaxies and performing tests to compare the model with the 
+					different observational constraints.</li>
+				<li><b>mcmc_save.c</b>: file containing the function that passes the properties needed to compare the model with observations from the 
+					structure inside the galaxy formation model to the structure used by the MCMC: MCMC_GAL (doing the necessary conversion of units). 
+					<b>At the moment the MCMC works with units that include h factors.</b></li>
+				<li><b>mcmc_vars.h</b>: all variables related to the mcmc are defined here, including the galaxy structure used by the mcmc: MCMC_GAL.</li>
+			</ul>
+			<p>In addition, mcmc_proto.h contains the headers for all the functions used in the MCMC.</p>
+
+			<p style="color:black; font-size:1.2em;"><u>mcmc.c:</u></p>
+			<p> mcmc.c contains most functions used by the MCMC sampling including the 'main' function for the method: <b>Senna()</b>. In MCMC mode, Senna() is 
+				the function controlling the entire code (instead of main.c used in normal mode).</p>
+			<p> The first function to be called inside Senna() is <b>initialize_mcmc_par_and_lhood()</b>, which reads the initial values for all the parameters and 
+				a likelihood either from a previous output (in ./output/senna_g*_**.txt) or from MCMCStartingParFile. Next, <b>read_observations()</b> reads all the 
+				observational constraints into memory. initialize_mcmc_par_and_lhood() and read_observations() are read only once at the beginning. 
+				<b>read_sample_info()</b> reads information about the IDs and weights of the pre selected sample of FOF groups. In principle this could be read only 
+				once and that is in fact the case if only one simulation is used. If more than one simulation is used, currently if OPT += -DMR_PLUS_MRII, 
+				the function must be called twice at each MCMC step to switch between simulations.</p>
+			<p> After the initialization has been done, the MCMC sampling starts. In a for loop that goes from 1 to ChainLength the semi-analytic model is run at 
+				each step, with galaxy properties being computed for a given set of parameters (passed from the mcmc to the semi-analytic model at <b>read_mcmc_par()</b>), 
+				and <b>mcmc_likelihood()</b> being called in the end to return a joint likelihood for the model at the current step.</p>
+			<p> If the likelihood for the model at the current step is higher than at the previous step, the current set of parameters is accepted. If the 
+				likelihood is lower than in the previous step, the new set of parameter might still be accepted, with a probability given by the ratio of 
+				the two likelihoods. In any new case, a new set of parameters is proposed in <b>propose_new_parameters()</b> and passed into the semi-analytic 
+				model to re-start the process.</p>
+
+			<p style="color:black; font-size:1.2em;"><u>mcmc_likelihood.c:</u></p>
+			<p> mcmc_likelihood.c is the place where theoretical predictions are binned like observational functions and then compared with them by means of a 
+				statistical test that returns a likelihood. There are switches for the different observational constraints and the different redshifts that 
+				define if a given test is performed or not.</p>
+			<p> There are currently three tests available: χ2, maximum likelihood and binomial (<b>although the binomial likelihood is not correctly calculated yet</b>). 
+				You can easily include more tests in this function by looking at how the current ones are implemented.</p>
+			<p> If you want to include additional constraints using the tests already provided you just need to bin the property you want to compare with 
+				observations in the correct way. If you want to compare a luminosity or mass function of a 'simple property', then you just need to make 
+				sure that property is saved in mcmc_save.c and use bin_function and the chi_square test. <b>However in many cases you will need to include 
+				your own bin function</b>. A detailed description of the tests can be found in <a class="general_link" href="hen13">Henriques et al., 2013, MNRAS, 431, 3373</a>). 
+				For example, in the example already included for the stellar mass function of red and blue galaxies, it is necessary to divide galaxies into a red and blue 
+				population according to some criteria before binning.</p>
+
+			<p style="color:black; font-size:1.2em;"><u>mcmc_save.c:</u></p>
+			<p> This file is where the code checks if the current galaxy is in an FOF group that was pre-selected (the tree file contains all 
+				the FOFs in a tree, a bush). If that is the case galaxy properties are passed from HaloGal to MCMC_GAL. <b>If you need additional 
+				properties</b>, that are computed by the galaxy formation model but not listed here, to constrain the model with additional observations 
+				<b>they must be passed between structures here</b>. Additional h factors are included here. MCMC_GAL has galaxy properties for all 
+				the galaxies at all the output redshifts. The maximum number of galaxies much be pre-defined (MCMCAllocFactor) as it varies 
+				from redshift to redshift.</p>
+
+			<p style="color:black; font-size:1.2em;"><u>mcmc_vars.h:</u></p>
+			<p> This file contains the structure MCMC_GALAXY with all the galaxy properties available to the mcmc_likelihood() to compare with observational 
+				constraints. <b>If you need additional properties</b>, that are computed by the galaxy formation model but not listed here, to constrain the model 
+				with additional observations <b>they must be included in this structure</b>.</p>
+           
+		</div>	
+		
+	</div>	 
+	
+	<div class="main_box">  
+
+		<div class="main_box_top">	<p>Halo Model</p>	</div>
+		
+		<div class="main_box_text_box"> 		 
+
+			<p> When OPT += -DHALOMODEL is switched on, HODs and satellite profiles are computed and used as input to a halo model, allowing the 
+				correlation function of all galaxies to be accurately estimated from a very small subset of dark matter haloes. This makes it possible 
+				to use clustering measurements as observational constraints in the MCMC sampling. The method is described in 
+				<a class="general_link" href="dalen">van Daalen et al., 2016 </a></p>
+
+			<p> Besides MCMC mode, the halo model requires an additional line in the input file for <b>MCMCHaloModelDir</b>, which for the public version 
+				of the code should point to ./MCMC/HaloModel (see e.g. ./input/MCMC_inputs/input_Guo13_mcmc_halomodel_MR_W1_W1.par). This path contains 
+				the input power spectrum (powrealized_rebin_corrected.dat), the FoF mass function for M200mean masses (fofnum_m200mean.dat), and 
+				corrections to the power spectrum to account for halo triaxiality and alignments (ellip_corr.dat and align_corr.dat).</p>
+
+			<p> The provided FoF mass function and input power spectrum are based on WMAP1, and are scaled with cosmology inside the code. If your run is not 
+				based on the WMAP1 Millennium simulation, these files should be replaced with your own. The corrections for halo shape and alignment are assumed 
+				to be independent of cosmology.</p>
+
+			<p> As implemented here, the clustering estimator is not intended to be used in combination with Millennium II (MRII). To use it in accordance 
+				with such a higher-resolution simulation, the FoF mass function should be updated, the number of massbins should be increased 
+				(up from massbins=65), and the minimum FoF mass considered should be decreased (down from minfofmass=9.5). The latter two parameters can be 
+				found in <b>mcmc_vars.h.</b> The minimum FoF mass should be such that the number of FoF groups in the first bin is zero.</p>
+
+			<p> When using the clustering estimator, we advise also setting OPT += -DPROJLIMITS, which calculates the projected correlation function in a 
+				way that is more consistent with observations. Additional options are OPT += -DOUTPUTPOW, OPT += -DOUTPUTCORR and OPT += -DOUTPUTPROJ, 
+				to output the sample-estimated power spectra, correlation functions and projected correlation functions, respectively.</p>
+
+			<p> Finally, note that the clustering estimator assumes redshift zero. If the observational clustering constraints used are at higher redshift, 
+				the FoF mass function at that redshift should be provided, and a growth factor correction for the cosmological parameter Sigma8 should be 
+				included. Additional adjustments (such as changes to the halo shape correction) may also prove necessary.</p>
+
+			<p>Files used by HALOMODEL:</p>
+			<ul  style="margin: 5px 2vw 5px 3vw"> 
+				<li><b>mcmc_halomodel.c</b>: Contains all the functions of the clustering estimator, including those used to calculate the HOD, satellite profile 
+					and resulting clustering functions.</li>
+				<li><b>mcmc_halomodel.h</b>: Contains definitions for all functions in mcmc_halomodel.c.</li>
+				<li><b>mcmc_mpfit.c</b>: MPFIT routine, based on MINPACK-1, taken directly from Craig Markwardt's page.</li>
+				<li><b>mcmc_mpfit.h</b>: The header for MPFIT, also taken directly from the above page.</li>
+			</ul>          
+			
+			<p style="color:black; font-size:1.2em;"><u>mcmc_likelihood.c:</u></p>
+			<p> The first function called is <b>void initialize_halomodel()</b>, which reads the input power spectrum, the FoF mass function and 
+           		the halo shape and alignments corrections, and spline-interpolates all of these. This function is called only once.</p>
+
+			<p> At each step of the MCMC chain, calls to the estimator's main function, <b>void halomodel(double* r,double* proj,float masslimit_low, 
+				float masslimit_high,int snapnum)</b>, are made. After each call, proj will contain the estimated projected correlation function at radii r 
+				(in units of Mpc) for galaxies with stellar masses between masslimit_low and masslimit_high (in units of M☉). This function first 
+				calls <b>void init_numgal(float masslimit_low,float masslimit_high,int snapnum)</b> to calculate both the HOD and satellite profiles based on 
+				the galaxies in the sample haloes. Both are calculated in bins of halo mass. The HOD is spline-fitted, while the satellite profile is 
+				fit to with a function defined in <a class="general_link" href="dalen">van Daalen et al., 2016 </a>(equation 12).</p>
+
+			<p> Next, for each wavenumber k the 1-halo and 2-halo terms of the galaxy power spectrum are calculated, using calls to 
+				<b>double Mcensat(double k,int haloterm,int censat)</b> which in turns uses the HOD and satellite profiles of the galaxies (considering central and satellite 
+				galaxies separately). The resulting power spectrum is corrected for halo shape and alignments, and then given an additional correction for halo exclusion.</p>
+
+			<p> Finally, the galaxy power spectrum is spline-fitted and convolved to produce the galaxy correlation function, which is then convolved to 
+				produce the projected galaxy correlation function.</p>
+
+		</div>	
+		
+	</div>	 
+	
+	
+   
+    
+    
+   
+	
+	
+  
+</body>
+</html>
