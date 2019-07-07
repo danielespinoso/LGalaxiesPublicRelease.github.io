@@ -116,6 +116,11 @@ padding: 5px 2vw 10px 2vw;
 text-align:justify; 
 }
 
+.main_box_text_box_proj{ 
+padding: 5px 2vw 10px 2vw;
+text-align:center; 
+}
+
 #small_link {
      font-size:80%;
      color: #3388AA;
