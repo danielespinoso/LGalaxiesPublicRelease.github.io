@@ -267,15 +267,6 @@ color: #52A6D8;
   border-radius: 10px;
 }
 
-.image_project_pages                                                                                                                                                                                                                                                 
-{
-  margin-left = auto;
-  margin-right = auto;
-  width = 80%
-  box-shadow: inset 0 0 0.2em 0.2em black, 0 0 0.2em 0.2em black;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-}
 
 .paper_plots{
 	margin: 30px 10px;	
