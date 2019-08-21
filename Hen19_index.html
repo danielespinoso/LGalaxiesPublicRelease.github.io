@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Hen15 Model</title>
+    <meta charset="UTF-8">
+  
+    <link rel="stylesheet" href="style.css">  
+    <link rel="stylesheet" href="topnav.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<meta charset="UTF-8">
+	<meta name="keywords" content="L-Galaxies, LGalaxies, SAM, galaxy, formation, models">
+	<meta name="author" content="Bruno Henriques">
+	<meta http-equiv="refresh" content="60">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta name="google-site-verification" content="HVG7Wn4SVibWVZmkOcxlBdtRj_cuxOHZfftkt2KPCkg" />
+
+	<meta property="og:title" content="Hen15 Model"/>
+	<meta property="og:description" content="L-Galaxies Model of Galaxy Formation"/>
+	<meta property="og:url" content="https://lgalaxiespublicrelease.github.io">
+	<meta property="og:image" content="https://lgalaxiespublicrelease.github.io/front.png">
+
+	<link rel="icon" href="./front.png">
+
+	<!--<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
+	<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script> var BaseURLGalformod = "http://galformod.mpa-garching.mpg.de/public/LGalaxies/";</script>
+    
+</head>
+
+<body style="font-family:lucida grande;color:#3B3B3C">
+
+	<!-- top navigation panel -->
+	<script src="topnav.js"></script>
+
+	<div class="top_logo">
+		<div class="my_heading1">Henriques et al. 2019</div>		
+		<div id="top_logo_mask1"> </div>
+		<div id="top_logo_mask2"> </div>
+		<div id="top_logo_mask3"> </div>
+		<div id="top_logo_mask4"> </div>
+	</div> 
+
+      
+      
+	<div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>Before running the Henriques et al. 2019 model</p>
+		</div>
+		
+		<div class="main_box_text_box">  
+		 		
+        	<p>If you are not familiar with the structure of L-Galaxies it is much easier to start with the Henriques2015 version. 
+        	The documentation for Henriques2019 assumes that the user can run previous versions of the model.</p> 
+        	
+        	<p>The source code can be downloaded from the L-Galaxies GitHub Repository:
+			<a class="general_link" href="https://github.com/LGalaxiesPublicRelease/LGalaxies_PublicRepository/releases/tag/Henriques2019"> LGalaxies_Repository</FONT></a>
+	        </p>           			
+		
+		</div>	
+		
+	</div>	
+	
+	
+	
+	
+     
+     
+     <div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>Compiling the code</p>
+		</div>
+		
+		<div class="main_box_text_box"> 
+		 		            
+			<p>To Switch from Henriques2015 to Henriques2019, only 2 aditional makefile options are needed (and respective sub-options):</p>
+       
+            <p><ul  style="margin: 5px 2vw 5px 2vw;"> 
+            	<li>
+            		<b>H2_AND_RINGS</b>: switch on radial information, radial inflow, tracking of atomic and molecular gas, 
+            		\(\mathrm{H}_2\) based star formation law.
+				</li>
+              	<li>
+              		<b>DETAILED_METALS_AND_MASS_RETURN</b> Detailed chemical enrichment model to track individual elements, 
+              		mass and energy return from different stellar populations. 
+                </li>               
+			</ul></p>
+       
+       		<p>An example My_Makefile_options file can be found in ./Makefile_options/Makefile_options_Henriques19</p>
+       		
+		
+		</div>	
+		
+	</div>	
+	
+	
+	<div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>Running the code</p>
+		</div>
+		
+		<div class="main_box_text_box"> 		 						
+			
+        	<p> After the code has been compiled, an executable called <b>L-Galaxies</b> will be created. To run the code simply execute the file
+            	in the command line giving it an input.par file as a runtime argument:
+            </p>
+        	<p> <b> ./L-Galaxies  ./input/input_Henriques2019_MR_W1_PLANCK.par</b> </p>
+      
+        	<p> With this input file, as downloaded from the online repository, you will be running exactly the Henriques2019 version of L-Galaxies.</p>
+       
+        	<p> The variables FirstFile and LastFile, in the input file, define the first and last dark matter merger tree files in which
+			    the galaxy formation model will be run. These correspond to sub-volumes of the dark matter simulation. As default, only file 5 is
+			    computed (a subvolume roughly representative of the full simulation) but you have files 0-9 in the download package (the full
+			    Millennium simulation ocrresponds to files 0-511).
+        	</p>
+        	
+		</div>	
+		
+	</div>	
+	
+	
+	
+	<div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>Analysing the Output</p>
+		</div>
+		
+		<div class="main_box_text_box"> 
+		 	
+			<p> The output format changes with different makefile options and as you run different models. The following file can be used 
+			to read in the galaxy structure saved by the default version of the model: 
+			<a href="./LGalaxies_Henriques2019_struct.py">LGalaxies_Henriques2019_struct.py</a></td>         
+        	</p>
+        	
+		
+		</div>	
+		
+	</div>	
+	
+	
+	<div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>Credits & Copyright</p>
+		</div>
+		
+		<div class="main_box_text_box">  
+		
+        	<p>The source code for the Munich model of galaxy formation and evolution, L-Galaxies, is published under
+           	   the <a class="general_link" href="http://www.gnu.org/licenses/"> GNU General Public License</a>. 
+           	   If you make use of the code in a scientific paper, please include the following line in the acknowledgements:
+            </p>      
+        
+        	<p>"This work used the 2019 public version of the Munich model of galaxy formation and evolution: L-Galaxies. The source code and a full                                                                                                                                                                                        
+         	   description  of the model are available at https://lgalaxiespublicrelease.github.io/"
+         	</p>
+        	
+						
+		
+		</div>	
+		
+	</div>	
+   
+    
+    
+   
+	
+	
+  
+</body>
+</html>
