@@ -53,10 +53,16 @@
 		</div>
 		
 		<div class="main_box_text_box">  
-			<p>The catalogues below contain the complete output galaxy trees for the modified L-Galaxies 2020 model run on the first ten tree files of Millennium-I (see Yates+20b). These output files are in binary format, so require the following structure to be read in either python or IDL:
+			<!-- <p>The catalogues below contain the complete output galaxy trees for the modified L-Galaxies 2020 model run on the first ten tree files of Millennium-I (see Yates+20b). These output files are in binary format, so require the following structure to be read in either python or IDL: -->
+			
+			<p>The catalogues below contain outputs for a representative sample of tree files from the modified L-Galaxies 2020 model. These are
+        		   based on the Millennium and Millennium-II dark matter simulations scaled to the PLANCK year1 cosmology (Volume_MR =
+        		   <FONT size="2" color="#000000">\(480.3^3[(\rm{Mpc}/h)^3]\)</FONT>, Volume_MRII = <FONT size="2" color="#000000">\(96.1^3[(\rm{Mpc}/h)^3]\))</FONT>.
+			   These output files are in binary format, so require the following structure to be read using either python or IDL:
+        		</p> 
 				
-				
-				The units are as follows:
+			
+			<p>The units are as follows:
 			</p>
 					
 			<p> <ul  style="margin: 5px 2vw 5px 2vw"> 
@@ -72,12 +78,7 @@
 				<li>star formation and accretion rates - <FONT size="2" color="#000000">\(M_{\odot}/\mathrm{yr}\)</FONT></li>
 				<li>spins - <FONT size="2" color="#000000">\(\mathrm{Mpc}/h \:\: \mathrm{km/s}\)</FONT></li>
 			</ul> </p>
-		
-			
-			<p> Further details about the catalogs can be found in the description of each table in the databse and in 
-				<a class="general_link" href="./Documentation_databases_henriques2015a_galaxies.pdf">this document</a>.
-			</p>
-			
+	
 			
 			<p>Relation between snapshot, redshift, a, H(z) and time in a Planck cosmology:
 			   <script>document.write("<a href="+BaseURLGalformod+"/fits/Database_snapshots_table.fits>snapshot_times.fits</a>")</script>			  
@@ -86,8 +87,8 @@
 		
 
 			<p>For catalogs containing star formation histories the corresponding times and widths of each bin are not saved in the galaxy structure
-               since they are the same for all galaxies at a given snapshot. These can be found here:  <script>document.write("<a href="+BaseURLGalformod+"/fits/Database_SFH_table.fits>SFH.fits</a>")</script>
-            </p>
+               		since they are the same for all galaxies at a given snapshot. These can be found here:  <script>document.write("<a href="+BaseURLGalformod+"/fits/Database_SFH_table.fits>SFH.fits</a>")</script>
+            		</p>
 		</div>	
 		
 	</div>	
@@ -99,22 +100,14 @@
 			<p>Snapshots</p>
 		</div>
 		
-		<div class="main_box_text_box">  
-				<p>The binary files below correspond to the snapshot outputs at redshift 0 for a representative sample of tree files from the galaxy formation model. These are
-        		   based on the Millennium and Millennium-II dark matter simulations scaled to the PLANCK year1 cosmology (Volume_MR =
-        		   <FONT size="2" color="#000000">\(480.3^3[(\rm{Mpc}/h)^3]\)</FONT>, Volume_MRII = <FONT size="2" color="#000000">\(96.1^3[(\rm{Mpc}/h)^3]\))</FONT>. 
-        		   <!-- Taking into account the resolution limit of both simulations, the MR based galaxy catalogs are limted to <FONT size="2" color="#000000">\(M_* \gt
-        		   10^{9.5}[M_{\odot}/h]\)</FONT> and the MRII based galaxy catalogs are limted to <FONT size="2" color="#000000">\(M_* \gt 10^{7.0}[M_{\odot}/h]\)</FONT>. -->
-      			</p>      			
-      
-      			<p style="color:black; font-size:1.1em;"><u><b>MR based models at redshift 0 (BC03 stellar populations):</b></u></p>
+		<div class="main_box_text_box">      			
+      			<p style="color:black; font-size:1.1em;"><u><b>MR-based models: redshift 0, BC03 stellar populations, treefiles 0-9:</b></u></p>
 				
 				<div id="block_container">							
 					<script> var Base_Y20 = "Yates+20b/";</script>
 					<script> var Spec_Y20 = "MR/galtree/";</script>
 					<script> var Y20_text = "SA_galtree_";</script>
 						    		
-   					<script>document.write("<a href='"+BaseURLGalformod+Base_Y20+Spec_Y20+Y20_text+"0_modifiedModel'><div id='small_link'>"+Y20_text+"0_modifiedModel</div></a>")</script>
    				</div>		
    				
    				<p style="color:black; font-size:1.1em;"><u><b>MRII-based models: redshift 0, BC03 stellar populations, treefiles 40-79:</b></u></p>
@@ -172,7 +165,36 @@
 	</div>	
 	
     
-    
+     <div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>Galaxy trees</p>
+		</div>
+		
+		<div class="main_box_text_box">      			
+      			<p style="color:black; font-size:1.1em;"><u><b>MR-based models: all redshifts, BC03 stellar populations, treefiles 0-9:</b></u></p>
+				
+				<div id="block_container">							
+					<script> var Base_Y20 = "Yates+20b/";</script>
+					<script> var Spec_Y20 = "MR/galtree/";</script>
+					<script> var Y20_text = "SA_galtree_";</script>
+						    		
+   					<script>document.write("<a href='"+BaseURLGalformod+Base_Y20+Spec_Y20+Y20_text+"0_modifiedModel'><div id='small_link'>"+Y20_text+"0_modifiedModel</div></a>")</script>
+   				</div>		
+   				
+   				<p style="color:black; font-size:1.1em;"><u><b>MRII-based models: redshift 0, BC03 stellar populations, treefiles 40-79:</b></u></p>
+				
+   				<div id="block_container">							
+					<script> var Base_Y20 = "Yates+20b/";</script>
+					<script> var Spec_Y20 = "MRII/snapshots/";</script>
+					<script> var Y20_text = "SA_z0.00";</script>
+						    		
+   				</div>		
+   				
+				<br>
+		</div>	
+		
+	</div>	
     
     
      
