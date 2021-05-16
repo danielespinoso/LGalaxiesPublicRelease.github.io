@@ -90,12 +90,6 @@ a{
   padding: 0vw 20vw 0vw 20vw;
 }
 
-.top_body{ 
-  text-align:justify;
-  font-family:'Helvetica';
-  font-size: 2.5em;
-} 
-
 .main_box{ 
 	background-color:#F1F3FA;  
     margin:0vw 20vw 50px 20vw;
@@ -278,6 +272,11 @@ color: #52A6D8;
   text-align: center;
 }
 
+.top_body{ 
+  text-align:center;
+  font-family:Helvetica;
+  font-size:2.5em;
+} 
 
 .paper_plots{
 	margin: 30px 10px;	
