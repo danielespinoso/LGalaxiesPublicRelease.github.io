@@ -267,6 +267,12 @@ color: #52A6D8;
   border-radius: 10px;
 }
 
+.image_border_front_page_new                                                                                                                                                                                                                                               
+{
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
 
 .paper_plots{
 	margin: 30px 10px;	
