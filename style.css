@@ -214,7 +214,7 @@ text-align:justify;
   position:relative;
   
   text-align:center;
-  font-family:Avenir;
+  font-family:Arial;
   color:#323234;
   
   background-color: #C6CEE4; 
@@ -228,7 +228,7 @@ text-align:justify;
 .front_page_top_box_inner_boxes_header{
 	font-size: 1.5em;   
     text-align:center;
-  	font-family:Avenir;
+  	font-family:Arial;
   	background-color:#464866;
     color:#FFFFFF;
     
@@ -274,7 +274,7 @@ color: #52A6D8;
 
 .top_body{ 
   text-align:center;
-  font-family:Helvetica;
+  font-family:Arial;
   font-size:1.5em;
 } 
 
