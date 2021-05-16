@@ -269,8 +269,9 @@ color: #52A6D8;
 
 .image_border_front_page_new                                                                                                                                                                                                                                               
 {
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
