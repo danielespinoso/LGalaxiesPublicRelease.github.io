@@ -22,6 +22,7 @@ document.write("  		<div id=\"myLinks\">");
 document.write("   			<a href=\".\/index.html\" style=\"text-align:left;\">Home<\/a>");
 document.write("   			<a href=\"http://gavo.mpa-garching.mpg.de/MyMillennium/\">SQL_Database<\/a>");
 document.write("   			<a href=\".\/team.html\">Team<\/a>");
+document.write("   			<a href=\".\/projects.html\">Projects<\/a>");
 document.write("   			<a href=\".\/contact.html\">Contact<\/a>");
 document.write(" 	   <\/div>");
 document.write("  	   ");
