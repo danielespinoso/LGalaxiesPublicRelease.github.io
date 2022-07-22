@@ -146,8 +146,9 @@ text-align:justify;
 .top_logo{
 	background-color:#FFFFFF;	
 	color: #3B3B3C;
-	text-align:center;		
-	line-height:10.0em; <!-- 0.5em; -->
+	text-align:center;	
+	line-height:100%;
+	<!-- line-height:0.5em; -->
 	/*font-family: Avenir;*/	
 	
 	border-color: #000;
