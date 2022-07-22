@@ -147,7 +147,7 @@ text-align:justify;
 	background-color:#FFFFFF;	
 	color: #3B3B3C;
 	text-align:center;		
-	line-height:0.5em;
+	line-height:1.0em; <!-- 0.5em; -->
 	/*font-family: Avenir;*/	
 	
 	border-color: #000;
