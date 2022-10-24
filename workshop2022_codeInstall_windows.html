@@ -168,20 +168,20 @@
 	
 		<div class="main_box"> 
 		<div class="main_box_top">	
-			<p>STEP 2: Install a Linux emulator, compiler, and C libraries</p>
+			<p>STEP 3: Install a Linux emulator, compiler, and C libraries</p>
 		</div>
 		
 		<div class="main_box_text_box">  
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				Most Windows operating systems do not come with a C compiler by default. 
 				If yours doesn't, the simplest solution is to download one via a Linux emulator/environment. 
-				Here, we provide instructions for installing the popular <a href="https://gcc.gnu.org/"><FONT size="3" COLOR="3388AA"> gcc</FONT></a> compiler via <a href="https://www.cygwin.com/"><FONT size="3" COLOR="3388AA"> Cygwin</FONT></a>. Other compilers and Linux environments (e.g. <a href="https://www.mingw-w64.org/"><FONT size="3" COLOR="3388AA"> MinGW</FONT></a>) are also available.
+				Here, we provide instructions for installing the popular <a href="https://gcc.gnu.org/"><FONT size="3" COLOR="3388AA"> gcc</FONT></a> compiler via <a href="https://www.cygwin.com/"><FONT size="3" COLOR="3388AA"> Cygwin</FONT></a>. Other compilers (e.g. <a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/dpc-compiler.html#gs.gmutzi"><FONT size="3" COLOR="3388AA"> icc</FONT></a>) and Linux environments (e.g. <a href="https://www.mingw-w64.org/"><FONT size="3" COLOR="3388AA"> MinGW</FONT></a>) are also available.
 				<br>
 				<ol>
 					<li>Go to: <a href="https://cygwin.com/install.html"><FONT size="3" COLOR="3388AA"> https://cygwin.com/install.html</FONT></a></li>
-					<li>Click "setup-x86_64.exe" [~1.4 MB]</li>
-					<li>Once downloaded, execute setup-x86_64.exe and follow the instructions to install to the default location: <b>C:\tools\cygwin</b>
-					<li>In "Select packages", choose the view: "Full"</li>
+					<li>Click <b>"setup-x86_64.exe"</b> [~1.4 MB]</li>
+					<li>Once downloaded, execute setup-x86_64.exe and begin following the instructions to install to the default location: <b>C:\tools\cygwin</b>
+					<li>In "Select packages", choose the "Full" view</li>
 					<li>Select the following additional packages:
 					<ul style="padding-left:40px">
 						<li>gcc-core 11.3.0-1 [~30.7 MB]</li>
@@ -192,10 +192,14 @@
 						<li>make-debuginfo 3.3-1 [~441 KB]</li>
 					</ul>
 					<li>Click "next"</li>
-					<li>Click "next" again</li>
+					<li>Click "next" again to complete the installation</li>
+					<p style="line-height:1.5; text-align:center"><FONT size="3">
+						fv
+					</FONT></p>
+					<li>TEST</li>
 				</ol>
 				<br>
-				We recommend you do not delete the setup-x86_64.exe installer, as it can be executed at any later time to add/remove Cygwin tools.
+				N.B. We recommend you keep the setup-x86_64.exe installer, as it can be executed at any later time to add/remove Cygwin tools.
 				
 			</FONT></p>
 			
