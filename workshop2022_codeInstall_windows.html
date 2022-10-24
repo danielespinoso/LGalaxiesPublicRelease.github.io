@@ -194,9 +194,20 @@
 					<li>Click "next"</li>
 					<li>Click "next" again to complete the installation</li>
 					<p style="line-height:1.5; text-align:center"><FONT size="3">
-						fv
+						The installation above will install an older version of the GNU Scientific Library, gsl-2.3-2. We recommend you upgrade this to the latest version, gsl-2.7.1, as follows:
 					</FONT></p>
-					<li>TEST</li>
+					<li>Go to: <a href="https://www.gnu.org/software/gsl/"><FONT size="3" COLOR="3388AA"> https://www.gnu.org/software/gsl/</FONT></a></li>
+					<li>Click "Download stable version: GSL 2.7" [~7.2 MB]</li>
+					<li>Fully un-zip this /tar.gz file into a directory of your choice, e.g. /Downloads</li>
+					<li>Open a cygwin64 terminal</li>
+					<li>In the cygwin64 terminal, navigate to the gsl directory, configure, and make the libraries, as follows:</li>
+					<ul style="padding-left:40px">
+						<li>>> cd /Downloads/gsl-2.7.1</li>
+						<li>>> ./configure [this may take a while]</li>
+						<li>>> make [this will take even longer]</li>
+						<li>>> make install [admin rights are required for this step]</li>
+						<li>>> make installcheck [to confirm installation was successful]
+					</ul>		
 				</ol>
 				<br>
 				N.B. We recommend you keep the setup-x86_64.exe installer, as it can be executed at any later time to add/remove Cygwin tools.
