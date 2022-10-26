@@ -240,11 +240,11 @@
 	
 	<div class="main_box"> 
 		<div class="main_box_top">	
-			<p>STEP 4: Configure compiler options</p>
+			<p>STEP 4: Check compiler configuration</p>
 		</div>
 				
 		<div class="main_box_text_box">  
-			<p style="line-height:1.5; text-align:center"><FONT size="3">
+			<p style="line-height:1.5; text-align:left"><FONT size="3">
 				The L-Galaxies 2020 makefile needs to be told which C compiler to use and where the GSL libraries are stored.
 				This information should be provided in the <b>My_Makefile_compilers></b> file, located in the project root directory.
 				By default, the SYSTYPE is set to "cygwin", which is defined at the bottom of My_Makefile_compilers.
@@ -257,7 +257,10 @@
 					<li><em> cygcheck -cd | grep gcc</em></li>
 					<li><em> cygcheck -cd | grep gsl</em></li>
 				</ul>
-				If a version of <em>gcc-core</em> and <em>gsl</em> are found, then you should be good to go!
+				A version of <em>gcc-core</em> and <em>gsl</em> should be found.
+				<br>
+				If you wish to set-up your own SYSTYPE, with your own compiler and GSL options, feel free to do so!
+				Just remember to declare your new SYSTYPE at the top of My_Makefile_compilers too.
 			</FONT></p>
 			
 		</div>
