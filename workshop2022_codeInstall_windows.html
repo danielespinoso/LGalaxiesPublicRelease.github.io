@@ -249,9 +249,11 @@
 				This information should be provided in the <b>My_Makefile_compilers></b> file, located in the project root directory.
 				By default, the SYSTYPE is set to "cygwin", which is defined at the bottom of My_Makefile_compilers.
 				This default set-up should be suitable for the basic Windows installation provided here.
+				<br>
 				It assumes the gcc compiler, with the <em>-fcommon</em> argument added to suppress warning messages on some systems about allowing "multiple tenative definitions of a global variable in different compilation units".
 				It also assumes the GSL header files and libraries are stored in their default locations when installing via cygwin, i.e. <b>C:\tools\cygwin\usr\local\include</b> and <b>C:\tools\cygwin\usr\local\lib</b>, respectively.
 				If your GSL library files are not stored in these locations, you will need to change the GSL_INCL and GSL_LIBS paths in My_Makefile_compilers, accordingly.
+				<br>
 				You can also check that gcc and gsl is installed on your system by executing the following commands in a cygwin64 terminal:
 				<ul style="padding-left:40px">
 					<li><em> cygcheck -cd | grep gcc</em></li>
