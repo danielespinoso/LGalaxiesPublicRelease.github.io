@@ -250,7 +250,7 @@
 			<p style="line-height:1.5; text-align:left"><FONT size="3">
 				The L-Galaxies 2020 makefile needs to be told which C compiler to use and where the GSL libraries are stored.
 				This information is provided in the <b>My_Makefile_compilers</b> file, located in the project root directory.
-				By default, the SYSTYPE is set to "cygwin" (defined at the bottom of My_Makefile_compilers).
+				By default, the SYSTYPE variable is set to "cygwin" (defined at the bottom of My_Makefile_compilers).
 				This default set-up should be suitable for the basic Windows installation provided here.
 				<br>
 				It assumes the gcc compiler, with the <em>-fcommon</em> argument added to suppress warning messages on some systems about allowing "multiple tenative definitions of a global variable in different compilation units".
@@ -262,10 +262,10 @@
 					<li><em> cygcheck -cd | grep gcc</em></li>
 					<li><em> cygcheck -cd | grep gsl</em></li>
 				</ul>
-				A version of <em>gcc-core</em> and <em>gsl</em> should be found.
+				<!-- A version of <em>gcc-core</em> and <em>gsl</em> should be found. -->
 				<br>
-				If you wish to set-up your own SYSTYPE, with your own compiler and GSL options, feel free to do so!
-				Just remember to define your new SYSTYPE at the top of My_Makefile_compilers too.
+				If you wish to set-up your own configuration, with your own compiler and GSL options, feel free to do so!
+				Just remember to set your new SYSTYPE at the top of My_Makefile_compilers.
 			</FONT></p>
 			
 		</div>
