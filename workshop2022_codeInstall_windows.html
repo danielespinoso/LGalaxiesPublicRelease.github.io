@@ -151,7 +151,7 @@
 				<b> OPTION 3: Download as a local Git repository via the Eclipse IDE:</b>
 				<br>
 				The L-Galaxies 2020 code can also be obtained from GitHub via the <a href="https://www.eclipse.org/ide/"><FONT size="3" COLOR="3388AA"> Eclipse IDE</FONT></a>, which offers a more intuitive way of editing and debugging code, etc, with a GUI interface.
-				Information on how to install Eclipe and how to synchronise it with the L-Galaxies 2020 repository are provided in STEP 7 below.
+				Information on how to install Eclipse and how to synchronise it with the L-Galaxies 2020 repository are provided in STEP 7 below.
 			</FONT></p>
 		</div>
 		
@@ -438,18 +438,7 @@
 				</ol>
 			</FONT></p>
 			
-			<p style="line-height:1.5; text-align:left"><FONT size="3">
-				<b>Install Eclipse IDE:</b>
-				<ol>
-					<li>Go to: <a href="https://www.eclipse.org/downloads/packages/installer"><FONT size="3" COLOR="3388AA"> https://www.eclipse.org/downloads/packages/installer</FONT></a></li>
-					<li>Click the download link for the Eclipse 2022-09 R x86_64 Installer for Windows</li>
-					<li>Once downloaded, execute the installer on your system</li>
-					<li>Select: <b>Eclipse IDE for C/C++ Developers</b></li>
-					<li>Confirm: Java 17+ VM: <b>C:\Program Files\Java\jdk-19</b> and Installation Folder: <b>C:\Users\[username]\eclipse\cpp-2022-09</b></li>
-					<li>Accept the user agreement and click "launch"</li>
-					<li>Confirm: Workspace: <b>C:\Users\ry22aas\eclipse-workspace</b> and click "launch" again.
-				</ol>
-			</FONT></p>
+			<br>
 			
 			<p style="line-height:1.5; text-align:left"><FONT size="3">
 				<b>Install Eclipse IDE:</b>
@@ -460,10 +449,50 @@
 					<li>Select: <b>Eclipse IDE for C/C++ Developers</b></li>
 					<li>Confirm: Java 17+ VM: <b>C:\Program Files\Java\jdk-19</b> and Installation Folder: <b>C:\Users\[username]\eclipse\cpp-2022-09</b></li>
 					<li>Accept the user agreement and click "launch"</li>
-					<li>Confirm: Workspace: <b>C:\Users\ry22aas\eclipse-workspace</b> and click "launch" again.
+					<li>Confirm: Workspace: <b>C:\Users\ry22aas\eclipse-workspace</b> and click "launch" again.</li>
 				</ol>
 			</FONT></p>
 			
+			<p style="line-height:1.5; text-align:left"><FONT size="3">
+				<b>Clone L-Galaxies 2020 repository:</b>
+				<ol>
+					<li>In the Eclipse IDE, click the "Open Perspective" button in the top right corner (symbol of a GUI interface with a plus sign)</li>
+					<li>Select "Git"</li>
+					<li>Click "Clone a Git Repository" (left)</li>
+					<li>Enter the L-Galaxies 2020 repository URI: <b>https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository</b></li>
+					<li>Click "Next"</li>
+					<li>Make sure "master" is selected and click "Next"</li>
+					<li>Confirm the destination directory (this will become your git-synchronised project root directory).</li>
+					<li>Click "Finish"</li>
+					<li>Eclipse will now clone a local version of the L-Galaxies 2020 repository (progress bar in the bottom right corner)</li>
+					<li>Once cloned, right click the name of the project in the left-hand panel (LGalaxies2020_PublicRepository)</li>
+					<li>Click "Import projects..."</li>
+					<li>In the new window, click "Finish"</li>
+					<li>The L-Galaxies 2020 code can now be used/modified/etc in the standard "C/C++ Perspective" in Eclipse</li>
+				</ol>
+			</FONT></p>
+			
+			<p style="line-height:1.5; text-align:left"><FONT size="3">
+				<b>Define as a makefile project:</b>
+				<ol>
+					<li>Click the "C/C++ Perspective" button in the top right corner (symbol of a GUI interface with a letter "C")</li>
+					<li>Click on the project name in the left-hand panel (LGalaxies2020_PublicRepository)</li>
+					<li>Press Ctrl+n on the keyboard</li>
+					<li>Select: "Convert to C/C++ project (Adds C/C++ Nature)" and click "Next"</li>
+					<li>Select: "C project" (below the heading called "Convert to C or C++")</li>
+					<li>Select: "Makefile project", and the "Cygwin GCC" toolchain</li>
+					<li>Click "Finish"</li>
+				</ol>
+			</FONT></p>
+			
+			<p style="line-height:1.5; text-align:left"><FONT size="3">
+				<b>Set-up a run configuration:</b>
+				<ol>
+					<li>Click</li>
+				</ol>
+			</FONT></p>
+			
+
 		</div>
 		
 	</div>	
