@@ -290,31 +290,8 @@
 		
 		<div class="main_box_text_box">  
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				There are various different versions of L-Galaxies 2020 that can be run.
-				For example, the user can choose which N-body simulation to run on (MR and MRII), 
-				and which set of GCE parameters to consider (see the discussion on the "default model" and "modified model" in <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a>) 
-				Four standard "input files" files are provided (in the /inputs folder in the project root directory) to cover these four basic combinations:
-				<ul style="padding-left:40px">
-					<li>input_MR_W1_PLANCK_LGals2020_DM.par</li>
-					<li>input_MR_W1_PLANCK_LGals2020_MM.par</li>
-					<li>input_MRII_W1_PLANCK_LGals2020_DM.par</li>
-					<li>input_MRII_W1_PLANCK_LGals2020_MM.par</li>
-				</ul>
-				You select which one of these input files to use by adding it as an argument when executing L-Galaxies (see below).
-				To run on Millennium-II, you will also need to uncomment the "MRII" switch in the <b>My_Makefile_options</b> file in the project root directory.
-				<br>
-				Users can also choose whether to run in "snapshot" or "galtree" mode.
-				Snapshot mode will only output data for a user-defined sub-set of snapshots (i.e. redshifts), whereas galtree mode will output data from all snapshots.
-				To use snapshot mode:
-				<ol>
-					<li>Open the <b>My_Makefile_options</b> file in the project root directory</li>
-					<li>Open <b>desired_output_redshifts.txt</b> in the /inputs folder</li>
-					<li>o</li>
-					
-				</ol>
-				
-				<!-- For simplicity, the L-Galaxies 2020 code is initially set-up to run on treefile 5 of Millennium-I in single-snapshot mode using the default model parameters. -->
-				Once your preferred set-up is selected, compile and execute the code as follows:				
+				To run L-Galaxies 2020 straight "out of the box" (i.e. running only on treefile 5 of Millennium-I, outputting only redshift 0 data, using the default model parameters),
+				simply do the following:
 				<ol>
 					<li>Open a cygwin64 terminal</li>
 					<li>Navigate to the project root directory</li>
@@ -322,19 +299,80 @@
 					<ul style="padding-left:40px">
 						<li><em> make</li>
 					</ul>	
-					<li>Run L-Galaxies 2020 from the newly-generated executable:</li>
+					<li>Run the code:</li>
 					<ul style="padding-left:40px">
 						<li><em> ./L-Galaxies ./input/input_MR_W1_PLANCK_LGals2020_DM.par</li>
 					</ul>
 				</ol>
+				
+				However, there are various other standard L-Galaxies 2020 set-ups which can be run, as described below.
+				
+			</FONT></p>
+				
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<b>Changing the baryonic parameter set:</b>
 				<br>
+				As standard, L-Galaxies 2020 provides input files for the "default model (DM)" and "modified model (MM)" versions of the code
+				(see the discussion in <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a>).
+				These versions each have their own input file (when running on Millenniumm-I):
 				<ul style="padding-left:40px">
-						<li>To run using the "modified model" parameters, simply change the executable argument to point to the alternative input file: ./input/input_MR_W1_PLANCK_LGals2020_MM.par.</li>
-						<li>To run on 
-					</ul>
+					<li>input_MR_W1_PLANCK_LGals2020_DM.par</li>
+					<li>input_MR_W1_PLANCK_LGals2020_MM.par</li>
+				</ul>
+				To run the default or modified model, use the corresponding input file as the argument when running the code (see above).
+			</FONT></p>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<b>Running on Millennium-I or Millennium-II:</b>
+				<br>
+				L-Galaxies 2020 will run on Millennium-I merger trees by default. To switch to Millennium-II, do the following:
+				<ol>
+					<li>Open the <b>My_Makefile_options</b> file in the project root directory</li>
+					<li>Uncomment the "MRII" switch</li>
+					<li>Use one of the Millennium-II input files as the argument when running the code:</li>
+						<ul style="padding-left:40px">
+							<li>input_MRII_W1_PLANCK_LGals2020_DM.par</li>
+							<li>input_MRII_W1_PLANCK_LGals2020_MM.par</li>
+						</ul>
+				</ol>
 				
+				<!--
+				For example, the user can choose which N-body simulation to run on (MR and MRII), 
+				and which set of baryonic parameters to consider (see the discussion on the "default model (DM)" and "modified model (MM)" in <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a>) 
+				Four standard "input files" files are provided (in the /inputs folder in the project root directory) to cover these four basic combinations:
+				<ul style="padding-left:40px">
+					<li>input_MR_W1_PLANCK_LGals2020_DM.par</li>
+					<li>input_MR_W1_PLANCK_LGals2020_MM.par</li>
+					<li>input_MRII_W1_PLANCK_LGals2020_DM.par</li>
+					<li>input_MRII_W1_PLANCK_LGals2020_MM.par</li>
+				</ul>
+				You can select one of these input files by adding it as the argument when running the L-Galaxies executable (see above).
+				To run on Millennium-II, you will also need to uncomment the "MRII" switch in the <b>My_Makefile_options</b> file in the project root directory.
+				<--
+			</FONT></p>
+
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<b>Running in snapshot or galaxytree mode:</b>
+				<br>
+				Snapshot mode is the default for L-Galaxies 2020, and will only output data for a user-defined set of redshifts (i.e. snapshots).
+				Galaxytree mode will output data from all snapshots, including the IDs needed to link a given galaxy to its progenitors and descendents.
+				<br>
+				To use/modify snapshot mode:
+				<ol>
+					<li>Open <b>desired_output_redshifts.txt</b> in the /inputs folder</li>
+					<li>Add the redshifts you wish to be outputted to the top of this file, one on each line, with an empty line at the end of your list. L-Galaxies will match these to their nearest snapshots automatically</li>
+					<li>Open the <b>My_Makefile_options</b> file in the project root directory</li>
+					<li>Set the NOUT parameter to equal the number of redshifts given in <b>desired_output_redshifts.txt</b> that you wish to be outputted</li>
+					<li>Make sure that the GALAXYTREE switch is commented-out</li>
+				</ol>
+				<br>
+				To use galaxytree mode:
+				<ol>
+					<li>Open the <b>My_Makefile_options</b> file in the project root directory</li>
+					<li>Uncomment the GALAXYTREE switch</li>
+				</ol>
 				
-				
+				<!-- For simplicity, the L-Galaxies 2020 code is initially set-up to run on treefile 5 of Millennium-I in single-snapshot mode using the default model parameters. -->	
 			</FONT></p>
 			
 		</div>	
