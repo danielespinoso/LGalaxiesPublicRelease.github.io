@@ -305,14 +305,14 @@
 				</ol>
 				
 				If no other aspects of the code have been modified, then this will run L-Galaxies 2020 only on treefile 5 of Millennium-I, with only redshift 0 data outputted, using the default model baryonic parameters.
-				However, various other standard set-ups can also be run instead. These are described below.		
+				However, various other standard set-ups can be run instead. These are described below.		
 			</FONT></p>
 				
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				<br>
 				<b>Default vs. Modified model:</b>
 				<br>
-				L-Galaxies 2020 provides input files for the "default model (DM)" and "modified model (MM)" versions of the code
+				L-Galaxies 2020 provides .par (or "input files") for the Default Model (DM) and Modified Model (MM) versions of the code
 				(see the discussion in <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a>).
 				These versions each have their own input file (when running on Millennium-I):
 				<ul style="padding-left:40px">
@@ -328,7 +328,7 @@
 				<br>
 				By default, L-Galaxies 2020 will try to run on Millennium-I merger trees. To switch to Millennium-II, do the following:
 				<ol>
-					<li>Open the <b>My_Makefile_options</b> file (in the project root directory)</li>
+					<li>Open the <b>My_Makefile_options</b> file in the project root directory</li>
 					<li>Uncomment the "MRII" switch</li>
 					<li>Use the default model (DM) or modified model (MM) Millennium-II input files as the argument when running the code (see above):</li>
 						<ul style="padding-left:40px">
@@ -378,6 +378,19 @@
 				</ol>
 				
 				<!-- For simplicity, the L-Galaxies 2020 code is initially set-up to run on treefile 5 of Millennium-I in single-snapshot mode using the default model parameters. -->	
+			</FONT></p>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<br>
+				<b>Changing the output file name and the treefiles used:</b>
+				<br>
+				<ol>
+					<li>Open the input file you wish to use (see above) in the /inputs folder</li>
+					<li>Change FileNameGalaxies to an apporpriate name. This will be the prefix in the name of the output file(s) that L-Galaxies generates.</li>		
+					<li>Set FirstFile to match the number of the first treefile you wish to use</li>
+					<li>Set LastFile to match the number of the last treefile you wish to use</li>
+					<li>Save and close the input file</li>
+				</ol>
 			</FONT></p>
 			
 		</div>	
