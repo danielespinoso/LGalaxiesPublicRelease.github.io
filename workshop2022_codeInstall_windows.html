@@ -323,9 +323,11 @@
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				<b>Default vs. Modified model:</b>
 				<br>
-				L-Galaxies 2020 provides .par (or "input files") for the Default Model (DM) and Modified Model (MM) versions of the code
-				(see the discussion in <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a>).
-				These versions each have their own input file (when running on Millennium-I):
+				<!-- Input files (i.e. .par files) are provided for the Default Model (DM) and Modified Model (MM) versions of L-Galaxies 2020. -->
+				<!-- The Default Model allows the majority of material released by supernovae and stellar winds to mix with the ambient ColdGas in galaxies, before some is blown out as galactic winds. -->
+				<!-- The Modified Model allows the majority of material released by supernovae and stellar winds to be directly ejected out of galaxies into the surrounding HotGas, without first mixing with the ColdGas. -->
+				L-Galaxies 2020 has two standard models for the way supernova and stellar wind ejecta is allowed to mix with the gas in and around galaxies. In the "Default Model", galactic outflows are predominanlty of "ambient ISM metallicity". Whereas in the "Modified Model", galactic outflows are predominantly "metal-rich" compared to the ambient ISM (see the discussion in <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a> for more details).
+				These two models each have their own input file (when running on Millennium-I):
 				<ul style="padding-left:40px">
 					<li>input_MR_W1_PLANCK_LGals2020_DM.par</li>
 					<li>input_MR_W1_PLANCK_LGals2020_MM.par</li>
