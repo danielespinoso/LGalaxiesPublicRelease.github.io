@@ -330,7 +330,7 @@
 				<!-- L-Galaxies 2020 has two standard models for the way supernova and stellar wind ejecta is allowed to mix with the gas in and around galaxies. -->
 				<!-- In the "Default Model", galactic outflows are predominanlty of ambient ISM metallicity, whereas in the "Modified Model", galactic outflows are predominantly metal-rich (see the discussion in <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a> for more details). -->
 				<!-- These two models each have their own input file (when running on Millennium-I): -->
-				To run one of these models, use its corresponding input file as the argument when running the code (see STEP 5 above):
+				Use the corresponding input file as the argument when running the code (see STEP 5 above):
 				<ul style="padding-left:40px">
 					<li>input_MR_W1_PLANCK_LGals2020_DM.par</li>
 					<li>input_MR_W1_PLANCK_LGals2020_MM.par</li>
@@ -346,6 +346,7 @@
 				<ol>
 					<li>Open the <b>My_Makefile_options</b> file in the project root directory</li>
 					<li>Uncomment the "MRII" switch</li>
+					<li>Save and close <b>My_Makefile_options</b></li>
 					<li>Use the default model (DM) or modified model (MM) Millennium-II input files as the argument when running the code (see STEP 5 above):</li>
 						<ul style="padding-left:40px">
 							<li>input_MRII_W1_PLANCK_LGals2020_DM.par</li>
@@ -383,6 +384,7 @@
 					<li>Open the <b>My_Makefile_options</b> file in the project root directory</li>
 					<li>Set the NOUT parameter to equal the number of redshifts given in <b>desired_output_redshifts.txt</b> that you wish to be outputted</li>
 					<li>Make sure that the GALAXYTREE switch is commented-out</li>
+					<li>Save and close <b>My_Makefile_options</b></li>
 					<li>Compile and run L-Galaxies 2020 as described in STEP 5</li>
 				</ol>
 				<br>
