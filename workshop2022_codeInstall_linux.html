@@ -226,7 +226,9 @@
 				If your system doesn't have gcc, you can download the latest version (gcc-12.2.0) from <a href="https://mirrorservice.org/sites/sourceware.org/pub/gcc/releases/gcc-12.2.0/"><FONT size="3" COLOR="3388AA"> here</FONT></a>, 
 				following the installation instructions provided <a href="https://gcc.gnu.org/install/"><FONT size="3" COLOR="3388AA"> here</FONT></a>.
 				Likewise, the make tool can be downloaded from <a href="https://www.gnu.org/software/make/"><FONT size="3" COLOR="3388AA"> here</FONT></a>, 
-				and the latest version of GSL (gsl-2.7.1) can be downloaded from <a href="https://www.gnu.org/software/gsl/"><FONT size="3" COLOR="3388AA"> here</FONT></a>, with installation instructions providedin the README and INSTALL files and general GSL documentation available <a href="https://www.gnu.org/software/gsl/doc/html/index.html"><FONT size="3" COLOR="3388AA"> here</FONT></a>.
+				and the latest version of GSL (gsl-2.7.1) can be downloaded from <a href="https://www.gnu.org/software/gsl/"><FONT size="3" COLOR="3388AA"> here</FONT></a>, 
+				with installation instructions provided in the README and INSTALL files 
+				and general GSL documentation available <a href="https://www.gnu.org/software/gsl/doc/html/index.html"><FONT size="3" COLOR="3388AA"> here</FONT></a>.
 				<!-- The latest version of GSL (gsl-2.7.1) can be installed and built as follows (admin rights required):
 				<ol>
 					<li>Navigate to the directory in which you want GSL kept</li>
@@ -292,7 +294,7 @@
 						If a compilation crashes with an error stating that "multiple tenative definitions of a global variable in different compilation units" are not allowed, you may need to add the <em>-fcommon</em> flag to the <em>CC</em> call in <b>My_Makefile_compilers</b>.
 						This will suppress such errors by allowing multiple tenative definitions of a global variables. This flag is set by default in L-Galaxies 2020 when running with SYSTYPE = "cygwin".</li>
 					<li><b>Shared libraries:</b> 
-						If your system has shared GSL libraries (i.e. .so files), rather than local archived ones (i.e. .a files), you may need to replace the default <em>-static<em> flag for <em>GSL_LIBS</em> in <b>My_Makefile_compilers</b> with a <em>-shared</em> flag.</li>
+						If your system has shared GSL libraries (i.e. .so files), rather than local archived ones (i.e. .a files), you may need to replace the default <em>-static</em> flag for <em>GSL_LIBS</em> in <b>My_Makefile_compilers</b> with a <em>-shared</em> flag.</li>
 					<li><b>Shared object errors:</b> 
 						Similarly, if you are getting errors like: "Relocation R_X86_64_32 against undefined symbol '[LGALAXIES_PARAMETER]' can not be used when making a shared object", 
 						then you may need to add the <em>-fPIC</em> flag to the <em>CC</em> call in <b>My_Makefile_compilers</b></li>
