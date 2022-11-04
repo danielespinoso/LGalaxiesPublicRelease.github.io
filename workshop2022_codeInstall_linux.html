@@ -260,11 +260,11 @@
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				The L-Galaxies 2020 makefile needs to be told which C compiler to use and where the GSL libraries are stored.
 				This information is provided in the <b>My_Makefile_compilers</b> file, located in the project root directory.
-				By default, the SYSTYPE variable is set to "cygwin" (defined at the bottom of My_Makefile_compilers).
+				By default, the SYSTYPE variable is set to "cygwin" (defined at the bottom of <b>My_Makefile_compilers</b>).
 				This default set-up should be suitable for most Linux installations. It assumes the gcc compiler is to be used,
 				<!-- , with the <em>-fcommon</em> argument added to suppress warning messages on some systems about allowing "multiple tenative definitions of a global variable in different compilation units". -->
 				and that the GSL header files and libraries are stored in their default locations: <b>/usr/local/include</b> and <b>/usr/local/lib</b>.
-				If your GSL files are not stored in these locations, you will need to change the GSL_INCL and GSL_LIBS paths in My_Makefile_compilers accordingly.
+				If your GSL files are not stored in these locations, you will need to change the GSL_INCL and GSL_LIBS paths accordingly.
 				By default, no compiler optimisation flags are added to the "cygwin" configuration. Feel free to add ones of your own, if you wish.
 				<br> <br>
 				If you wish to set-up your own configuration, feel free to do so!
