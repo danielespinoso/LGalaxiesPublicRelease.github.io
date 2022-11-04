@@ -253,7 +253,7 @@
 	
 	<div class="main_box"> 
 		<div class="main_box_top">	
-			<p>STEP 4: Configure the compiler and libraries</p>
+			<p>STEP 4: Check the compiler configuration</p>
 		</div>
 				
 		<div class="main_box_text_box">  
@@ -261,9 +261,7 @@
 				The L-Galaxies 2020 makefile needs to be told which C compiler to use and where the GSL libraries are stored.
 				This information is provided in the <b>My_Makefile_compilers</b> file, located in the project root directory.
 				By default, the SYSTYPE variable is set to "cygwin" (defined at the bottom of My_Makefile_compilers).
-				This default set-up should be suitable for most Linux installations.
-				<br> <br>
-				It assumes the gcc compiler is to be used,
+				This default set-up should be suitable for most Linux installations. It assumes the gcc compiler is to be used,
 				<!-- , with the <em>-fcommon</em> argument added to suppress warning messages on some systems about allowing "multiple tenative definitions of a global variable in different compilation units". -->
 				and that the GSL header files and libraries are stored in their default locations: <b>/usr/local/include</b> and <b>/usr/local/lib</b>.
 				If your GSL files are not stored in these locations, you will need to change the GSL_INCL and GSL_LIBS paths in My_Makefile_compilers accordingly.
@@ -271,6 +269,9 @@
 				<br> <br>
 				If you wish to set-up your own configuration, feel free to do so!
 				Just remember to re-set the SYSTYPE variable at the top of My_Makefile_compilers too.
+				<br> <br>
+				If L-Galaxies 2020 compiles without any errors when you run the <em>make</em> command described in STEP 5 below, you are probably good to go!
+				If not, here are a few common compiler issues on Linux systems and our suggested fixes:
 			</FONT></p>
 			
 			<br>
