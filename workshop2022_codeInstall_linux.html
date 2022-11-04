@@ -212,6 +212,14 @@
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				GSL is typically installed in <em>/usr/include/gsl/</em> or <em>/usr/local/include/gsl/</em> (for the header files) and <em>/usr/lib/</em> or <em>/usr/local/lib/</em> (for the libraries).
+				Note that if your Linux system runs with modular environments, you may need to load the GSL libraries before they can be used, with a command something like:
+				<ul style="padding-left:40px">
+					<li><em>module load gsl</em></li>		
+				</ul>
+				You can usually check which packages are available as modules by running:
+				<ul style="padding-left:40px">
+					<li><em>module avail</em></li>		
+				</ul>
 			</FONT></p>
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
@@ -261,6 +269,31 @@
 				<br> <br>
 				If you wish to set-up your own configuration, feel free to do so!
 				Just remember to re-set the SYSTYPE variable at the top of My_Makefile_compilers too.
+			</FONT></p>
+			
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<b>Some common compiler issues:</b>
+				<br>
+				<ol>
+					<li><b>Running with an old C standard:</b> 
+						If your Linux distribution is quite old, it may not be running with the latest C standard.
+						If so, you may need to inform the compiler of this in <b>My_Makefile_compilers</b> by adding the <em>-std</em> flag to the <em>CC</em> call.
+						(e.g. <em>CC  =  gcc -std=C99</em>).</li>
+					<li><b>Running with old C libraries:</b> 
+						Likewise, an old Linux distribution may not have an outdated version of the <a href="https://www.gnu.org/software/libc/"><FONT size="3" COLOR="3388AA"> GNU C libraries</FONT></a> (glibc).
+						If so, you may need to instal an build new C libraries (which is compilcated!), following the instructions provided <a href="https://sourceware.org/glibc/wiki/Testing/Builds"><FONT size="3" COLOR="3388AA"> here</FONT></a>.
+						Or, a quick hack to get around this (if you have a recent version of the GSL libraries, see above), is to replace the <em>#include <math.h></em> statements at the top of each L-Galaxies code .c file with <em>#include <gsl/gsl_math.h></li>
+					<li><b>Multiple tentative definitions:</b> 
+						If a compilation crashes with an error stating that "multiple tenative definitions of a global variable in different compilation units" are not allowed, you may need to add the <em>-fcommon</em> flag to the <em>CC</em> call in <b>My_Makefile_compilers</b>.
+						This will suppress such errors by allowing multiple tenative definitions of a global variables. This flag is set by default in L-Galaxies 2020 when running with SYSTYPE = "cygwin".</li>
+					<li><b>Shared libraries:</b> 
+						If your system has shared GSL libraries (i.e. .so files), rather than local archived ones (i.e. .a files), you may need to replace the default <em>-static<em> flag for <em>GSL_LIBS</em> in <b>My_Makefile_compilers</b> with a <em>-shared</em> flag.</li>
+					<li><b>Shared object errors:</b> 
+						Similarly, if you are getting errors like: "Relocation R_X86_64_32 against undefined symbol '[LGALAXIES_PARAMETER]' can not be used when making a shared object", 
+						then you may need to add the <em>-fPIC</em> flag to the <em>CC</em> call in <b>My_Makefile_compilers</b></li>
+				</ol>
 			</FONT></p>
 			
 		</div>
