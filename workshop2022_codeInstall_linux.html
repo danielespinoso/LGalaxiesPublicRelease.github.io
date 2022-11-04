@@ -180,14 +180,14 @@
 	
 		<div class="main_box"> 
 		<div class="main_box_top">	
-			<p>STEP 3: Check for a C compiler and C libraries</p>
+			<p>STEP 3: Check the compiler and libraries</p>
 		</div>
 		
 		<div class="main_box_text_box">  
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				To compile and run L-Galaxies, a C compiler (e.g. <a href="https://gcc.gnu.org/"><FONT size="3" COLOR="3388AA"> gcc</FONT></a>), the <em>make</em> command, and the GNU Scientific Libraries (<a href="https://www.gnu.org/software/gsl/"><FONT size="3" COLOR="3388AA">GSL</FONT></a>) are all required.
+				To compile and run L-Galaxies, a C compiler (e.g. <a href="https://gcc.gnu.org/"><FONT size="3" COLOR="3388AA"> gcc</FONT></a>), the <em>make</em> command, and the GNU Scientific Libraries (<a href="https://www.gnu.org/software/gsl/"><FONT size="3" COLOR="3388AA">GSL</FONT></a>) are required.
 				Linux distributions typically come with all three of these installed as standard.
-				You can check if <em>gcc</em> and <em>make</em> are installed on your system using the following commands, which return the directory where thye are stored:
+				You can check if <em>gcc</em> and <em>make</em> are installed on your system using the following commands, which return the directory where they are stored:
 				<ul style="padding-left:40px">
 						<li><em>which gcc</em></li>
 						<li><em>which make</em></li>
@@ -196,19 +196,23 @@
 			</FONT></p>
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				GSL is typically installed in <em>/usr/include/gsl/</em> or <em>/usr/local/include/gsl/</em> (for the header files), and <em>/usr/lib/</em> or <em>/usr/local/lib/</em> (for the libraries).
+				GSL is typically installed in <em>/usr/include/gsl/</em> or <em>/usr/local/include/gsl/</em> (for the header files) and <em>/usr/lib/</em> or <em>/usr/local/lib/</em> (for the libraries).
 			</FONT></p>
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				If your system doesn't have gcc, you can download the latest version (gcc-12.2.0) from <a href="https://mirrorservice.org/sites/sourceware.org/pub/gcc/releases/gcc-12.2.0/"><FONT size="3" COLOR="3388AA"> here</FONT></a>, 
-				following the official instalation instructions provided <a href="https://gcc.gnu.org/install/"><FONT size="3" COLOR="3388AA"> here</FONT></a>.
+				following the installation instructions provided <a href="https://gcc.gnu.org/install/"><FONT size="3" COLOR="3388AA"> here</FONT></a>.
 				Likewise, the make tool can be downloaded from <a href="https://www.gnu.org/software/make/"><FONT size="3" COLOR="3388AA"> here</FONT></a>.
 				The latest version of GSL (gsl-2.7.1) can be installed as follows (admin rights required):
 				<ol>
-					<li>Navigate to the directory in which you want GSL kept. Then:</li>
+					<li>Navigate to the directory in which you want GSL kept</li>
+					<li>Download and untar:</li>
 					<ul style="padding-left:40px">
 						<li><em>wget ./ https://mirror/ibcp.fr/pub/gnu/gsl/gsl-latest.tar.gz</em></li>
 						<li><em>tar -xf gsl-latest.tar.gz</em></li>
+					</ul>
+					<li>Configure, make, and install:</li>
+					<ul style="padding-left:40px">
 						<li><em>cd gsl-2.7.1</em></li>
 						<li><em>./configure</em> &emsp; &emsp; &emsp; &emsp; &emsp; &nbsp; [this may take a while]</li>
 						<li><em> make</em> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; [this will take even longer]</li>
@@ -226,7 +230,7 @@
 	
 	<div class="main_box"> 
 		<div class="main_box_top">	
-			<p>STEP 4: Check compiler configuration</p>
+			<p>STEP 4: Configure the compiler and libraries</p>
 		</div>
 				
 		<div class="main_box_text_box">  
