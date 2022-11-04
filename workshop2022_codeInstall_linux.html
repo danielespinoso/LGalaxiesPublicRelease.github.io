@@ -322,7 +322,7 @@
 				By default, L-Galaxies 2020 will try to run on Millennium-I merger trees. To switch to Millennium-II, do the following:
 				<ol>
 					<li>Open the <b>My_Makefile_options</b> file in the project root directory</li>
-					<li>Uncomment the "MRII" switch</li>
+					<li>Uncomment the <em>MRII</em> switch</li>
 					<li>Save and close <b>My_Makefile_options</b></li>
 					<li>Use the default model (DM) or modified model (MM) Millennium-II input files as the argument when running the code (see STEP 5 above):</li>
 						<ul style="padding-left:40px">
@@ -351,16 +351,16 @@
 				<b>Snapshot vs. Galaxytree mode:</b>
 				<br>
 				Snapshot mode is the default for L-Galaxies 2020, and will only output data for a user-defined set of redshifts (i.e. snapshots).
-				Galaxytree mode, on the other hand, will output data from all snapshots, along with the IDs needed to link a given galaxy to its progenitors and descendents.
+				Galaxytree mode, will instead output data from all snapshots, along with the IDs needed to link a given galaxy to its progenitors and descendents.
 			</FONT></p>
 			<p style="line-height:1.5; text-align:left"><FONT size="3">
 				To use/modify snapshot mode:
 				<ol>
 					<li>Open <b>desired_output_redshifts.txt</b> in the /inputs folder</li>
-					<li>Add the redshifts you wish to be outputted to the top of this file, one on each line, with an empty line at the end of your list. L-Galaxies will match these to their nearest snapshots automatically</li>
+					<li>Add the redshifts you wish to be outputted to the top of this file, one on each line, with an empty line at the end of your list (L-Galaxies will match these to their nearest snapshots automatically)</li>
 					<li>Open the <b>My_Makefile_options</b> file in the project root directory</li>
-					<li>Set the NOUT parameter to equal the number of redshifts you set to be outputted in <b>desired_output_redshifts.txt</b></li>
-					<li>Make sure that the GALAXYTREE switch is commented-out</li>
+					<li>Set the <em>NOUT</em> parameter to equal the number of redshifts you set to be outputted in <b>desired_output_redshifts.txt</b></li>
+					<li>Make sure that the <em>GALAXYTREE</em> switch is commented-out</li>
 					<li>Save and close <b>My_Makefile_options</b></li>
 					<li>Compile and run L-Galaxies 2020 as described in STEP 5</li>
 				</ol>
