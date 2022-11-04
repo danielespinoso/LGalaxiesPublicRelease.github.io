@@ -287,7 +287,7 @@
 					<li><b>Running with old C libraries:</b> 
 						Likewise, an old Linux distribution may not have an outdated version of the <a href="https://www.gnu.org/software/libc/"><FONT size="3" COLOR="3388AA"> GNU C libraries</FONT></a> (glibc).
 						If so, you may need to instal an build new C libraries (which is compilcated!), following the instructions provided <a href="https://sourceware.org/glibc/wiki/Testing/Builds"><FONT size="3" COLOR="3388AA"> here</FONT></a>.
-						Or, a quick hack to get around this (if you have a recent version of the GSL libraries, see above), is to replace the <em>#include &ltmath.h&gt</em> statements at the top of each L-Galaxies code .c file with <em>#include &ltgsl/gsl_math.h&gt</li>
+						Or, a quick hack to get around this (if you have a recent version of the GSL libraries, see above), is to replace the <em>#include &ltmath.h&gt</em> statements at the top of each L-Galaxies code .c file with <em>#include &ltgsl/gsl_math.h&gt</em></li>
 					<li><b>Multiple tentative definitions:</b> 
 						If a compilation crashes with an error stating that "multiple tenative definitions of a global variable in different compilation units" are not allowed, you may need to add the <em>-fcommon</em> flag to the <em>CC</em> call in <b>My_Makefile_compilers</b>.
 						This will suppress such errors by allowing multiple tenative definitions of a global variables. This flag is set by default in L-Galaxies 2020 when running with SYSTYPE = "cygwin".</li>
