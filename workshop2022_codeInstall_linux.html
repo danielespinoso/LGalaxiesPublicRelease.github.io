@@ -226,7 +226,7 @@
 				If your system doesn't have gcc, you can download the latest version (gcc-12.2.0) from <a href="https://mirrorservice.org/sites/sourceware.org/pub/gcc/releases/gcc-12.2.0/"><FONT size="3" COLOR="3388AA"> here</FONT></a>, 
 				following the installation instructions provided <a href="https://gcc.gnu.org/install/"><FONT size="3" COLOR="3388AA"> here</FONT></a>.
 				Likewise, the make tool can be downloaded from <a href="https://www.gnu.org/software/make/"><FONT size="3" COLOR="3388AA"> here</FONT></a>.
-				The latest version of GSL (gsl-2.7.1) can be installed as follows (admin rights required):
+				The latest version of GSL (gsl-2.7.1) can be installed and built as follows (admin rights required):
 				<ol>
 					<li>Navigate to the directory in which you want GSL kept</li>
 					<li>Download and untar:</li>
@@ -271,13 +271,11 @@
 				Just remember to re-set the SYSTYPE variable at the top of My_Makefile_compilers too.
 				<br> <br>
 				If L-Galaxies 2020 compiles without any errors when you run the <em>make</em> command described in STEP 5 below, you are probably good to go!
-				If not, here are a few common compiler issues on Linux systems and our suggested fixes:
+				If not, here are a few common compiler issues on Linux systems and our (unofficial) suggested fixes:
 			</FONT></p>
-			
-			<br>
-			
+	
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				<b>Some common compiler issues:</b>
+				<b>Common compiler issues:</b>
 				<br>
 				<ol>
 					<li><b>Running with an old C standard:</b> 
@@ -287,7 +285,7 @@
 					<li><b>Running with old C libraries:</b> 
 						Likewise, an old Linux distribution may not have an outdated version of the <a href="https://www.gnu.org/software/libc/"><FONT size="3" COLOR="3388AA"> GNU C libraries</FONT></a> (glibc).
 						If so, you may need to instal an build new C libraries (which is compilcated!), following the instructions provided <a href="https://sourceware.org/glibc/wiki/Testing/Builds"><FONT size="3" COLOR="3388AA"> here</FONT></a>.
-						Or, a quick hack to get around this (if you have a recent version of the GSL libraries, see above), is to replace the <em>#include <math.h></em> statements at the top of each L-Galaxies code .c file with <em>#include <gsl/gsl_math.h></li>
+						Or, a quick hack to get around this (if you have a recent version of the GSL libraries, see above), is to replace the <em>#include &ltmath.h&rt</em> statements at the top of each L-Galaxies code .c file with <em>#include &ltgsl/gsl_math.h&rt</li>
 					<li><b>Multiple tentative definitions:</b> 
 						If a compilation crashes with an error stating that "multiple tenative definitions of a global variable in different compilation units" are not allowed, you may need to add the <em>-fcommon</em> flag to the <em>CC</em> call in <b>My_Makefile_compilers</b>.
 						This will suppress such errors by allowing multiple tenative definitions of a global variables. This flag is set by default in L-Galaxies 2020 when running with SYSTYPE = "cygwin".</li>
