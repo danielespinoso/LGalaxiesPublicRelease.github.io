@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-	<title>Installing L-Galaxies: Linux</title>
+	<title>Installing L-Galaxies: Mac OS</title>
     <meta charset="UTF-8">
   
     <link rel="stylesheet" href="style.css">  
@@ -16,7 +16,7 @@
 
 	<meta name="google-site-verification" content="HVG7Wn4SVibWVZmkOcxlBdtRj_cuxOHZfftkt2KPCkg" />
 
-	<meta property="og:title" content="Installing L-Galaxies: Linux"/>
+	<meta property="og:title" content="Installing L-Galaxies: Mac OS"/>
 	<meta property="og:description" content="L-Galaxies Model of Galaxy Formation"/>
 	<meta property="og:url" content="https://lgalaxiespublicrelease.github.io">
 	<meta property="og:image" content="https://lgalaxiespublicrelease.github.io/front.png">
@@ -36,7 +36,7 @@
 	<script src="topnav.js"></script>
 
 	<div class="top_logo">
-		<div class="my_heading1">Installing L-Galaxies: Linux</div>		
+		<div class="my_heading1">Installing L-Galaxies: Mac OS</div>		
 		<div id="top_logo_mask1"> </div>
 		<div id="top_logo_mask2"> </div>
 		<div id="top_logo_mask3"> </div>
@@ -53,26 +53,13 @@
 		
 		<div class="main_box_text_box">  
 			<p style="line-height:1.5; text-align:center"><FONT size="3">		
-				The example Linux installation described below was done on the following system: <br>
+				The example Mac OS installation described below was done on the following system: <br>
 				Machine: x86_64-based GNU/Linux cluster <br>
 				Distribution: Ubuntu 4.4.0-210-generic <br>
 				<!-- Operating system: GNU/Linux <br> -->
         			Processor: Intel Xeon E5-2670, 2300 MHz, 24 cores <br>
         			RAM: 128 GB
-			</FONT></p>
-			
-			<!-- 
-			<p style="line-height:1.5; text-align:center"><FONT size="3">		
-				The example Linux installation described below was done on the following system: <br>
-				Machine: x86_64-based Dell Precision 5820 desktop <br>
-				Distribution: Scientific Linux 7.9 <br>
-				User interface: GNOME 3.28.2 <br>
-        			Processor: Intel Xeon W-2223, 3600 MHz, 8 cores <br>
-        			RAM: 15 GB <br>
-        			Available storage: 3.9 TB
-			</FONT></p>
-			-->
-					
+			</FONT></p>					
 		</div>	
 	</div>	
 	
@@ -90,10 +77,12 @@
 				<ol>
 					<li>Go to <a href="https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository"><FONT size="3" COLOR="3388AA"> https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository</FONT></a></li>
 					<li>Click the green "Code" drop-down menu, and select "Download ZIP" [~42.2 MB]</li>
-					<li>Extract to a directory called <b>/LGalaxies2020_PublicRepository-master</b>. Hereafter, this will be called the <b>"project root directory"</b>:</li>
+					<li>Move the downloaded master.zip file to a suitable base directory.</li>
+					<li>Navigate to that base directory and unzip the file:</li>
 					<ul style="padding-left:40px">
-						<li><em>unzip ./master.zip</em></li>
+						<li><em>tar -xf ./master.zip</em></li>
 					</ul>
+					<li>This will create a new directory called<b>/LGalaxies2020_PublicRepository-master</b>, hereafter, the <b>"project root directory"</b></li>
 					<li>Manually add an empty <b>/output</b> folder in the project root directory:</li>
 					<ul style="padding-left:40px">
 						<li><em>cd ./LGalaxies2020_PublicRepository-master</em></li>
