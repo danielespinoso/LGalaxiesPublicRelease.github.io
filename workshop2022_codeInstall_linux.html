@@ -497,14 +497,15 @@
 			
 			<p style="line-height:1.5; text-align:left"><FONT size="3">
 				<b>Install jdk:</b>
-				Eclipse is a java-based IDE. Therefore, the <a href="https://en.wikipedia.org/wiki/Java_Development_Kit"><FONT size="3" COLOR="3388AA"> Java Development Kit (JDK)</FONT></a> to run.
-				You can check if JDK is already installed by running <em> java -version</em> in the command line.
-				If this command returns information on a Java "Runtime Environment" on your system, you probably have a working version of JDK installed.
-				If you don't already have a version of JDK on your system, install the latest one as a private user as follows:
+				<br>
+				Eclipse is a java-based IDE, so it needs the <a href="https://en.wikipedia.org/wiki/Java_Development_Kit"><FONT size="3" COLOR="3388AA"> Java Development Kit (JDK)</FONT></a> to run.
+				You can check if JDK is already installed on your system by running <em>java -version</em> in the command line.
+				If this command returns information on a Java "Runtime Environment", you probably have a working version of JDK installed.
+				If you don't have JDK, you can install the latest version as a private user as follows:
 				<ol>
 					<li>Go to: <a href="https://www.oracle.com/java/technologies/downloads/#jdk19-linux"><FONT size="3" COLOR="3388AA"> https://www.oracle.com/java/technologies/downloads/#jdk19-linux</FONT></a></li>
-					<!-- <li>Click the download link for the "x64 Debian Package" (if running on Debian/Ubuntu linux) or the "Arm 64 Compressed Archive" (if running on ARM CPU architecture)</li> -->
-					<li>Click the download link for the "x64 Compressed Archive" (if running on Debian/Ubuntu linux) or the "Arm 64 Compressed Archive" (if running on ARM CPU architecture)</li>
+					<!-- <li>Click the download link for the "x64 Debian Package" (if running on Debian/Ubuntu) or the "Arm 64 Compressed Archive" (if running on ARM CPU architecture)</li> -->
+					<li>Click the download link for the "x64 Compressed Archive" (if running on Debian/Ubuntu) or the "Arm 64 Compressed Archive" (if running on ARM CPU architecture)</li>
 					<li>In the terminal, navigate to the directory where you want to install JDK, then move the downloaded .tar.gz file to the current directory</li>
 					<li>Unpack the tarball and install JDK:</li>
 					<ul style="padding-left:40px">
@@ -532,14 +533,25 @@
 				<b>Install Eclipse IDE:</b>
 				<ol>
 					<li>Go to: <a href="https://www.eclipse.org/downloads/packages/installer"><FONT size="3" COLOR="3388AA"> https://www.eclipse.org/downloads/packages/installer</FONT></a></li>
-					<li>Click the download link for the Eclipse 2022-09 R x86_64 Installer for macOS (probably the x86_64 version, unless you have AArch64 system architecture)</li>
-					<li>Once downloaded, execute the installer (called <b>eclipse-inst-jre-mac64.dmg</b>)</li>
-					<li>Select: <b>Eclipse IDE for C/C++ Developers</b></li>
-					<li>Confirm: Java 17+ VM: <b>/Library/Java/JavaVirtualMachines/jdk-19.jdk/Contents/Home</b> and Installation Folder: <b>/Users/[username]/eclipse/cpp-2022-09</b></li>
+					<li>Click the download link for the Eclipse 2022-09 R x86_64 Installer for Linux (probably the x86_64 version, unless you have AArch64 system architecture)</li>
+					<li>, execute the installer (called <b>eclipse-inst-jre-linux64.tar.gz</b>)</li>
+					<li>Once downloaded, in the terminal, navigate to the directory where you want to install the Eclipse IDE, then move the downloaded .tar.gz file to the current directory</li>
+					<li>Unpack the tarball:</li>
+					<ul style="padding-left:40px">
+						<li><em>tar zxvf eclipse-inst-jre-linux64.tar.gz</em></li>
+						or
+						<li><em>tar zxvf eclipse-inst-jre-linux-aarch64.tar.gz</em></li>
+					</ul>
+					<li>From the eclipse-installer sub-directory, install eclipse:</li>
+					<ul style="padding-left:40px">
+						<li><em>./eclipse-inst</em></li>
+					</ul>					
+					<li>When prompted, select: <b>Eclipse IDE for C/C++ Developers</b></li>
+					<li>Confirm that "Java 17+ VM:" is pointing to where JDK is installed, and confirm the default Installation Folder</li>
 					<li>Click "install"</li>
 					<li>Accept the user agreement</li>
 					<li>Once it's installed, click "launch"</li>
-					<li>Confirm: Workspace: <b>Users/[username]/eclipse-workspace</b> and click "launch" again.</li>
+					<li>Confirm the default Workspace and click "launch" again.</li>
 				</ol>
 			</FONT></p>
 						
