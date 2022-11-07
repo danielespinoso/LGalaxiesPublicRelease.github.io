@@ -358,10 +358,14 @@
 					<li>input_MRII_W1_PLANCK_LGals2020_MM.par</li>
 				</ul>
 				For info on which input file to use, see STEP 6 below.
-				<br>
+			</FONT></p>
+			
+			<br>
+				
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				Once completed, the output file(s) generated will be stored in the <b>/outputs</b> folder.
-				Out of the box, L-Galaxies 2020 will run only on treefile 5 of Millennium-I, with only redshift 0 data outputted.
-				However, various other standard set-ups can be run instead (see STEP 6 below).
+				Straight out of the box, L-Galaxies 2020 will run on treefile 5 of Millennium-I with only redshift 0 data outputted.
+				However, various other standard set-ups are also possible (see STEP 6 below).
 			</FONT></p>
 		</div>	
 	</div>	
@@ -384,7 +388,7 @@
 				<!-- L-Galaxies 2020 has two standard models for the way supernova and stellar wind ejecta is allowed to mix with the gas in and around galaxies. -->
 				<!-- In the "Default Model", galactic outflows are predominanlty of ambient ISM metallicity, whereas in the "Modified Model", galactic outflows are predominantly metal-rich (see the discussion in <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a> for more details). -->
 				<!-- These two models each have their own input file (when running on Millennium-I): -->
-				Depending on which model you want to use, the corresponding input file is one of the following:
+				Each of these models has its own input file which should be used when executing the code (see STEP 5):
 				<ul style="padding-left:40px">
 					<li>input_MR_W1_PLANCK_LGals2020_DM.par</li>
 					<li>input_MR_W1_PLANCK_LGals2020_MM.par</li>
@@ -431,14 +435,14 @@
 				<b>Snapshot vs. Galaxytree mode:</b>
 				<br>
 				Snapshot mode is the default for L-Galaxies 2020, and will only output data for a user-defined set of redshifts (i.e. snapshots).
-				Galaxytree mode, will instead output data from all snapshots, along with the IDs needed to link a given galaxy to its progenitors and descendents.
+				Galaxytree mode will instead output data from all snapshots, along with the IDs needed to link a given galaxy to its progenitors and descendents (note that this generates much larger output files).
 			</FONT></p>
 			<p style="line-height:1.5; text-align:left"><FONT size="3">
 				To use/modify snapshot mode:
 				<ol>
-					<li>Open <b>desired_output_redshifts.txt</b> in the /inputs folder</li>
+					<li>Open <b>desired_output_redshifts.txt</b> in the <b>/inputs</b> folder</li>
 					<li>Add the redshifts you wish to be outputted to the top of this file, one on each line, with an empty line at the end of your list (L-Galaxies will match these to their nearest snapshots automatically)</li>
-					<li>Open the <b>My_Makefile_options</b> file in the project root directory</li>
+					<li>Open the <b>My_Makefile_options</b> file in the <b>project root directory</b></li>
 					<li>Set the <em>NOUT</em> parameter to equal the number of redshifts you set to be outputted in <b>desired_output_redshifts.txt</b></li>
 					<li>Make sure that the <em>GALAXYTREE</em> switch is commented-out</li>
 					<li>Save and close <b>My_Makefile_options</b></li>
