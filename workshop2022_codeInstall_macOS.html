@@ -280,7 +280,7 @@
 				The L-Galaxies 2020 makefile needs to be told which C compiler to use and where the GSL libraries are stored.
 				This information should be provided by the user in the <b>My_Makefile_compilers</b> file, located in the <b>project root directory</b>.
 				By default, the SYSTYPE variable is set to "Linux".
-				You can change this to the defulat "Mac" configuration by commenting-out <em>SYSTYPE = "Linux"</em> at the top of the file (by adding a # in front) and un-commenting <em>SYSTYPE = "Mac"</em>.
+				You can change this to the default "Mac" configuration by commenting-out <em>SYSTYPE = "Linux"</em> at the top of the file (by adding a # in front) and un-commenting <em>SYSTYPE = "Mac"</em>.
 				This default set-up should be suitable for most Mac OS installations. It assumes the gcc compiler is to be used
 				and that the GSL header files and libraries are stored in their default locations: <b>/usr/local/include</b> and <b>/usr/local/lib</b>.
 				If your GSL files are not stored in these locations, you will need to change the <em>GSL_INCL</em> and <em>GSL_LIBS</em> paths accordingly.
@@ -528,6 +528,11 @@
 			
 			<p style="line-height:1.5; text-align:left"><FONT size="3">
 				<b>Install jdk:</b>
+				<br>
+				Eclipse is a java-based IDE, so it needs the <a href="https://en.wikipedia.org/wiki/Java_Development_Kit"><FONT size="3" COLOR="3388AA"> Java Development Kit (JDK)</FONT></a> to run.
+				You can check if JDK is already installed on your system by running <em>java -version</em> in the command line.
+				If this command returns information on a Java "Runtime Environment", you probably have a working version of JDK installed.
+				If you don't have JDK, you can install the latest version as a private user as follows:
 				<ol>
 					<li>Go to: <a href="https://www.oracle.com/java/technologies/downloads/#jdk19-mac"><FONT size="3" COLOR="3388AA"> https://www.oracle.com/java/technologies/downloads/#jdk19-mac</FONT></a></li>
 					<li>Click the download link for the Java SE Development Kit 19.0.1 x64 DMG Installer</li>
