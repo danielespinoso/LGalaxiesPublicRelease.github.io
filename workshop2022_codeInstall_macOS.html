@@ -230,7 +230,7 @@
 		<div class="main_box_text_box">  
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				To compile and run L-Galaxies, a C compiler (e.g. <a href="https://gcc.gnu.org/"><FONT size="3" COLOR="3388AA"> gcc</FONT></a>), the <em>make</em> command, and the GNU Scientific Libraries (<a href="https://www.gnu.org/software/gsl/"><FONT size="3" COLOR="3388AA">GSL</FONT></a>) are required.
-				Mac OS distributions typically come with all three of these installed as standard.
+				Mac OS distributions typically come with all three of these installed.
 				You can check if <em>gcc</em> and <em>make</em> are installed on your system using the following commands, which return the directory where they are stored (usually <b>/usr/bin/gcc</b> and <b>/usr/bin/make</b>):
 				<ul style="padding-left:40px">
 						<li><em>which gcc</em></li>
@@ -253,7 +253,7 @@
 				</ul>
 			</FONT></p>
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				This should install working versions in their default locations (see above).
+				This should install to their default locations (see above).
 			</FONT></p>
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
@@ -278,18 +278,19 @@
 		<div class="main_box_text_box">  
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				The L-Galaxies 2020 makefile needs to be told which C compiler to use and where the GSL libraries are stored.
-				This information should be provided by the user in the <b>My_Makefile_compilers</b> file, located in the project root directory.
-				By default, the SYSTYPE variable is set to "cygwin" (defined at the bottom of <b>My_Makefile_compilers</b>).
-				This default set-up should be suitable for most Linux installations. It assumes the gcc compiler is to be used,
+				This information should be provided by the user in the <b>My_Makefile_compilers</b> file, located in the <b>project root directory</b>.
+				By default, the SYSTYPE variable is set to "Linux".
+				You can change this to the defulat "Mac" configuration by commenting-out <em>SYSTYPE = "Linux"</em> at the top of the file (by adding a # in front) and un-commenting <em>SYSTYPE = "Mac"</em>.
+				This default set-up should be suitable for most Mac OS installations. It assumes the gcc compiler is to be used
 				and that the GSL header files and libraries are stored in their default locations: <b>/usr/local/include</b> and <b>/usr/local/lib</b>.
-				If your GSL files are not stored in these locations, you will need to change the GSL_INCL and GSL_LIBS paths accordingly.
-				By default, no compiler optimisation flags are added to the "cygwin" configuration. Feel free to add ones of your own, if you wish.
+				If your GSL files are not stored in these locations, you will need to change the <em>GSL_INCL</em> and <em>GSL_LIBS</em> paths accordingly.
+				By default, no compiler optimisation flags are added to this configuration. Feel free to add ones of your own, if you wish.
 				<br> <br>
-				If you wish to set-up your own configuration, feel free to do so!
+				<!-- You can also set-up your own configuration, if you wish!
 				Just remember to re-set the SYSTYPE variable at the top of My_Makefile_compilers too.
-				<br> <br>
+				<br> <br> -->
 				If L-Galaxies 2020 compiles without any errors when you run the <em>make</em> command described in STEP 5 below, you are probably good to go!
-				If not, here are a few common compiler issues on Linux systems and our (unofficial) suggested fixes:
+				If not, here are a few common compiler issues and our (unofficial) suggested fixes:
 			</FONT></p>
 	
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
@@ -297,19 +298,19 @@
 				<br>
 				<ol>
 					<li><b>Running with an old C standard:</b> 
-						If your Linux distribution is quite old, it may not be running with the latest C standard.
+						If your distribution is quite old, it may not be running with the latest C standard.
 						If so, you may need to inform the compiler of this in <b>My_Makefile_compilers</b> by adding the <em>-std</em> flag to the <em>CC</em> call.
 						(e.g. <em>CC  =  gcc -std=C99</em> for systems running with <a href="https://en.wikipedia.org/wiki/C99"><FONT size="3" COLOR="3388AA"> C99</FONT></a>).</li>
 					<li><b>Running with old C libraries:</b> 
-						Likewise, an old Linux distribution may not have an outdated version of the <a href="https://www.gnu.org/software/libc/"><FONT size="3" COLOR="3388AA"> GNU C libraries</FONT></a> (glibc).
-						If so, you may need to instal an build new C libraries (which is compilcated!), following the instructions provided <a href="https://sourceware.org/glibc/wiki/Testing/Builds"><FONT size="3" COLOR="3388AA"> here</FONT></a>.
-						Or, a quick hack to get around this (if you have a recent version of the GSL libraries, see above), is to replace the <em>#include &ltmath.h&gt</em> statements at the top of each L-Galaxies code .c file with <em>#include &ltgsl/gsl_math.h&gt</em></li>
+						Likewise, an old distribution may not have a version of the <a href="https://www.gnu.org/software/libc/"><FONT size="3" COLOR="3388AA"> GNU C libraries</FONT></a> (glibc).
+						If so, you may need to install and build new C libraries following the instructions provided <a href="https://sourceware.org/glibc/wiki/Testing/Builds"><FONT size="3" COLOR="3388AA"> here</FONT></a> (which is compilcated!).
+						Alternatively, a quick hack (if you do have a recent version of the GSL libraries, see above), is to replace the <em>#include &ltmath.h&gt</em> statements at the top of each L-Galaxies code .c file with <em>#include &ltgsl/gsl_math.h&gt</em></li>
 					<li><b>Multiple tentative definitions:</b> 
 						If a compilation crashes with an error stating that "multiple tenative definitions of a global variable in different compilation units" are not allowed, you may need to add the <em>-fcommon</em> flag to the <em>CC</em> call in <b>My_Makefile_compilers</b>.
-						This will suppress such errors by allowing multiple tenative definitions of a global variables. This flag is set by default in L-Galaxies 2020 when running with SYSTYPE = "cygwin".</li>
+						Note that this flag is set by default when running with SYSTYPE = "cygwin".</li>
 					<li><b>Shared libraries:</b> 
 						If your system has shared GSL libraries (i.e. .so files), rather than local archived ones (i.e. .a files), you may need to replace the default <em>-static</em> flag for <em>GSL_LIBS</em> in <b>My_Makefile_compilers</b> with a <em>-shared</em> flag.
-						You may also find that the GSL libraries are stored in <b>/usr/include</b> and <b>/usr/lib</b> (rather than <b>/usr/local/include</b> and <b>/usr/local/lib</b>). If so, remember to edit the <em>GSL_INCL</em> and <em>GSL_LIBS</em> paths in <b>My_Makefile_compilers</b> accordingly.</li>
+						You may also find that the GSL libraries are stored in <b>/usr/include</b> and <b>/usr/lib</b> (rather than <b>/usr/local/include</b> and <b>/usr/local/lib</b>), so should update the paths in <b>My_Makefile_compilers</b> accordingly.</li>
 					<li><b>Shared object errors:</b> 
 						Similarly, if you are getting errors like: "Relocation R_X86_64_32 against undefined symbol '[LGALAXIES_PARAMETER]' can not be used when making a shared object", 
 						then you may need to add the <em>-fPIC</em> flag to the <em>CC</em> call in <b>My_Makefile_compilers</b></li>
