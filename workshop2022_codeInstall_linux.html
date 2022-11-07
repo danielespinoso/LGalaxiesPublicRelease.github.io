@@ -170,7 +170,7 @@
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				For the period of the workshop, all the files linked for download in this step are hosted on the <a href="https://www.mpcdf.mpg.de/"><FONT size="3" COLOR="3388AA"> MPCDF</FONT></a> DataShare service. In each case, the pw required to download the file is: <b>LGals2020Workshop</b>
 				<br>
-				<ol>
+				<!-- <ol>
 					<!-- <li>Download the standard <a href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/run_model/SpecPhotTables.tar"><FONT size="3" COLOR="3388AA"> SpecPhotTables</FONT></a> [~1.6 GB]</li> -->
 					<li>Download the standard <a href="https://datashare.mpcdf.mpg.de/s/0ydh4XFtYZOwolI"><FONT size="3" COLOR="3388AA"> SpecPhotTables</FONT></a> [~1.6 GB]</li>
 					<li>Un-zip them into the "project root directory". This should create a folder called <b>/SpecPhotTables</b> containing the downloaded spectrophotometic tables</li>
@@ -184,6 +184,26 @@
 						<!-- <li>Treefiles 0-511 treefiles from Millennium-II [~185 GB]</li> -->
 					</ul>
 					<li>Un-zip them into the <b>/MergerTrees</b> folder. This should create a folder called either <b>/MR</b> or <b>/MRII</b> containing the downloaded treefiles</li>
+				</ol> -->
+				
+				<ol>
+					<li>Download the standard <a href="https://datashare.mpcdf.mpg.de/s/0ydh4XFtYZOwolI"><FONT size="3" COLOR="3388AA"> SpecPhotTables</FONT></a> [~1.6 GB]</li>
+					<li>Move the downloaded .tar file (SpecPhotTables.tar) into the <b>project root directory</b>.</li>
+					<li>In the terminal, navigate to the <b>project root directory</b>.</li>
+					<li>Untar the file:</li>
+					<ul style="padding-left:40px">
+						<li><em>untar -xf ./SpecPhotTables.tar</em></li>
+					</ul>	
+					This will create a folder called <b>/SpecPhotTables</b> containing the downloaded spectrophotometic tables
+					<li>Download the treefiles (choose one of the following options):
+					<ul style="padding-left:40px">
+						<li><a href="https://datashare.mpcdf.mpg.de/s/9b6nyulV5au9BfV"><FONT size="3" COLOR="3388AA"> Treefile 5</FONT></a> from Millennium-I [~803 MB]</li>
+						<li><a href="https://datashare.mpcdf.mpg.de/s/MzFbUK11fkQS3DX"><FONT size="3" COLOR="3388AA"> Treefiles 0-9</FONT></a> from Millennium-I [~7.5 GB]</li>
+						<li><a href="https://datashare.mpcdf.mpg.de/s/D4JFWzwZcjDwDb9"><FONT size="3" COLOR="3388AA"> Treefiles 40-79</FONT></a> from Millennium-II [~6.3 GB]</li>
+					</ul>
+					<li>Move the downloaded .tar file into the <b>/MergerTrees</b> directory, which is in the <b>project root directory</b>.</li>
+					<li>In the terminal, navigate to the <b>/MergerTrees</b>.</li>
+					<li>Untar the treefiles. This should create a folder called either <b>/MR/treedata</b> or <b>/MRII</b> containing the downloaded treefiles</li>
 				</ol>
 				
 			</FONT></p>
@@ -264,18 +284,15 @@
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				The L-Galaxies 2020 makefile needs to be told which C compiler to use and where the GSL libraries are stored.
 				This information is provided in the <b>My_Makefile_compilers</b> file, located in the project root directory.
-				By default, the SYSTYPE variable is set to "cygwin" (defined at the bottom of <b>My_Makefile_compilers</b>).
-				This default set-up should be suitable for most Linux installations. It assumes the gcc compiler is to be used,
+				By default, the SYSTYPE variable is set to "Linux".
+				This should be suitable for most Linux installations. It assumes the gcc compiler is to be used,
 				<!-- , with the <em>-fcommon</em> argument added to suppress warning messages on some systems about allowing "multiple tenative definitions of a global variable in different compilation units". -->
 				and that the GSL header files and libraries are stored in their default locations: <b>/usr/local/include</b> and <b>/usr/local/lib</b>.
-				If your GSL files are not stored in these locations, you will need to change the GSL_INCL and GSL_LIBS paths accordingly.
-				By default, no compiler optimisation flags are added to the "cygwin" configuration. Feel free to add ones of your own, if you wish.
-				<br> <br>
-				If you wish to set-up your own configuration, feel free to do so!
-				Just remember to re-set the SYSTYPE variable at the top of My_Makefile_compilers too.
+				If your GSL files are not stored in these locations, you will need to change the <em>GSL_INCL</em> and <em>GSL_LIBS</em> paths accordingly.
+				By default, no compiler optimisation flags are added to this configuration. Feel free to add ones of your own, if you wish.
 				<br> <br>
 				If L-Galaxies 2020 compiles without any errors when you run the <em>make</em> command described in STEP 5 below, you are probably good to go!
-				If not, here are a few common compiler issues on Linux systems and our (unofficial) suggested fixes:
+				If not, here are a few common compiler issues and our (unofficial) suggested fixes:
 			</FONT></p>
 	
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
@@ -283,18 +300,19 @@
 				<br>
 				<ol>
 					<li><b>Running with an old C standard:</b> 
-						If your Linux distribution is quite old, it may not be running with the latest C standard.
+						If your distribution is quite old, it may not be running with the latest C standard.
 						If so, you may need to inform the compiler of this in <b>My_Makefile_compilers</b> by adding the <em>-std</em> flag to the <em>CC</em> call.
 						(e.g. <em>CC  =  gcc -std=C99</em> for systems running with <a href="https://en.wikipedia.org/wiki/C99"><FONT size="3" COLOR="3388AA"> C99</FONT></a>).</li>
 					<li><b>Running with old C libraries:</b> 
-						Likewise, an old Linux distribution may not have an outdated version of the <a href="https://www.gnu.org/software/libc/"><FONT size="3" COLOR="3388AA"> GNU C libraries</FONT></a> (glibc).
-						If so, you may need to instal an build new C libraries (which is compilcated!), following the instructions provided <a href="https://sourceware.org/glibc/wiki/Testing/Builds"><FONT size="3" COLOR="3388AA"> here</FONT></a>.
-						Or, a quick hack to get around this (if you have a recent version of the GSL libraries, see above), is to replace the <em>#include &ltmath.h&gt</em> statements at the top of each L-Galaxies code .c file with <em>#include &ltgsl/gsl_math.h&gt</em></li>
+						Likewise, an old distribution may not have a version of the <a href="https://www.gnu.org/software/libc/"><FONT size="3" COLOR="3388AA"> GNU C libraries</FONT></a> (glibc).
+						If so, you may need to install and build new C libraries following the instructions provided <a href="https://sourceware.org/glibc/wiki/Testing/Builds"><FONT size="3" COLOR="3388AA"> here</FONT></a> (which is compilcated!).
+						Alternatively, a quick hack (if you do have a recent version of the GSL libraries, see above), is to replace the <em>#include &ltmath.h&gt</em> statements at the top of each L-Galaxies code .c file with <em>#include &ltgsl/gsl_math.h&gt</em></li>
 					<li><b>Multiple tentative definitions:</b> 
 						If a compilation crashes with an error stating that "multiple tenative definitions of a global variable in different compilation units" are not allowed, you may need to add the <em>-fcommon</em> flag to the <em>CC</em> call in <b>My_Makefile_compilers</b>.
-						This will suppress such errors by allowing multiple tenative definitions of a global variables. This flag is set by default in L-Galaxies 2020 when running with SYSTYPE = "cygwin".</li>
+						Note that this flag is set by default when running with SYSTYPE = "cygwin".</li>
 					<li><b>Shared libraries:</b> 
-						If your system has shared GSL libraries (i.e. .so files), rather than local archived ones (i.e. .a files), you may need to replace the default <em>-static</em> flag for <em>GSL_LIBS</em> in <b>My_Makefile_compilers</b> with a <em>-shared</em> flag.</li>
+						If your system has shared GSL libraries (i.e. .so files), rather than local archived ones (i.e. .a files), you may need to replace the default <em>-static</em> flag for <em>GSL_LIBS</em> in <b>My_Makefile_compilers</b> with a <em>-shared</em> flag.
+						You may also find that the GSL libraries are stored in <b>/usr/include</b> and <b>/usr/lib</b> (rather than <b>/usr/local/include</b> and <b>/usr/local/lib</b>), so should update the paths in <b>My_Makefile_compilers</b> accordingly.</li>
 					<li><b>Shared object errors:</b> 
 						Similarly, if you are getting errors like: "Relocation R_X86_64_32 against undefined symbol '[LGALAXIES_PARAMETER]' can not be used when making a shared object", 
 						then you may need to add the <em>-fPIC</em> flag to the <em>CC</em> call in <b>My_Makefile_compilers</b></li>
@@ -316,14 +334,14 @@
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				Compiling and running L-Galaxies 2020 is done as follows:
 				<ol>
-					<li>Navigate to the project root directory</li>
+					<li>In the terminal, navigate to the project root directory</li>
 					<li>Compile the code:</li>
 					<ul style="padding-left:40px">
-						<li><b><em> make</em></b></li>
+						<li><em> make</em></li>
 					</ul>	
 					<li>Run the code:</li>
 					<ul style="padding-left:40px">
-						<li><b><em> ./L-Galaxies ./input/[INPUT FILE NAME]</em></b></li>
+						<li><em> ./L-Galaxies ./input/[INPUT FILE NAME]</em></li>
 						<!-- <li><b><em> ./L-Galaxies ./input/input_MR_W1_PLANCK_LGals2020_DM.par</em></b></li> -->
 					</ul>
 				</ol>
@@ -332,13 +350,26 @@
 			<br>
 				
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				For info on which input file to use, see STEP 6 below.
-				Once completed, the output file(s) generated will be stored in the /outputs folder.
-				<br>
-				Out of the box, L-Galaxies 2020 will run only on treefile 5 of Millennium-I, with only redshift 0 data outputted.
-				However, various other standard set-ups can be run instead (see STEP 6 below).
+				There are four standard input files to choose from:
+				<ul style="padding-left:40px">
+					<li>input_MR_W1_PLANCK_LGals2020_DM.par</li>
+					<li>input_MR_W1_PLANCK_LGals2020_MM.par</li>
+					<li>input_MRII_W1_PLANCK_LGals2020_DM.par</li>
+					<li>input_MRII_W1_PLANCK_LGals2020_MM.par</li>
+				</ul>
 			</FONT></p>
-		</div>	
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				For info on which to use for different cases, see STEP 6.
+			</FONT></p>
+			
+			<br>
+				
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				Once completed, the output file(s) generated will be stored in the <b>/outputs</b> folder.
+				Straight out of the box, L-Galaxies 2020 will run on treefile 5 of Millennium-I with only redshift 0 data outputted.
+				However, various other standard set-ups are also possible (see STEP 6 below).
+			</FONT></p>
+		</div>
 	</div>	
 			
 		
