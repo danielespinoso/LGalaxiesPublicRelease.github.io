@@ -476,22 +476,20 @@
 		</div>
 				
 		<div class="main_box_text_box">  
-			[In progress...]
-			<!-- 
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				Although L-Galaxies 2020 can be used with any basic word processor and simple command-line commands, 
-				an Interactive Development Environment (IDE) can make modifying, compiling, running, and debugging code significantly easier and more efficient.
+				Although L-Galaxies 2020 can be used with any basic word processor and the command line, 
+				using an Interactive Development Environment (IDE) can make modifying, compiling, running, and debugging code significantly easier and more efficient.
 				This can save a lot of time and energy in the long run.
-				Therefore, we recommend that an IDE (compatible with C makefile projects) is used when working with L-Galaxies.
-				Below, we outline how to download, install, and synchronise the <a href="https://www.eclipse.org/ide/"><FONT size="3" COLOR="3388AA"> Eclipse IDE</FONT></a>, which has been extensively tried and tested with L-Galaxies 2020.	
+				Therefore, we recommend an IDE (that is compatible with C makefile projects) is used when working with L-Galaxies.
+				Below, we outline how to download, install, and synchronise the Java-based <a href="https://www.eclipse.org/ide/"><FONT size="3" COLOR="3388AA"> Eclipse IDE</FONT></a> for L-Galaxies, which has already been extensively tried and tested with the code.	
 			</FONT></p>
 			
 			<br>
 			
 			<p style="line-height:1.5; text-align:left"><FONT size="3">
-				<b>Install Cygwin:</b>
+				<b>Check C compiler and libraries:</b>
 				<ol>
-					<li>If you haven't already, complete STEP 3 above to install GSL and the gcc compiler via Cygwin.</li>
+					<li>If you haven't already, complete STEP 3 above to install the <em>gcc</em> compiler, <em>make</em>, and GSL.</li>
 				</ol>
 			</FONT></p>
 			
@@ -500,9 +498,10 @@
 			<p style="line-height:1.5; text-align:left"><FONT size="3">
 				<b>Install jdk:</b>
 				<ol>
-					<li>Go to: <a href="https://www.oracle.com/java/technologies/downloads/#jdk19-windows"><FONT size="3" COLOR="3388AA"> https://www.oracle.com/java/technologies/downloads/#jdk19-windows</FONT></a></li>
-					<li>Click the download link for the Java SE Development Kit 19.0.1 x64 Installer</li>
-					<li>Install to: <b>C:\Program Files\Java\jdk-19\</b></li>
+					<li>Go to: <a href="https://www.oracle.com/java/technologies/downloads/#jdk19-mac"><FONT size="3" COLOR="3388AA"> https://www.oracle.com/java/technologies/downloads/#jdk19-mac</FONT></a></li>
+					<li>Click the download link for the Java SE Development Kit 19.0.1 x64 DMG Installer</li>
+					<li>Double-click the downloaded .dmg file. Double-click the exported .pkg file</li>
+					<li>Install to the default location: <b>/Library/Java/JavaVirtualMachines/jdk-19.jdk/Contents/Home/</b></li>
 				</ol>
 			</FONT></p>
 			
@@ -512,12 +511,14 @@
 				<b>Install Eclipse IDE:</b>
 				<ol>
 					<li>Go to: <a href="https://www.eclipse.org/downloads/packages/installer"><FONT size="3" COLOR="3388AA"> https://www.eclipse.org/downloads/packages/installer</FONT></a></li>
-					<li>Click the download link for the Eclipse 2022-09 R x86_64 Installer for Windows</li>
-					<li>Once downloaded, execute the installer on your system</li>
+					<li>Click the download link for the Eclipse 2022-09 R x86_64 Installer for macOS (probably the x86_64 version, unless you have AArch64 system architecture)</li>
+					<li>Once downloaded, execute the installer (called <b>eclipse-inst-jre-mac64.dmg</b>)</li>
 					<li>Select: <b>Eclipse IDE for C/C++ Developers</b></li>
-					<li>Confirm: Java 17+ VM: <b>C:\Program Files\Java\jdk-19</b> and Installation Folder: <b>C:\Users\[username]\eclipse\cpp-2022-09</b></li>
-					<li>Accept the user agreement and click "launch"</li>
-					<li>Confirm: Workspace: <b>C:\Users\ry22aas\eclipse-workspace</b> and click "launch" again.</li>
+					<li>Confirm: Java 17+ VM: <b>/Library/Java/JavaVirtualMachines/jdk-19.jdk/Contents/Home</b> and Installation Folder: <b>/Users/[username]/eclipse/cpp-2022-09</b></li>
+					<li>Click "install"</li>
+					<li>Accept the user agreement</li>
+					<li>Once it's installed, click "launch"</li>
+					<li>Confirm: Workspace: <b>Users/[username]/eclipse-workspace</b> and click "launch" again.</li>
 				</ol>
 			</FONT></p>
 						
@@ -526,20 +527,21 @@
 			<p style="line-height:1.5; text-align:left"><FONT size="3">
 				<b>Clone L-Galaxies 2020 repository:</b>
 				<ol>
+					<li>"Hide" the welcome screen</li>
 					<li>In the Eclipse IDE, click the "Open Perspective" button in the top right corner (symbol of a GUI interface with a plus sign)</li>
 					<li>Select "Git"</li>
 					<li>Click "Clone a Git Repository" (left)</li>
 					<li>Enter the L-Galaxies 2020 repository URI: <b>https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository</b></li>
 					<li>Click "Next"</li>
 					<li>Make sure "master" is selected and click "Next"</li>
-					<li>Confirm the destination directory (this will become your git-synchronised project root directory).</li>
+					<li>Confirm the destination directory (this will become your git-synchronised <b>project root directory</b>).</li>
 					<li>Click "Finish"</li>
-					<li>Eclipse will now clone a local version of the L-Galaxies 2020 repository (progress bar in the bottom right corner)</li>
-					<li>Once cloned, right click the name of the project in the left-hand panel (<b>LGalaxies2020_PublicRepository</b>)</li>
+					Eclipse will now clone a local version of the L-Galaxies 2020 repository (progress bar in the bottom right corner)
+					<li>Once cloned, two-finger click the name of the project in the left-hand panel (<b>LGalaxies2020_PublicRepository</b>)</li>
 					<li>Click "Import projects..."</li>
 					<li>In the new window, click "Finish"</li>
-				</ol>
-				The L-Galaxies 2020 code can now be used/modified/etc in the standard "C/C++ Perspective" in Eclipse
+					The L-Galaxies 2020 code is now ready to be used in the standard "C/C++ Perspective" in Eclipse
+				</ol>				
 			</FONT></p>
 						
 			<br>
@@ -551,8 +553,8 @@
 					<li>Click on the project name in the left-hand panel (<b>LGalaxies2020_PublicRepository</b>), so that it's highlighted</li>
 					<li>Press Ctrl+n on the keyboard</li>
 					<li>Select: "Convert to C/C++ project (Adds C/C++ Nature)" and click "Next"</li>
-					<li>Select: "C project" (below the heading called "Convert to C or C++")</li>
-					<li>Select: "Makefile project", and the "Cygwin GCC" toolchain</li>
+					<li>Under "Convert to C or C++", select "C project"</li>
+					<li>Under "Project Options", select "Makefile project" and the "MacOSX GCC" toolchain</li>
 					<li>Click "Finish"</li>
 				</ol>
 			</FONT></p>
@@ -564,10 +566,11 @@
 				<ol>
 					<li>In the "C/C++ perspective", click the project name in the left-hand panel (<b>LGalaxies2020_PublicRepository</b>), so that it's highlighted</li>
 					<li>From the top menu bar, select "Run" > "Run configurations..."</li>
-					<li>In the new window, click the "New Launch configuration" button (symbol of a blank page with a plus sign)</li>
-					<li>Set "Name" in the right hand panel to: "LGalaxies2020_PublicRepository" (i.e. delete " Default")</li>
-					<li>Set "C/C++ Application" to: "L-Galaxies.exe"</li>
-					<li>Click the "(x) = Arguments" tab</li>
+					<li>In the new window (left-hand panel), click "C/C++ Allpication"</li>
+					<li>Click the "New Launch configuration" button (symbol of a blank page with a plus sign)</li>
+					<li>In the right-hand panel, set "Name" to: "LGalaxies2020_PublicRepository" (i.e. delete " Default")</li>
+					<li>Set "C/C++ Application" to: "L-Galaxies"</li>
+					<li>Click the "Arguments" tab (right-hand panel)</li>
 					<li>Under "Program arguments", add the local path to your preferred input file (e.g. <b>./input/input_MR_W1_PLANCK_LGals2020_DM.par</b>)</li>
 					<li>Click "Apply", then click "Close"</li>
 				</ol>
@@ -578,7 +581,7 @@
 			<p style="line-height:1.5; text-align:left"><FONT size="3">
 				<b>Add an output folder:</b>
 				<ol>
-					<li>In the "C/C++ perspective", right-click the project name in the left-hand panel (<b>LGalaxies2020_PublicRepository</b>)</li>
+					<li>In the "C/C++ perspective", two-finger click the project name in the left-hand panel (<b>LGalaxies2020_PublicRepository</b>)</li>
 					<li>Select "New" > "Folder"</li>
 					<li>In the new window, set Folder name as "output"</li>
 					<li>Click "Finish"</li>
@@ -600,6 +603,7 @@
 				<b>Check compiler configuration:</b>
 				<ol>
 					<li>Complete STEP 4 above to check the gcc compiler is configured correctly for L-Galaxies 2020 on your system</li>
+					For example, set the SYSTYPE to "Mac" in <b>My_Makefile_compilers</b>
 				</ol>
 			</FONT></p>
 							
@@ -622,7 +626,6 @@
 					<li>Follow the information in STEP 6, as necessary, to modify the version of L-Galaxies 2020 used.</li>
 				</ol>
 			</FONT></p>
-			-->
 						
 		</div>
 		
