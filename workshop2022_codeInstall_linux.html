@@ -497,11 +497,32 @@
 			
 			<p style="line-height:1.5; text-align:left"><FONT size="3">
 				<b>Install jdk:</b>
+				Eclipse is a java-based IDE. Therefore, the <a href="https://en.wikipedia.org/wiki/Java_Development_Kit"><FONT size="3" COLOR="3388AA"> Java Development Kit (JDK)</FONT></a> to run.
+				You can check if JDK is already installed by running <em> java -version</em> in the command line.
+				If this command returns information on a Java "Runtime Environment" on your system, you probably have a working version of JDK installed.
+				If you don't already have a version of JDK on your system, install the latest one as a private user as follows:
 				<ol>
-					<li>Go to: <a href="https://www.oracle.com/java/technologies/downloads/#jdk19-mac"><FONT size="3" COLOR="3388AA"> https://www.oracle.com/java/technologies/downloads/#jdk19-mac</FONT></a></li>
-					<li>Click the download link for the Java SE Development Kit 19.0.1 x64 DMG Installer</li>
-					<li>Double-click the downloaded .dmg file. Double-click the exported .pkg file</li>
-					<li>Install to the default location: <b>/Library/Java/JavaVirtualMachines/jdk-19.jdk/Contents/Home/</b></li>
+					<li>Go to: <a href="https://www.oracle.com/java/technologies/downloads/#jdk19-linux"><FONT size="3" COLOR="3388AA"> https://www.oracle.com/java/technologies/downloads/#jdk19-linux</FONT></a></li>
+					<!-- <li>Click the download link for the "x64 Debian Package" (if running on Debian/Ubuntu linux) or the "Arm 64 Compressed Archive" (if running on ARM CPU architecture)</li> -->
+					<li>Click the download link for the "x64 Compressed Archive" (if running on Debian/Ubuntu linux) or the "Arm 64 Compressed Archive" (if running on ARM CPU architecture)</li>
+					<li>In the terminal, navigate to the directory where you want to install JDK, then move the downloaded .tar.gz file to the current directory</li>
+					<li>Unpack the tarball and install JDK:</li>
+					<ul style="padding-left:40px">
+						<li><em>tar zxvf jdk-19_linux-x64_bin.tar.gz</em></li>
+						or
+						<li><em>tar zxvf jdk-19_linux-aarch64_bin.tar.gz</em></li>
+					</ul>
+					The JDK files will be installed to a directory called <b>/jdk-19</b>.
+					<li>Delete the .tar.gz file if you want to save disk space.</li>
+
+					<!-- <li>In the terminal, navigate to the directory into which jdk-19 was downloaded and install it as follows:</li>
+					<ul style="padding-left:40px">
+							<li>For Debian/Ubuntu:</li>
+								sudo apt install ./jdk-19_linux-x64_bin.deb
+							<li>For Fedora:</li>
+								sudo dnf install ./jdk-19_linux-x64_bin.deb
+					</ul> -->
+					<!-- <li>Install to the default location: <b>/Library/Java/JavaVirtualMachines/jdk-19.jdk/Contents/Home/</b></li> -->
 				</ol>
 			</FONT></p>
 			
