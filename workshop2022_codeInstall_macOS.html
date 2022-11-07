@@ -77,12 +77,17 @@
 				<ol>
 					<li>Go to <a href="https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository"><FONT size="3" COLOR="3388AA"> https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository</FONT></a></li>
 					<li>Click the green "Code" drop-down menu, and select "Download ZIP" [~42.2 MB]</li>
-					<li>Move the downloaded master.zip file to a suitable base directory.</li>
-					<li>Navigate to that base directory and unzip the file:</li>
+					<li>Move the downloaded file (master.zip) to a suitable base directory.</li>
+					<li>In the terminal (or otherwise), navigate to that base directory and unzip the file:</li>
 					<ul style="padding-left:40px">
-						<li><em>tar -xf ./master.zip</em></li>
+						<!-- <li><em>tar -xf ./master.zip</em></li> -->
+						<li><em>unzip ./master.zip</em></li>
 					</ul>
-					<li>This will create a new directory called<b>/LGalaxies2020_PublicRepository-master</b>, hereafter, the <b>"project root directory"</b></li>
+					This will create a new directory called<b>/LGalaxies2020_PublicRepository-master</b>, hereafter, the <b>"project root directory"</b>.
+					<li>You can now delete the .zip file, if you wish:</li>
+					<ul style="padding-left:40px">
+						<li><em>rm ./master.zip</em></li>
+					</ul>
 					<li>Manually add an empty <b>/output</b> folder in the project root directory:</li>
 					<ul style="padding-left:40px">
 						<li><em>cd ./LGalaxies2020_PublicRepository-master</em></li>
@@ -91,6 +96,35 @@
 				</ol>
 			</FONT></p>
 			
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<b> OPTION 2: Download zip file using curl:</b>
+				<br>
+				<ol>
+					<liIn the terminal, navigate to a directory where you'd like L-Galaxies kept</li>
+					<li>Download L-Galaxies 2020:</li>
+					<ul style="padding-left:40px">
+						<li><em>curl -O https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository/archive/refs/heads/master.zip</em></li>
+					</ul>
+					<li>Unzip the file:</li>
+					<ul style="padding-left:40px">
+						<li><em>unzip ./master.zip</em></li>
+					</ul>
+					This will create a new directory called<b>/LGalaxies2020_PublicRepository-master</b>, hereafter, the <b>"project root directory"</b>.
+					<li>You can now delete the .zip file, if you wish:</li>
+					<ul style="padding-left:40px">
+						<li><em>rm ./master.zip</em></li>
+					</ul>
+					<li>Manually add an empty <b>/output</b> folder in the project root directory:</li>
+					<ul style="padding-left:40px">
+						<li><em>cd ./LGalaxies2020_PublicRepository-master</em></li>
+						<li><em>mkdir output</em></li>
+					</ul>
+				</ol>
+			</FONT></p>
+			
+			<!--
 			<br>
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
@@ -117,6 +151,7 @@
 					</ul>
 				</ol>
 			</FONT></p>
+			-->
 			
 			<br>
 			
