@@ -491,6 +491,24 @@
 				For quick but statistically-significant runs on Millennium-II, treefiles 40-79 are normally sufficient.
 			</FONT></p>
 			<br>
+					
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<br>
+				<FONT size="5"><b>Changing which properties are outputted:</b></FONT>
+				<br>
+				By default, L-Galaxies 2020 will output the following properties for each galaxy (shown here as an Python-based "putput structure"): <b>Default L-Galaxies output structure</b>
+				However, you are free to change which of the properties tracked in the code are actually outputted. This is done as follows:
+				<ol>
+					<li>Open the <b>h_galaxy_output.h</b> file in the <b>/code</b> folder</li>
+					<li>Add/comment-out the property you wish to be outputted/not outputted in the <em>GALAXY_OUTPUT</em> structure
+					For example, to remove BulgeMassRings from the output, comment it out with a double forward slash:</li>
+					<ul style="padding-left:40px">
+							<li><em>//float BulgeMassRings[RNUM]; // 1e10 Msun/h // Mass of stars within each annular ring</em></li>
+					</ul>
+					<li>Save and close <b>h_galaxy_output.h</b></li>
+					<li>Open the <b>h_galaxy_output.h</b> file in the <b>/code</b> folder</li>
+				</ol>
+			</FONT></p>
 		</div>	
 	</div>	
 
