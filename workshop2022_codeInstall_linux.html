@@ -494,22 +494,22 @@
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				<br>
-				<FONT size="5"><b>Model switches in My_Makefile_options</b></FONT>
+				<FONT size="5"><b>Model switches</b></FONT>
 				<br>
-				L-Galaxies 2020 comes with a series of pre-defined model options (or "switches") that change the physics models used, which properties are tracked/outputted, which treefiles should be used, etc.
+				L-Galaxies 2020 comes with a series of pre-defined model options (or "switches") that change e.g. the physics models used, the treefiles used, which properties are tracked/outputted, etc.
 				These switches are defined in the <b>My_Makefile_options</b> file in the project root directory.
-				There meanings should be quite self explanatory, but if you are unsure what they do, feel free to ask!
-				You are also able to add your own switches to your own version of the code.
+				There meanings should be quite self explanatory, but if you are unsure, feel free to ask!
+				You are also able to add your own switches to your version of the code.
 				These should be defined in <b>My_Makefile_options</b> and then utilised in the necessary code files via "ifdef statements" (or equivalent).
-				For example, to create a switch which removes the property <em>BulgeMassRings</em> from being outputted:
+				For example, to create a switch which prevents the property <em>BulgeMassRings</em> from being outputted:
 				<ol>
-					<li>Open <b>My_Makefile_options</b> in the <b>project root directory</b> folder</li>
+					<li>Open <b>My_Makefile_options</b> in the <b>project root directory</b></li>
 					<li>Add the following line:</li>
 					<ul style="padding-left:40px">
 							<li><em>OPT += -DNO_BULGEMASSRINGS_OUTPUT</em></li>
 					</ul>
 					<li>Save and close <b>My_Makefile_options</b></li>
-					<li>Put the following <em>#ifndef</em> around BulgeMassRings in <b>h_galaxy_output.h</b> and <b>save.c</b> (see below for more details):</li>
+					<li>Put the following ifdef statement around the instances of <em>BulgeMassRings</em> in <b>h_galaxy_output.h</b> and <b>save.c</b> (see below for more details):</li>
 					<ul style="padding-left:40px">
 							<li><em>#ifndef NO_BULGEMASSRINGS_OUTPUT</em></li>
 							<li><em>...</em></li>
@@ -517,7 +517,7 @@
 					</ul>
 					<li>Save and close the code files</li>
 					<li>Open the output structure you are using (e.g. <b>LGalaxy_snapshots.py</b>, <b>LGalaxy_galtree.py</b>, or one you have created yourself)</li>
-					<li>Remove <em>BulgeMassRings</em> by either setting it to "False" in the <em>properties_used</em> dictionary (at the bottom of the output structure .py file), or directly commenting it out:
+					<li>Remove <em>BulgeMassRings</em> by either setting it to "False" in the <em>properties_used</em> dictionary (at the bottom of the .py file), or directly commenting it out:
 					<ul style="padding-left:40px">
 							<li><em># ('BulgeMassRings',numpy.float32,12),</em></li>
 					</ul>
@@ -553,7 +553,7 @@
 					<li>Save and close <b>save.c</b></li>
 					<li>Open the output structure you are using (e.g. <b>LGalaxy_snapshots.py</b>, <b>LGalaxy_galtree.py</b>, or one you have created yourself)</li>
 					<li>In the <em>LGalaxiesStruct</em> structure, add/comment-out the property you wish to be outputted/not outputted</li>
-					For example, to remove <em>BulgeMassRings</em>, set it to "False" in the <em>properties_used</em> dictionary (at the bottom of the output structure .py file), or directly comment it out:
+					For example, to remove <em>BulgeMassRings</em>, set it to "False" in the <em>properties_used</em> dictionary (at the bottom of the .py file), or directly comment it out:
 					<ul style="padding-left:40px">
 							<li><em># ('BulgeMassRings',numpy.float32,12),</em></li>
 					</ul>
