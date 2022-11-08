@@ -222,7 +222,7 @@
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				L-Galaxies requires a C compiler (e.g. <a href="https://gcc.gnu.org/"><FONT size="3" COLOR="3388AA"> gcc</FONT></a>), the <em>make</em> command, and the GNU Scientific Libraries (<a href="https://www.gnu.org/software/gsl/"><FONT size="3" COLOR="3388AA">GSL</FONT></a>) to run.
 				Linux distributions typically come with all three of these installed as standard.
-				You can check if <em>gcc</em> and <em>make</em> are installed on your system using the following commands, which return the directory in which they are stored (usually /usr/bin/gcc and /usr/bin/make):
+				You can check if <em>gcc</em> and <em>make</em> are installed on your system using the following commands, which return the directory in which they are stored (usually <b>/usr/bin/gcc</b> and <b>/usr/bin/make</b>):
 				<ul style="padding-left:40px">
 						<li><em>which gcc</em></li>
 						<li><em>which make</em></li>
@@ -231,7 +231,7 @@
 			</FONT></p>
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				GSL is typically installed in <em>/usr/local/include/gsl</em> (for the header files) and <em>/usr/local/lib/</em> (for the libraries).
+				GSL is typically installed in <b>/usr/local/include/gsl</b> (for the header files) and <b>/usr/local/lib/</b> (for the libraries).
 				Note that if your Linux system runs with modular environments, you may need to load the GSL libraries before they can be used, with a command something like:
 				<ul style="padding-left:40px">
 					<li><em>module load gsl</em></li>		
@@ -283,16 +283,14 @@
 		<div class="main_box_text_box">  
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				The L-Galaxies 2020 makefile needs to be told which C compiler to use and where the GSL libraries are stored.
-				This information is provided in the <b>My_Makefile_compilers</b> file, located in the project root directory.
-				By default, the SYSTYPE variable is set to "Linux".
-				This should be suitable for most Linux installations. It assumes the gcc compiler is to be used,
-				<!-- , with the <em>-fcommon</em> argument added to suppress warning messages on some systems about allowing "multiple tenative definitions of a global variable in different compilation units". -->
-				and that the GSL header files and libraries are stored in their default locations: <b>/usr/local/include</b> and <b>/usr/local/lib</b>.
+				This information is provided as a <e.>SYSTYPE</em> configuration in the <b>My_Makefile_compilers</b> file, located in the project root directory.
+				By default, the SYSTYPE is set to "Linux", which should be suitable for most Linux installations.
+				This configuration assumes the gcc compiler is to be used, and that the GSL header files and libraries are stored in their default locations: <b>/usr/local/include</b> and <b>/usr/local/lib</b>.
 				If your GSL files are not stored in these locations, you will need to change the <em>GSL_INCL</em> and <em>GSL_LIBS</em> paths accordingly.
 				By default, no compiler optimisation flags are added to this configuration. Feel free to add ones of your own, if you wish.
 				<br> <br>
 				If L-Galaxies 2020 compiles without any errors when you run the <em>make</em> command described in STEP 5 below, you are probably good to go!
-				If not, here are a few common compiler issues and our (unofficial) suggested fixes:
+				If not, here are a few common compiler issues and our (unofficial) fixes for them:
 			</FONT></p>
 	
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
@@ -350,7 +348,7 @@
 			<br>
 				
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				There are four standard input files to choose from:
+				There are four standard input files to choose from (for info on which to use, see STEP 6):
 				<ul style="padding-left:40px">
 					<li>input_MR_W1_PLANCK_LGals2020_DM.par</li>
 					<li>input_MR_W1_PLANCK_LGals2020_MM.par</li>
@@ -358,14 +356,11 @@
 					<li>input_MRII_W1_PLANCK_LGals2020_MM.par</li>
 				</ul>
 			</FONT></p>
-			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				For info on which to use for different cases, see STEP 6.
-			</FONT></p>
 			
 			<br>
 				
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				Once completed, the output file(s) generated will be stored in the <b>/outputs</b> folder.
+				Once L-Galaxies 2020 has finished running, the output file(s) generated will be stored in the <b>/outputs</b> folder.
 				Straight out of the box, L-Galaxies 2020 will run on treefile 5 of Millennium-I with only redshift 0 data outputted.
 				However, various other standard set-ups are also possible (see STEP 6 below).
 			</FONT></p>
@@ -385,7 +380,7 @@
 				<b>Default vs. Modified model:</b>
 				<br>
 				Input files (i.e. the .par files) are provided for the Default Model (DM) and Modified Model (MM) versions of L-Galaxies 2020 (see the discussion in <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a> for details).
-				The Default Model allows the majority of material released by supernovae and stellar winds to mix with the ambient ColdGas before some is blown out as galactic winds.
+				In brief, the Default Model allows the majority of material released by supernovae and stellar winds to mix with the ambient ColdGas before some is blown out as galactic winds.
 				The Modified Model allows the majority of this newly-released material to be directly ejected into the surrounding HotGas, without first mixing with the ColdGas.
 				<!-- L-Galaxies 2020 has two standard models for the way supernova and stellar wind ejecta is allowed to mix with the gas in and around galaxies. -->
 				<!-- In the "Default Model", galactic outflows are predominanlty of ambient ISM metallicity, whereas in the "Modified Model", galactic outflows are predominantly metal-rich (see the discussion in <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a> for more details). -->
@@ -404,7 +399,7 @@
 				<br>
 				<b>Millennium-I vs. Millennium-II:</b>
 				<br>
-				By default, L-Galaxies 2020 will try to run on Millennium-I merger trees. To switch to Millennium-II, do the following:
+				By default, L-Galaxies 2020 will try to run on Millennium-I merger trees. To switch to Millennium-II, make sure you've downloaded some Millennium-II treefiles (see STEP 2), and then do the following:
 				<ol>
 					<li>Open the <b>My_Makefile_options</b> file in the project root directory</li>
 					<li>Uncomment the <em>MRII</em> switch</li>
@@ -434,10 +429,10 @@
 
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				<br>
-				<b>Snapshot vs. Galaxytree mode:</b>
+				<FONT size="5"><b>Snapshot vs. Galaxytree mode:</b></FONT>
 				<br>
-				Snapshot mode is the default for L-Galaxies 2020, and will only output data for a user-defined set of redshifts (i.e. snapshots).
-				Galaxytree mode, will instead output data from all snapshots, along with the IDs needed to link a given galaxy to its progenitors and descendents.
+				Snapshot mode (the default for L-Galaxies 2020) will only output data for a user-defined set of redshifts (i.e. snapshots).
+				Galaxytree mode will instead output data from all snapshots, along with the IDs needed to link a given galaxy to its progenitors and descendents (note that this generates much larger output files).
 			</FONT></p>
 			<p style="line-height:1.5; text-align:left"><FONT size="3">
 				To use/modify snapshot mode:
