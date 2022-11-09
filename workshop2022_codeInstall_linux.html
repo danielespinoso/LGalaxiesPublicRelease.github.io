@@ -152,7 +152,7 @@
 				<b> OPTION 4: Download as a local Git repository via the Eclipse IDE:</b>
 				<br>
 				The L-Galaxies 2020 code can also be obtained from GitHub via the <a href="https://www.eclipse.org/ide/"><FONT size="3" COLOR="3388AA"> Eclipse IDE</FONT></a>, which offers a more intuitive way of editing and debugging code using a Graphical User Interface (GUI).
-				To install L-Galaxies 2020 this way, skip straight to STEP 7 below, where information on how to install Eclipse and synchronise it with L-Galaxies 2020 is provided.
+				To install L-Galaxies 2020 this way, skip straight to STEP 8 below, where information on how to install Eclipse and synchronise it with L-Galaxies 2020 is provided.
 			</FONT></p>
 		</div>
 		
@@ -569,7 +569,44 @@
 
 	<div class="main_box"> 
 		<div class="main_box_top">	
-			<p>STEP 7: L-Galaxies with the Eclipse IDE [OPTIONAL]</p>
+			<p>STEP 7: Reading L-Galaxies outputs in python</p>
+		</div>
+		
+		<div class="main_box_text_box">  
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				By default, L-Galaxies 2020 outputs are written as binary files.
+				To be read, binary files require prior knowledge of the structure of the data in the file.
+				This is why default L-Galaxies output structures (compatible for python) are provided in the <b>/AuxCode/awk/output/python</b> folder (see "Changing which properties are outputted" in STEP 6).
+			</FONT></p>
+			
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				L-Galaxies 2020 also comes with a set of simple python scripts to read-in output files (according to the output structure), convert properties from code to physical units, select sub-samples, plot a few key relations, etc.
+				These python scripts can be found in <b>/AuxCode/Python</b>.
+			</FONT></p>
+			
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				To run these scripts on the default output produced by a default run of L-Galaxies 2020, simply execute the <b>main_lgals.py</b> file in python.
+				This will generate a pickled version of the L-Glaxies 2020 output (.npy file) in the <b>/output</b> folder, as well as some plots of key galaxy population relations in the <b>/figures</b> folder.
+			</FONT></p>
+						
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				The <b>main_lgals.py</b> also contains a number of standard switches, which can be used to modify how/what data is read-in and plotted.
+				For more information on how to use/modify these python scripts, feel free to speak to me at the workshop, or drop me an email (<b>r.yates3 -at- herts.ac.uk</b>).
+			</FONT></p>	
+		</div>
+	</div>	
+
+
+
+	<div class="main_box"> 
+		<div class="main_box_top">	
+			<p>STEP 8: Running L-Galaxies in the Eclipse IDE [OPTIONAL]</p>
 		</div>
 				
 		<div class="main_box_text_box">  
