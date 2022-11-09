@@ -161,7 +161,7 @@
 				If you don't have Git already, download it following the instructions at: <a href="https://github.com/git-guides/install-git"><FONT size="3" COLOR="3388AA"> https://github.com/git-guides/install-git</FONT></a>.
 				Once you have Git and a GitHub account, proceed as follows:
 				<ol>
-					<li>In the terminal (or otherwise), navigate to a directory where you'd like L-Galaxies kept</li>
+					<li>In the terminal, navigate to a directory where you'd like L-Galaxies kept</li>
 					<li>Clone the repository:</li>
 					<ul style="padding-left:40px">
 						<!-- <li><em> cd [PATH TO CHOSEN FOLDER]</em></li> -->
@@ -175,8 +175,8 @@
 			<p style="line-height:1.5; text-align:center"><FONT size="3">		
 				<b> OPTION 4: Download as a local Git repository via the Eclipse IDE:</b>
 				<br>
-				The L-Galaxies 2020 code can also be obtained from GitHub via the <a href="https://www.eclipse.org/ide/"><FONT size="3" COLOR="3388AA"> Eclipse IDE</FONT></a>, which offers a more intuitive way of editing and debugging code, etc, with a GUI interface.
-				To install L-Galaxies 2020 this way, skip straight to STEP 7 below, where information on how to install Eclipse and synchronise it with L-Galaxies 2020 is provided.
+				The L-Galaxies 2020 code can also be obtained from GitHub via the <a href="https://www.eclipse.org/ide/"><FONT size="3" COLOR="3388AA"> Eclipse IDE</FONT></a>, which offers a more intuitive way of editing and debugging code using a Graphical User Interface (GUI).
+				To install L-Galaxies 2020 this way, skip straight to STEP 8 below, where information on how to install Eclipse and synchronise it with L-Galaxies 2020 is provided.
 			</FONT></p>
 		</div>
 		
@@ -212,7 +212,11 @@
 					</ul>
 					<li>Move the downloaded .tar file into the <b>/MergerTrees</b> directory, which is in the <b>project root directory</b>.</li>
 					<li>In the terminal, navigate to the <b>/MergerTrees</b>.</li>
-					<li>Untar the treefiles. This should create a folder called either <b>/MR/treedata</b> or <b>/MRII</b> containing the downloaded treefiles</li>
+					<li>Untar the treefiles:</li>
+					<ul style="padding-left:40px">
+						<li><em>untar -xf ./MR[II]_MergerTrees_[TREEFILE_NUMBERS]</em></li>
+					</ul>
+					This will create a folder called either <b>/MR/treedata</b> or <b>/MRII</b> containing the downloaded treefiles</li>
 				</ol>
 				
 			</FONT></p>
@@ -278,9 +282,10 @@
 		<div class="main_box_text_box">  
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				The L-Galaxies 2020 makefile needs to be told which C compiler to use and where the GSL libraries are stored.
-				This information should be provided by the user in the <b>My_Makefile_compilers</b> file, located in the <b>project root directory</b>.
+				This information is provided by the user as a <em>SYSTYPE</em> configuration in the <b>My_Makefile_compilers</b> file, located in the <b>project root directory</b>.
+				<br> <br>
 				By default, the SYSTYPE variable is set to "Linux".
-				You can change this to the default "Mac" configuration by commenting-out <em>SYSTYPE = "Linux"</em> at the top of the file (by adding a # in front) and un-commenting <em>SYSTYPE = "Mac"</em>.
+				You can change this to the default "Mac" configuration by commenting-out <em>SYSTYPE = "Linux"</em> at the top of the file and un-commenting <em>SYSTYPE = "Mac"</em>.
 				This default set-up should be suitable for most Mac OS installations. It assumes the gcc compiler is to be used
 				and that the GSL header files and libraries are stored in their default locations: <b>/usr/local/include</b> and <b>/usr/local/lib</b>.
 				If your GSL files are not stored in these locations, you will need to change the <em>GSL_INCL</em> and <em>GSL_LIBS</em> paths accordingly.
@@ -341,7 +346,7 @@
 					</ul>	
 					<li>Run the code:</li>
 					<ul style="padding-left:40px">
-						<li><em> ./L-Galaxies ./input/[INPUT FILE NAME]</em></li>
+						<li><em> ./L-Galaxies ./input/[INPUT FILE]</em></li>
 						<!-- <li><b><em> ./L-Galaxies ./input/input_MR_W1_PLANCK_LGals2020_DM.par</em></b></li> -->
 					</ul>
 				</ol>
@@ -350,7 +355,7 @@
 			<br>
 				
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				There are four standard input files to choose from:
+				There are four standard input files to choose from (for info on which to use, see STEP 7):
 				<ul style="padding-left:40px">
 					<li>input_MR_W1_PLANCK_LGals2020_DM.par</li>
 					<li>input_MR_W1_PLANCK_LGals2020_MM.par</li>
@@ -358,18 +363,58 @@
 					<li>input_MRII_W1_PLANCK_LGals2020_MM.par</li>
 				</ul>
 			</FONT></p>
-			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				For info on which to use for different cases, see STEP 6.
-			</FONT></p>
 			
 			<br>
 				
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				Once completed, the output file(s) generated will be stored in the <b>/outputs</b> folder.
+				Once L-Galaxies 2020 has finished running, the output file(s) generated will be stored in the <b>/outputs</b> folder.
+				These can be read in to python for analysis as described in STEP 6.<br><br>
 				Straight out of the box, L-Galaxies 2020 will run on treefile 5 of Millennium-I with only redshift 0 data outputted.
-				However, various other standard set-ups are also possible (see STEP 6 below).
+				However, various other standard set-ups are also possible (see STEP 7).
 			</FONT></p>
 		</div>	
+	</div>	
+
+
+
+
+
+
+	<div class="main_box"> 
+		<div class="main_box_top">	
+			<p>STEP 6: Reading-in L-Galaxies 2020 outputs in python</p>
+		</div>
+		
+		<div class="main_box_text_box">  
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				By default, L-Galaxies 2020 outputs are written as binary files.
+				To be read, binary files require prior knowledge of the structure of the data in the file.
+				This is why default L-Galaxies output structures (compatible for python) are provided in the <b>/AuxCode/awk/output/python</b> folder (see "Changing which properties are outputted" in STEP 7).
+			</FONT></p>
+			
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				L-Galaxies 2020 also comes with a set of simple python scripts to read output files (according to the output structure), convert properties from code units to physical units, select sub-samples, plot a few key relations, etc.
+				These python scripts can be found in <b>/AuxCode/Python</b>.
+				(For those who prefer to handle data in IDL, there are some IDL scripts available for reading-in/plotting L-Galaxies outputs.
+				If you are interested in getting a copy of these, feel free to speak to me at the workshop, or drop me an email: <b>r.yates3 -at- herts.ac.uk</b>)
+			</FONT></p>
+			
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				To run the python scripts on the default output produced by L-Galaxies 2020, simply execute the <b>main_lgals.py</b> file.
+				This will generate a pickled version of the L-Glaxies 2020 output (.npy file) in the <b>/output</b> folder, as well as some plots of key galaxy population relations in the <b>/figures</b> folder.
+				<b>main_lgals.py</b> also contains a number of switches which can be used to modify how/what data is read-in and plotted.
+			</FONT></p>
+						
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				For more information on how to use/modify these python scripts, feel free to speak to me at the workshop, or drop me an email (<b>r.yates3 -at- herts.ac.uk</b>).
+			</FONT></p>	
+		</div>
 	</div>	
 			
 		
@@ -377,20 +422,20 @@
 
 	<div class="main_box"> 
 		<div class="main_box_top">	
-			<p>STEP 6: Changing the model [OPTIONAL]</p>
+			<p>STEP 7: Changing the model  [OPTIONAL]</p>
 		</div>
 		
 		<div class="main_box_text_box">  
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				<b>Default vs. Modified model:</b>
+				<FONT size="5"><b>Default vs. Modified model</b></FONT>
 				<br>
 				Input files (i.e. the .par files) are provided for the Default Model (DM) and Modified Model (MM) versions of L-Galaxies 2020 (see the discussion in <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a> for details).
-				The Default Model allows the majority of material released by supernovae and stellar winds to mix with the ambient ColdGas before some is blown out as galactic winds.
+				In brief, the Default Model allows the majority of material released by supernovae and stellar winds to mix with the ambient ColdGas before some is blown out as galactic winds.
 				The Modified Model allows the majority of this newly-released material to be directly ejected into the surrounding HotGas, without first mixing with the ColdGas.
 				<!-- L-Galaxies 2020 has two standard models for the way supernova and stellar wind ejecta is allowed to mix with the gas in and around galaxies. -->
 				<!-- In the "Default Model", galactic outflows are predominanlty of ambient ISM metallicity, whereas in the "Modified Model", galactic outflows are predominantly metal-rich (see the discussion in <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a> for more details). -->
 				<!-- These two models each have their own input file (when running on Millennium-I): -->
-				Each of these models has its own input file which should be used when executing the code (see STEP 5):
+				Depending on which model you want to use, the corresponding input file is one of the following:
 				<ul style="padding-left:40px">
 					<li>input_MR_W1_PLANCK_LGals2020_DM.par</li>
 					<li>input_MR_W1_PLANCK_LGals2020_MM.par</li>
@@ -402,9 +447,9 @@
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				<br>
-				<b>Millennium-I vs. Millennium-II:</b>
+				<FONT size="5"><b>Millennium-I vs. Millennium-II</b></FONT>
 				<br>
-				By default, L-Galaxies 2020 will try to run on Millennium-I merger trees. To switch to Millennium-II, do the following:
+				By default, L-Galaxies 2020 will try to run on Millennium-I merger trees. To switch to Millennium-II, make sure you've downloaded some Millennium-II treefiles (see STEP 2), and then do the following:
 				<ol>
 					<li>Open the <b>My_Makefile_options</b> file in the project root directory</li>
 					<li>Uncomment the <em>MRII</em> switch</li>
@@ -434,17 +479,17 @@
 
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				<br>
-				<b>Snapshot vs. Galaxytree mode:</b>
+				<FONT size="5"><b>Snapshot vs. Galaxytree mode</b></FONT>
 				<br>
-				Snapshot mode is the default for L-Galaxies 2020, and will only output data for a user-defined set of redshifts (i.e. snapshots).
+				Snapshot mode (the default for L-Galaxies 2020) will only output data for a user-defined set of redshifts (i.e. snapshots).
 				Galaxytree mode will instead output data from all snapshots, along with the IDs needed to link a given galaxy to its progenitors and descendents (note that this generates much larger output files).
 			</FONT></p>
 			<p style="line-height:1.5; text-align:left"><FONT size="3">
 				To use/modify snapshot mode:
 				<ol>
-					<li>Open <b>desired_output_redshifts.txt</b> in the <b>/inputs</b> folder</li>
+					<li>Open <b>desired_output_redshifts.txt</b> in the /inputs folder</li>
 					<li>Add the redshifts you wish to be outputted to the top of this file, one on each line, with an empty line at the end of your list (L-Galaxies will match these to their nearest snapshots automatically)</li>
-					<li>Open the <b>My_Makefile_options</b> file in the <b>project root directory</b></li>
+					<li>Open the <b>My_Makefile_options</b> file in the project root directory</li>
 					<li>Set the <em>NOUT</em> parameter to equal the number of redshifts you set to be outputted in <b>desired_output_redshifts.txt</b></li>
 					<li>Make sure that the <em>GALAXYTREE</em> switch is commented-out</li>
 					<li>Save and close <b>My_Makefile_options</b></li>
@@ -465,7 +510,7 @@
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				<br>
-				<b>Changing the output file name:</b>
+				<FONT size="5"><b>Changing the output file name</b></FONT>
 				<br>
 				<ol>
 					<li>Open the input file you wish to use (see above) in the /inputs folder</li>
@@ -478,7 +523,7 @@
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				<br>
-				<b>Changing the treefiles used:</b>
+				<FONT size="5"><b>Changing the treefiles used</b></FONT>
 				<br>
 				<ol>
 					<li>Open the input file you wish to use (see above) in the /inputs folder</li>
@@ -496,6 +541,77 @@
 				For quick but statistically-significant runs on Millennium-II, treefiles 40-79 are normally sufficient.
 			</FONT></p>
 			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<br>
+				<FONT size="5"><b>Model switches</b></FONT>
+				<br>
+				L-Galaxies 2020 comes with a series of pre-defined model options (or "switches") that change e.g. the physics models used, the treefiles used, which properties are tracked/outputted, etc.
+				These switches are defined in the <b>My_Makefile_options</b> file in the project root directory.
+				There meanings should be quite self explanatory, but if you are unsure, feel free to ask!
+				You are also able to add your own switches to your version of the code.
+				These should be defined in <b>My_Makefile_options</b> and then utilised in the necessary code files via "ifdef statements" (or equivalent).
+				For example, to create a switch which prevents the property <em>BulgeMassRings</em> from being outputted:
+				<ol>
+					<li>Open <b>My_Makefile_options</b> in the <b>project root directory</b></li>
+					<li>Add the following line:</li>
+					<ul style="padding-left:40px">
+							<li><em>OPT += -DNO_BULGEMASSRINGS_OUTPUT</em></li>
+					</ul>
+					<li>Save and close <b>My_Makefile_options</b></li>
+					<li>Put the following ifdef statement around the instances of <em>BulgeMassRings</em> in <b>h_galaxy_output.h</b> and <b>save.c</b> (see below for more details):</li>
+					<ul style="padding-left:40px">
+							<li><em>#ifndef NO_BULGEMASSRINGS_OUTPUT</em></li>
+							<li><em>...</em></li>
+							<li><em>#endif //NO_BULGEMASSRINGS_OUTPUT</em></li>
+					</ul>
+					<li>Save and close the code files</li>
+					<li>Open the output structure you are using (e.g. <b>LGalaxy_snapshots.py</b>, <b>LGalaxy_galtree.py</b>, or one you have created yourself)</li>
+					<li>Remove <em>BulgeMassRings</em> by either setting it to "False" in the <em>properties_used</em> dictionary (at the bottom of the .py file), or directly commenting it out:
+					<ul style="padding-left:40px">
+							<li><em># ('BulgeMassRings',numpy.float32,12),</em></li>
+					</ul>
+				</ol>
+			</FONT></p>
+			<br>
+					
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<br>
+				<FONT size="5"><b>Changing which properties are outputted</b></FONT>
+				<br>
+				By default (i.e. when in snapshot mode), L-Galaxies 2020 will output the properties listed in the Python-based "output structure" called <b>LGalaxy_snapshots.py</b>, which is in the <b>/AuxCode/awk/output/python</b> directory.
+				The galaxytree equivalent of this, called <b>LGalaxy_galtree.py</b>, is also provided in the same directory.
+				<!-- A copy of this default snapshot-mode output structure can also be found in <b>/AuxCode/awk/output/python/LGalaxy_snapshots.py</b> -->
+				However, you are free to change which properties are actually outputted by L-Galaxies 2020.
+				<!-- This is best done by creating a "switch", i.e. an <em>#ifdef</em> defined in <b>My_Makefile_options</b> (see above),
+				but simply commenting-out -->
+				This is done as follows:
+				<ol>
+					<li>Open <b>h_galaxy_output.h</b> in the <b>/code</b> folder</li>
+					<li>In the <em>GALAXY_OUTPUT</em> structure, add/comment-out the property you wish to be outputted/not outputted</li>
+					For example, to remove <em>BulgeMassRings</em>, either put it in a newly-defined <em>#ifdef</em> (see above) or directly comment it out:
+					<ul style="padding-left:40px">
+							<li><em>// float BulgeMassRings[RNUM];</em></li>
+					</ul>
+					<li>Save and close <b>h_galaxy_output.h</b></li>
+					<li>Open <b>save.c</b> in the <b>/code</b> folder</li>
+					<li>In the <em>prepare_galaxy_for_output()</em> function, add/comment-out the property you wish to be outputted/not outputted</li>
+					For example, to remove <em>BulgeMassRings</em>, either put it in a newly-defined <em>#ifdef</em> (see above) or directly comment it out:
+					<ul style="padding-left:40px">
+							<li><em>// o->BulgeMassRings[ll] = g->BulgeMassRings[ll];</em></li>
+					</ul>
+					<li>Save and close <b>save.c</b></li>
+					<li>Open the output structure you are using (e.g. <b>LGalaxy_snapshots.py</b>, <b>LGalaxy_galtree.py</b>, or one you have created yourself)</li>
+					<li>In the <em>LGalaxiesStruct</em> structure, add/comment-out the property you wish to be outputted/not outputted</li>
+					For example, to remove <em>BulgeMassRings</em>, set it to "False" in the <em>properties_used</em> dictionary (at the bottom of the .py file), or directly comment it out:
+					<ul style="padding-left:40px">
+							<li><em># ('BulgeMassRings',numpy.float32,12),</em></li>
+					</ul>
+					The property in question will now be included/removed from the output file generated by L-Galaxies 2020.
+				</ol>
+				Note: The majority of errors occurring when trying to read-in L-Galaxies output binaries into a python script come from a mis-match between the actual output and the output structure.
+				Therefore, make sure you keep your output structure up-to-date with your code!
+			</FONT></p>
 		</div>	
 	</div>	
 
@@ -503,7 +619,7 @@
 
 	<div class="main_box"> 
 		<div class="main_box_top">	
-			<p>STEP 7: L-Galaxies with the Eclipse IDE [OPTIONAL]</p>
+			<p>STEP 8: Running L-Galaxies in the Eclipse IDE  [OPTIONAL]</p>
 		</div>
 				
 		<div class="main_box_text_box">  
@@ -652,17 +768,7 @@
 					<li>To compile: Click the <b>"Build"</b> button in the top left corner (symbol of a hammer)</li>
 					<li>To run: Click the <b>"Run"</b> button in the top left corner (symbol of a green "play" sign)</li>
 				</ol>
-			</FONT></p>
-						
-			<br>
-			
-			<p style="line-height:1.5; text-align:left"><FONT size="3">
-				<b>Changing the model:</b>
-				<ol>
-					<li>Follow the information in STEP 6, as necessary, to modify the version of L-Galaxies 2020 used.</li>
-				</ol>
-			</FONT></p>
-						
+			</FONT></p>					
 		</div>
 		
 	</div>	
