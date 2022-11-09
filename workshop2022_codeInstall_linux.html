@@ -143,7 +143,8 @@
 				<b> OPTION 3: Download as a local Git repository:</b>
 				<br>
 				This option requires having a <a href="https://github.com/"><FONT size="3" COLOR="3388AA"> GitHub</FONT></a> account and <a href="https://git-scm.com/"><FONT size="3" COLOR="3388AA"> Git</FONT></a>.
-				Git is normally already installed on standard Linux systems. If it isn't on yours, download it following the instructions at: <a href="https://github.com/git-guides/install-git"><FONT size="3" COLOR="3388AA"> https://github.com/git-guides/install-git</FONT></a></li>
+				Git is normally already installed on standard Linux systems. If it isn't on yours, download it following the instructions at: <a href="https://github.com/git-guides/install-git"><FONT size="3" COLOR="3388AA"> https://github.com/git-guides/install-git</FONT></a></li> 
+				Once you have Git and a GitHub account, proceed as follows:
 				<ol>
 					<li>Navigate to a directory where you'd like L-Galaxies kept</li>
 					<li>Clone the repository:</li>
@@ -240,7 +241,7 @@
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				GSL is typically installed in <b>/usr/local/include/gsl</b> (for the header files) and <b>/usr/local/lib/</b> (for the libraries).
-				Note that if your Linux system runs with modular environments, you may need to load the GSL libraries before they can be used, with a command something like:
+				Note that if your Linux system runs with a modular environment, you may need to load the GSL libraries before they can be used, with a command something like:
 				<ul style="padding-left:40px">
 					<li><em>module load gsl</em></li>		
 				</ul>
@@ -291,7 +292,8 @@
 		<div class="main_box_text_box">  
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				The L-Galaxies 2020 makefile needs to be told which C compiler to use and where the GSL libraries are stored.
-				This information is provided as a <e.>SYSTYPE</em> configuration in the <b>My_Makefile_compilers</b> file, located in the project root directory.
+				This information is provided by the user as a <em>SYSTYPE</em> configuration in the <b>My_Makefile_compilers</b> file, located in the project root directory.
+				<br> <br>
 				By default, the SYSTYPE is set to "Linux", which should be suitable for most Linux installations.
 				This configuration assumes the gcc compiler is to be used, and that the GSL header files and libraries are stored in their default locations: <b>/usr/local/include</b> and <b>/usr/local/lib</b>.
 				If your GSL files are not stored in these locations, you will need to change the <em>GSL_INCL</em> and <em>GSL_LIBS</em> paths accordingly.
@@ -369,7 +371,7 @@
 				
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				Once L-Galaxies 2020 has finished running, the output file(s) generated will be stored in the <b>/outputs</b> folder.
-				These can be read in to python for analysis as described in STEP 6.<br>
+				These can be read in to python for analysis as described in STEP 6.<br><br>
 				Straight out of the box, L-Galaxies 2020 will run on treefile 5 of Millennium-I with only redshift 0 data outputted.
 				However, various other standard set-ups are also possible (see STEP 7).
 			</FONT></p>
@@ -397,7 +399,7 @@
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				L-Galaxies 2020 also comes with a set of simple python scripts to read output files (according to the output structure), convert properties from code units to physical units, select sub-samples, plot a few key relations, etc.
 				These python scripts can be found in <b>/AuxCode/Python</b>.
-				(For those who prefer to handle data in IDL, there are some IDL scripts available for reading-in/plotting L-Galaxies outputs available offline.
+				(For those who prefer to handle data in IDL, there are some IDL scripts available for reading-in/plotting L-Galaxies outputs.
 				If you are interested in getting a copy of these, feel free to speak to me at the workshop, or drop me an email: <b>r.yates3 -at- herts.ac.uk</b>)
 			</FONT></p>
 			
@@ -421,7 +423,7 @@
 
 	<div class="main_box"> 
 		<div class="main_box_top">	
-			<p>STEP 7: Changing the model [OPTIONAL]</p>
+			<p>STEP 7: Changing the model  [OPTIONAL]</p>
 		</div>
 		
 		<div class="main_box_text_box">  
@@ -619,7 +621,7 @@
 
 	<div class="main_box"> 
 		<div class="main_box_top">	
-			<p>STEP 8: Running L-Galaxies in the Eclipse IDE [OPTIONAL]</p>
+			<p>STEP 8: Running L-Galaxies in the Eclipse IDE  [OPTIONAL]</p>
 		</div>
 				
 		<div class="main_box_text_box">  
@@ -798,6 +800,7 @@
 				</ol>
 			</FONT></p>
 						
+			<!--
 			<br>
 			
 			<p style="line-height:1.5; text-align:left"><FONT size="3">
@@ -806,7 +809,7 @@
 					<li>Follow the information in STEP 6, as necessary, to modify the version of L-Galaxies 2020 used.</li>
 				</ol>
 			</FONT></p>
-						
+			-->		
 		</div>
 		
 	</div>	
