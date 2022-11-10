@@ -306,23 +306,28 @@
 			<br>
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				<b>Common compiler issues:</b>
+				<br>
+				<FONT size="5"><b>Common compiler issues</b></FONT>
 				<br>
 				<ol>
 					<li><b>Running with an old C standard:</b> 
 						If your distribution is quite old, it may not be running with the latest C standard.
 						If so, you may need to inform the compiler of this in <b>My_Makefile_compilers</b> by adding the <em>-std</em> flag to the <em>CC</em> call.
 						(e.g. <em>CC  =  gcc -std=C99</em> for systems running with <a href="https://en.wikipedia.org/wiki/C99"><FONT size="3" COLOR="3388AA"> C99</FONT></a>).</li>
+					<br>
 					<li><b>Running with old C libraries:</b> 
 						Likewise, an old distribution may not have a version of the <a href="https://www.gnu.org/software/libc/"><FONT size="3" COLOR="3388AA"> GNU C libraries</FONT></a> (glibc).
 						If so, you may need to install and build new C libraries following the instructions provided <a href="https://sourceware.org/glibc/wiki/Testing/Builds"><FONT size="3" COLOR="3388AA"> here</FONT></a> (which is compilcated!).
 						Alternatively, a quick hack (if you do have a recent version of the GSL libraries, see above), is to replace the <em>#include &ltmath.h&gt</em> statements at the top of each L-Galaxies code .c file with <em>#include &ltgsl/gsl_math.h&gt</em></li>
+					<br>
 					<li><b>Multiple tentative definitions:</b> 
 						If a compilation crashes with an error stating that "multiple tenative definitions of a global variable in different compilation units" are not allowed, you may need to add the <em>-fcommon</em> flag to the <em>CC</em> call in <b>My_Makefile_compilers</b>.
 						Note that this flag is set by default when running with SYSTYPE = "cygwin".</li>
+					<br>
 					<li><b>Shared libraries:</b> 
 						If your system has shared GSL libraries (i.e. .so files), rather than local archived ones (i.e. .a files), you may need to replace the default <em>-static</em> flag for <em>GSL_LIBS</em> in <b>My_Makefile_compilers</b> with a <em>-shared</em> flag.
 						You may also find that the GSL libraries are stored in <b>/usr/include</b> and <b>/usr/lib</b> (rather than <b>/usr/local/include</b> and <b>/usr/local/lib</b>), so should update the paths in <b>My_Makefile_compilers</b> accordingly.</li>
+					<br>
 					<li><b>Shared object errors:</b> 
 						Similarly, if you are getting errors like: "Relocation R_X86_64_32 against undefined symbol '[LGALAXIES_PARAMETER]' can not be used when making a shared object", 
 						then you may need to add the <em>-fPIC</em> flag to the <em>CC</em> call in <b>My_Makefile_compilers</b></li>
