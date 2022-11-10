@@ -311,16 +311,20 @@
 						If your distribution is quite old, it may not be running with the latest C standard.
 						If so, you may need to inform the compiler of this in <b>My_Makefile_compilers</b> by adding the <em>-std</em> flag to the <em>CC</em> call.
 						(e.g. <em>CC  =  gcc -std=C99</em> for systems running with <a href="https://en.wikipedia.org/wiki/C99"><FONT size="3" COLOR="3388AA"> C99</FONT></a>).</li>
+					<br>
 					<li><b>Running with old C libraries:</b> 
 						Likewise, an old distribution may not have a version of the <a href="https://www.gnu.org/software/libc/"><FONT size="3" COLOR="3388AA"> GNU C libraries</FONT></a> (glibc).
 						If so, you may need to install and build new C libraries following the instructions provided <a href="https://sourceware.org/glibc/wiki/Testing/Builds"><FONT size="3" COLOR="3388AA"> here</FONT></a> (which is compilcated!).
 						Alternatively, a quick hack (if you do have a recent version of the GSL libraries, see above), is to replace the <em>#include &ltmath.h&gt</em> statements at the top of each L-Galaxies code .c file with <em>#include &ltgsl/gsl_math.h&gt</em></li>
+					<br>
 					<li><b>Multiple tentative definitions:</b> 
 						If a compilation crashes with an error stating that "multiple tenative definitions of a global variable in different compilation units" are not allowed, you may need to add the <em>-fcommon</em> flag to the <em>CC</em> call in <b>My_Makefile_compilers</b>.
 						Note that this flag is set by default when running with SYSTYPE = "cygwin".</li>
+					<br>
 					<li><b>Shared libraries:</b> 
 						If your system has shared GSL libraries (i.e. .so files), rather than local archived ones (i.e. .a files), you may need to replace the default <em>-static</em> flag for <em>GSL_LIBS</em> in <b>My_Makefile_compilers</b> with a <em>-shared</em> flag.
 						You may also find that the GSL libraries are stored in <b>/usr/include</b> and <b>/usr/lib</b> (rather than <b>/usr/local/include</b> and <b>/usr/local/lib</b>), so should update the paths in <b>My_Makefile_compilers</b> accordingly.</li>
+					<br>
 					<li><b>Shared object errors:</b> 
 						Similarly, if you are getting errors like: "Relocation R_X86_64_32 against undefined symbol '[LGALAXIES_PARAMETER]' can not be used when making a shared object", 
 						then you may need to add the <em>-fPIC</em> flag to the <em>CC</em> call in <b>My_Makefile_compilers</b></li>
@@ -370,7 +374,7 @@
 			<br>
 				
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				Once L-Galaxies 2020 has finished running, the output file(s) generated will be stored in the <b>/outputs</b> folder.
+				Once L-Galaxies 2020 has finished running, the output file(s) generated will be stored in the <b>/output</b> folder.
 				These can be read in to python for analysis as described in STEP 6.<br><br>
 				Straight out of the box, L-Galaxies 2020 will run on treefile 5 of Millennium-I with only redshift 0 data outputted.
 				However, various other standard set-ups are also possible (see STEP 7).
@@ -399,8 +403,6 @@
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				L-Galaxies 2020 also comes with a set of simple python scripts to read output files (according to the output structure), convert properties from code units to physical units, select sub-samples, plot a few key relations, etc.
 				These python scripts can be found in <b>/AuxCode/Python</b>.
-				(For those who prefer to handle data in IDL, there are some IDL scripts available for reading-in/plotting L-Galaxies outputs.
-				If you are interested in getting a copy of these, feel free to speak to me at the workshop, or drop me an email: <b>r.yates3 -at- herts.ac.uk</b>)
 			</FONT></p>
 			
 			<br>
@@ -416,6 +418,11 @@
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				For more information on how to use/modify these python scripts, feel free to speak to me at the workshop, or drop me an email (<b>r.yates3 -at- herts.ac.uk</b>).
 			</FONT></p>	
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				(For those who prefer to handle data in IDL, there are some IDL scripts available for reading-in/plotting L-Galaxies outputs.
+				If you are interested in getting a copy of these, feel free to speak to me at the workshop, or drop me an email.)
+			</FONT></p>
 		</div>
 	</div>	
 		
@@ -430,7 +437,7 @@
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				<FONT size="5"><b>Default vs. Modified model</b></FONT>
 				<br>
-				Input files (i.e. the .par files) are provided for the Default Model (DM) and Modified Model (MM) versions of L-Galaxies 2020 (see the discussion in <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a> for details).
+				Input files (i.e. the .par files) are provided for the Default Model (DM) and Modified Model (MM) versions of L-Galaxies 2020 (see <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a> for details).
 				In brief, the Default Model allows the majority of material released by supernovae and stellar winds to mix with the ambient ColdGas before some is blown out as galactic winds.
 				The Modified Model allows the majority of this newly-released material to be directly ejected into the surrounding HotGas, without first mixing with the ColdGas.
 				<!-- L-Galaxies 2020 has two standard models for the way supernova and stellar wind ejecta is allowed to mix with the gas in and around galaxies. -->
@@ -683,7 +690,7 @@
 				<ol>
 					<li>Go to: <a href="https://www.eclipse.org/downloads/packages/installer"><FONT size="3" COLOR="3388AA"> https://www.eclipse.org/downloads/packages/installer</FONT></a></li>
 					<li>Click the download link for the Eclipse 2022-09 R x86_64 Installer for Linux (probably the x86_64 version, unless you have AArch64 system architecture)</li>
-					<li>, execute the installer (called <b>eclipse-inst-jre-linux64.tar.gz</b>)</li>
+					<li>Execute the installer (called <b>eclipse-inst-jre-linux64.tar.gz</b>)</li>
 					<li>Once downloaded, in the terminal, navigate to the directory where you want to install the Eclipse IDE, then move the downloaded .tar.gz file to the current directory</li>
 					<li>Unpack the tarball:</li>
 					<ul style="padding-left:40px">
@@ -709,8 +716,8 @@
 			<p style="line-height:1.5; text-align:left"><FONT size="3">
 				<b>Clone L-Galaxies 2020 repository:</b>
 				<ol>
-					<li>"Hide" the welcome screen</li>
-					<li>In the Eclipse IDE, click the "Open Perspective" button in the top right corner (symbol of a GUI interface with a plus sign)</li>
+					<li>In the Eclipse IDE, "Hide" the welcome screen (if still visible)</li>
+					<li>Click the "Open Perspective" button in the top right corner (symbol of a GUI interface with a plus sign)</li>
 					<li>Select "Git"</li>
 					<li>Click "Clone a Git Repository" (left)</li>
 					<li>Enter the L-Galaxies 2020 repository URI: <b>https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository</b></li>
