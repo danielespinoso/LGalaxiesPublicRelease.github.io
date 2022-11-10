@@ -598,14 +598,14 @@
 				<ol>
 					<li>Open <b>h_galaxy_output.h</b> in the <b>/code</b> folder</li>
 					<li>In the <em>GALAXY_OUTPUT</em> structure, add/comment-out the property you wish to be outputted/not outputted</li>
-					For example, to remove <em>BulgeMassRings</em>, either put it in a newly-defined <em>#ifdef</em> (see above) or directly comment it out:
+					For example, to remove <em>BulgeMassRings</em>, either put it in a newly-defined <em>#ifndef</em> (see above) or directly comment it out:
 					<ul style="padding-left:40px">
 							<li><em>// float BulgeMassRings[RNUM];</em></li>
 					</ul>
 					<li>Save and close <b>h_galaxy_output.h</b></li>
 					<li>Open <b>save.c</b> in the <b>/code</b> folder</li>
 					<li>In the <em>prepare_galaxy_for_output()</em> function, add/comment-out the property you wish to be outputted/not outputted</li>
-					For example, to remove <em>BulgeMassRings</em>, either put it in a newly-defined <em>#ifdef</em> (see above) or directly comment it out:
+					For example, to remove <em>BulgeMassRings</em>, either put it in a newly-defined <em>#ifndef</em> (see above) or directly comment it out:
 					<ul style="padding-left:40px">
 							<li><em>// o->BulgeMassRings[ll] = g->BulgeMassRings[ll];</em></li>
 					</ul>
