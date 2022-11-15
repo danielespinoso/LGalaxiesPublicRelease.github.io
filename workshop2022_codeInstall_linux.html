@@ -253,12 +253,17 @@
 			</FONT></p>
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				If your system doesn't have <em>gcc</em>, you can download the latest version (gcc-12.2.0) from <a href="https://mirrorservice.org/sites/sourceware.org/pub/gcc/releases/gcc-12.2.0/"><FONT size="3" COLOR="3388AA"> here</FONT></a>, 
+				If your system doesn't have <em>gcc</em> and/or <em>make</em>, the simplest way to install them is probably via the "build-essential" package for either <a href="https://packages.ubuntu.com/focal/build-essential"><FONT size="3" COLOR="3388AA">  Ubuntu</FONT></a> or <a href="https://packages.debian.org/sid/build-essential"><FONT size="3" COLOR="3388AA">  Debian</FONT></a> Linux:
+				<ul style="padding-left:40px">
+						<li><em>sudo apt-get install build-essential</em></li>
+				</ul>
+				Alternatively, you can download the latest version of <em>gcc</em> (gcc-12.2.0) from <a href="https://mirrorservice.org/sites/sourceware.org/pub/gcc/releases/gcc-12.2.0/"><FONT size="3" COLOR="3388AA"> here</FONT></a>, 
 				following the installation instructions provided <a href="https://gcc.gnu.org/install/"><FONT size="3" COLOR="3388AA"> here</FONT></a>.
-				Likewise, the <em>make</em> tool can be downloaded from <a href="https://www.gnu.org/software/make/"><FONT size="3" COLOR="3388AA"> here</FONT></a>, 
-				and the latest version of GSL (gsl-2.7.1) can be downloaded from <a href="https://www.gnu.org/software/gsl/"><FONT size="3" COLOR="3388AA"> here</FONT></a>, 
+				Likewise, the <em>make</em> tool can be downloaded from <a href="https://www.gnu.org/software/make/"><FONT size="3" COLOR="3388AA"> here</FONT></a>. 
+				The latest version of GSL (gsl-2.7.1) can be downloaded from <a href="https://www.gnu.org/software/gsl/"><FONT size="3" COLOR="3388AA"> here</FONT></a>, 
 				with installation instructions provided in the README and INSTALL files 
 				and general GSL documentation available <a href="https://www.gnu.org/software/gsl/doc/html/index.html"><FONT size="3" COLOR="3388AA"> here</FONT></a>.
+				
 				<!-- The latest version of GSL (gsl-2.7.1) can be installed and built as follows (admin rights required):
 				<ol>
 					<li>Navigate to the directory in which you want GSL kept</li>
