@@ -60,22 +60,24 @@
         		</p> 
 				
 			
-			<p>These output files are in binary format. The relevant data structures needed to read these using either python or IDL are also provided below.
+			<p>These output files are in binary format. This means that an "data structure" is needed to read them using e.g. python or IDL.
+			   The relevant data structures are provided for both the Snapshot and Galaxy Tree below.
+			   A simple python script to read-in these outputs is also provided here: [read_in.py]
 			</p>
 			
 			
-			<p>The units are as follows:
+			<p>The units for properties in these outputs are as follows:
 			</p>
 					
 			<p> <ul  style="margin: 5px 2vw 5px 2vw"> 
 				<li>masses  - <FONT size="2" color="#000000">\(10^{10}\mathrm{M}_{\odot}/h\)</FONT>
-				    (multiply by <FONT size="2" color="#000000">\(10^{10}/h\)</FONT> to get
+				    (i.e. multiply by <FONT size="2" color="#000000">\(10^{10}/h\)</FONT> to get
 				    <FONT size="2" color="#000000"> \(\mathrm{M}_{\odot}\))</FONT>
 				</li>
 				<li>chemical element masses  - <FONT size="2" color="#000000">\(\mathrm{M}_{\odot}\)</FONT>
 				</li>
 				<li>positions - <FONT size="2" color="#000000">\(\mathrm{Mpc}/h\)</FONT>
-				    (divide by <FONT size="2" color="#000000">\(h\)</FONT> to get
+				    (i.e. divide by <FONT size="2" color="#000000">\(h\)</FONT> to get
 				    <FONT size="2" color="#000000"> \(\mathrm{Mpc}\))</FONT>
 				</li>
 				<li>velocities - <FONT size="2" color="#000000">\(\mathrm{km/s}\)</FONT></li>
@@ -101,7 +103,7 @@
 			</p> -->			
 		
 
-			<p>For catalogues containing star formation histories, the corresponding times and widths of each bin are not saved in the galaxy structure
+			<p>For catalogues containing star formation histories, the corresponding times and widths of each bin are not saved in the default output
                		since they are the same for all galaxies at a given snapshot. These can be found here:  <script>document.write("<a href="+BaseURLGalformod+"/fits/Database_SFH_table.fits>SFH.fits</a>")</script>
             		</p>
 		</div>	
