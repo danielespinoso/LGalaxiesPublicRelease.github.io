@@ -63,11 +63,14 @@
                		since they are the same for all galaxies at a given snapshot. Instead, these can be found here:  <script>document.write("<a href="+BaseURLGalformod+"/fits/Database_SFH_table.fits>SFH.fits</a>")</script>
             		</p>				
 			
-			<p>The output files here are in binary format, which means a "data structure" is needed to read them using e.g. python or IDL.
-			   The relevant data structures are provided for both the Snapshot and Galaxy Tree output files below.
+			<p>The output files here are in binary format, which means a "data structure" is needed to read them in.
+			   The relevant data structures for python and IDL are provided for both the Snapshot and Galaxy Tree outputs below.
+			</p>
+			
+			<p>
 			   A simple python script to read-in these outputs is also provided here: [read_in.py]
-			   Set the switches at the top of the file to match the output file(s) you want to read in (default is for SA_z0.00_5_modifiedModel). 
-			   If placed in the same directory as the downloaded output files, data structure, and SFH.fits, it should run without further modification.
+			   Set the switches at the top of the file to match the output file(s) you want to read (default is: SA_z0.00_5_modifiedModel). 
+			   If placed in the same directory as the downloaded output file(s), python data structure, and SFH.fits, it should run without further modification.
 			</p>
 			
 			<p>The units for properties in these outputs are as follows:
