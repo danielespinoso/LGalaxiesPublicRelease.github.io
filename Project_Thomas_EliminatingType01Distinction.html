@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Python front end</title>
+    <meta charset="UTF-8">
+  
+    <link rel="stylesheet" href="style.css">  
+    <link rel="stylesheet" href="topnav.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<meta charset="UTF-8">
+	<meta name="keywords" content="L-Galaxies, LGalaxies, SAM, galaxy, formation, models">
+	<meta name="author" content="Peter Thomas">
+	<meta http-equiv="refresh" content="60">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta name="google-site-verification" content="HVG7Wn4SVibWVZmkOcxlBdtRj_cuxOHZfftkt2KPCkg" />
+
+	<meta property="og:title" content="Project: Eliminating the Type 0/1 distinction"/>
+	<meta property="og:description" content="L-Galaxies Model of Galaxy Formation"/>
+	<meta property="og:url" content="https://lgalaxiespublicrelease.github.io">
+	<meta property="og:image" content="https://lgalaxiespublicrelease.github.io/front.png">
+
+	<link rel="icon" href="./front.png">
+
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script> var BaseURLGalformod = "http://galformod.mpa-garching.mpg.de/public/LGalaxies/";</script>
+    
+</head>
+
+<body style="font-family:Arial;color:#3B3B3C">
+
+	<!-- top navigation panel -->
+	<script src="topnav.js"></script>
+
+	<div class="top_logo">
+		<div class="my_heading1">Project: Eliminating the Type 0/1 distinction</div>		
+		<div id="top_logo_mask1"> </div>
+		<div id="top_logo_mask2"> </div>
+		<div id="top_logo_mask3"> </div>
+		<div id="top_logo_mask4"> </div>
+	</div> 
+  
+  	<div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>Status</p>
+		</div>
+		
+		<div class="main_box_text_box">  
+			<p style="font-size:1em; line-height:1.5; text-align:center">
+			   Under development &mdash; needs a little more development before it can be shared.<br>
+			</p>
+					
+		</div>	
+	</div>	
+	  
+		
+	
+	<div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>Collaborators</p>
+		</div>
+		
+		<div class="main_box_text_box">  
+			<p style="font-size:1em; line-height:1.5; text-align:center">
+			   Peter Thomas, Will Roper
+			</p>
+					
+		</div>	
+	</div>	
+	
+	
+	
+	<div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>Description</p>
+		</div>
+		
+		<div class="main_box_text_box">  
+			<p style="font-size:1em; line-height:1.5; ">
+			  The distinction between Type 0 and Type 1 galaxies has always annoyed me: it is associated with the definition of a main halo within SubFind which to me seems artificial and can cause problems when halos jump around, which they do quite often.  This project will make use of the MEGA halo finder algorithm which uses a FoF definition for halos and avoids the use of spherical overdensities which often do not match the underlying morphology.  Halos and subhalos are defined using two different linking lengths (effective overdensities) and subhalos are always guaranteed to be nested within halos.  Subhalos are the sites of galaxy formation.  Gas is accreted onto halos and may cool and further accrete on to a central subhalo, which is defined to be the subhalo located closest to the dynamical centre of the halo: following halo mergers there may be no such subhalo in which case no accretion occurs.  The subhalos contain galaxies and are processed in the usual way within the L-galaxies framework.<p>
+		    As a consequence of using MEGA, it is possible to generalise to merger graphs that allow halos (and subhalos) to split apart as well as merging &mdash; this often occurs prior to a merger.  That allows far better tracking of baryons and avoids over-accretion of baryons onto halos.
+			</p>
+					
+		</div>	
+	</div>	
+  
+</body>
+</html>
