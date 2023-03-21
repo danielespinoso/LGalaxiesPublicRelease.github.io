@@ -4,7 +4,7 @@ document.write("	<div class=\"top_nav\" >");
 document.write("		<table>");
 document.write("		<tr>");
 document.write("			<td class=\"top_nav\" style=\"align:left;\"><a href=\".\/index.html\" style=\"text-align:left;\">Home<\/a><\/td>");
-document.write(" 			<td class=\"top_nav\" style=\"align:right;\"><a href=\"http://gavo.mpa-garching.mpg.de/Millennium/\">SQL_Database<\/a><a href=\".\/team.html\">Team<\/a><a href=\".\/projects.html\">Projects<\/a><a href=\"./workshop2022.html#INSTALLING_THE_CODE\">Installation_Instructions<\/a><a href=\".\/contact.html\">Contact<\/a><\/td>");
+document.write(" 			<td class=\"top_nav\" style=\"align:right;\"><a href=\"http://gavo.mpa-garching.mpg.de/Millennium/\">SQL_Database<\/a><a href=\".\/team.html\">Team<\/a><a href=\".\/projects.html\">Projects<\/a><a href=\"./installation_instructions.html\">Installation_Instructions<\/a><a href=\".\/contact.html\">Contact<\/a><\/td>");
 document.write("		<\/tr>");
 document.write("		<\/table>");
 document.write("	<\/div>");
