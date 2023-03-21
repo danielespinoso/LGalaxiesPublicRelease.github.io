@@ -23,7 +23,8 @@ document.write("   			<a href=\".\/index.html\" style=\"text-align:left;\">Home<
 document.write("   			<a href=\"http://gavo.mpa-garching.mpg.de/Millennium/\">SQL_Database<\/a>");
 document.write("   			<a href=\".\/team.html\">Team<\/a>");
 document.write("   			<a href=\".\/projects.html\">Projects<\/a>");
-document.write("   			<a href=\"./workshop2022.html#INSTALLING_THE_CODE\">Installation_Instructions<\/a>");
+document.write("   			<!-- <a href=\"./workshop2022.html#INSTALLING_THE_CODE\">Installation_Instructions<\/a> -->");
+document.write("   			<a href=\"./installation_instructions.html\">Installation_Instructions<\/a>");
 document.write("   			<a href=\".\/contact.html\">Contact<\/a>");
 document.write(" 	   <\/div>");
 document.write("  	   ");
