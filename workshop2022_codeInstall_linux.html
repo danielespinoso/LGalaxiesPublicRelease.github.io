@@ -242,8 +242,8 @@
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				GSL is typically installed in <b>/usr/local/include/gsl</b> (for the header files) and <b>/usr/local/lib/</b> (for the libraries).
-				If you can't find the explicit path yourself, you might be able to simply point L-Galaxies to the relevant environment variables 
-				with something like <b>GSL_INCL = -I$(INCLUDE)</b> and <b>GSL_LIBS = -L$(LD_LIBRARY_PATH)</b>.
+				If you can't find the explicit path yourself, you might be able to simply point L-Galaxies to the relevant environment variables, 
+				 <em>GSL_INCL = -I$(INCLUDE)</em> and <em>GSL_LIBS = -L$(LD_LIBRARY_PATH)</em> (see STEP 4).
 			</FONT></p>
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
@@ -313,6 +313,9 @@
 				By default, the SYSTYPE is set to "Linux", which should be suitable for most Linux installations.
 				This configuration assumes the gcc compiler is to be used, and that the GSL header files and libraries are stored in their default locations: <b>/usr/local/include</b> and <b>/usr/local/lib</b>.
 				If your GSL files are not stored in these locations, you will need to change the <em>GSL_INCL</em> and <em>GSL_LIBS</em> paths accordingly.
+				As mentioned above, if you can't find the explicit path to GSL yourself, you might be able to simply point L-Galaxies to the relevant environment variables 
+				with something like <em>GSL_INCL = -I$(INCLUDE)</em> and <em>GSL_LIBS = -L$(LD_LIBRARY_PATH)</em>.
+				<br> <br>
 				By default, no compiler optimisation flags are added to this configuration. Feel free to add ones of your own, if you wish.
 				<br> <br>
 				If L-Galaxies 2020 compiles without any errors when you run the <em>make</em> command described in STEP 5 below, you are probably good to go!
