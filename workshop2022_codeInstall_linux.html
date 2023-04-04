@@ -242,12 +242,12 @@
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				GSL is typically installed in <b>/usr/local/include/gsl</b> (for the header files) and <b>/usr/local/lib/</b> (for the libraries).
-				If you can't find the explicit path yourself, you might be able to simply point L-Galaxies to the relevant environment variables, 
-				i.e. <b>GSL_INCL = -I$(INCLUDE)</b> and <b>GSL_LIBS = -L$(LD_LIBRARY_PATH)</b>.
+				If you can't find the explicit path yourself, you might be able to simply point L-Galaxies to the relevant environment variables 
+				with something like <b>GSL_INCL = -I$(INCLUDE)</b> and <b>GSL_LIBS = -L$(LD_LIBRARY_PATH)</b>.
 			</FONT></p>
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				Note that if your Linux system runs with a modular environment, you may need to load the GSL libraries before they can be used, with a command something like:
+				Note that if your Linux system runs with a modular environment, you may need to load the GSL libraries before they can be used:
 				<ul style="padding-left:40px">
 					<li><em>module load gsl</em></li>		
 				</ul>
