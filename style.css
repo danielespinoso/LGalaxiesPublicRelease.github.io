@@ -210,9 +210,8 @@ text-align:justify;
 /*Front Page*/
 .front_page_top_box_inner_boxes {
   float:left;  
-  width:40%;   
+  width:60%;   
   /*height:200;*/ 
-  height:400;
   position:relative;
   
   text-align:center;
