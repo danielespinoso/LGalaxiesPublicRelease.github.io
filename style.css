@@ -211,7 +211,8 @@ text-align:justify;
 .front_page_top_box_inner_boxes {
   float:left;  
   width:40%;   
-  /*height:200;*/  
+  /*height:200;*/ 
+  height:400;
   position:relative;
   
   text-align:center;
