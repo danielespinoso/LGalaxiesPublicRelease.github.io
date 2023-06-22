@@ -227,6 +227,40 @@ text-align:justify;
 }
 
 
+.front_page_top_box_inner_boxes_left {
+  float:left;  
+  width:45%;   
+  position:static;
+  
+  text-align:center;
+  font-family:Arial;
+  color:#323234;
+  
+  background-color: #C6CEE4; 
+  border-color: transparent; 
+  border-radius: 5px;
+  padding: 0px 0px 30px 0px;
+  margin: 30px 5%;	 
+}
+
+
+.front_page_top_box_inner_boxes_right {
+  float:right;  
+  width:45%;   
+  position:static;
+  
+  text-align:center;
+  font-family:Arial;
+  color:#323234;
+  
+  background-color: #C6CEE4; 
+  border-color: transparent; 
+  border-radius: 5px;
+  padding: 0px 0px 30px 0px;
+  margin: 30px 5%;	 
+}
+
+
 .front_page_top_box_inner_boxes_header{
 	font-size: 1.5em;   
     text-align:center;
