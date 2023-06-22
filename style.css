@@ -229,7 +229,7 @@ text-align:justify;
 
 .front_page_top_box_inner_boxes_left {
   float:left;  
-  width:45%;   
+  width:40%;   
   position:static;
   
   text-align:center;
@@ -246,7 +246,7 @@ text-align:justify;
 
 .front_page_top_box_inner_boxes_right {
   float:right;  
-  width:45%;   
+  width:40%;   
   position:static;
   
   text-align:center;
