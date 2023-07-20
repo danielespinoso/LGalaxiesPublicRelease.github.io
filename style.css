@@ -211,7 +211,7 @@ text-align:justify;
 .front_page_top_box_inner_boxes {
   /*float:left;  */
   /*width:45%;  */
-  float:center;
+  float:inherit;
   width:90%;   
   /*height:200;*/ 
   /*position:relative;*/
