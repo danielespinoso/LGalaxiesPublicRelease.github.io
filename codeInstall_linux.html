@@ -89,21 +89,24 @@
 				<br>
 				<ol>
 					<li>Go to <a href="https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository"><FONT size="3" COLOR="3388AA"> https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository</FONT></a></li>
+					<li>From the drop-down list on the left, select the branch you wish to download
+						(i.e. "master" for the Yates+21a version, or "Yates2023" for the Yates+23 version)</li>
 					<li>Click the green "Code" drop-down menu, and select "Download ZIP" [~42.2 MB]</li>
-					<li>Move the downloaded file (master.zip) to a suitable base directory.</li>
+					<li>Move the downloaded file ([branch_name].zip) to a suitable base directory.</li>
 					<li>In the terminal (or otherwise), navigate to that base directory, then unzip the file:</li>
 					<ul style="padding-left:40px">
 						<!-- <li><em>tar -xf ./master.zip</em></li> -->
-						<li><em>unzip ./master.zip</em></li>
+						<li><em>unzip ./[branch_name].zip</em></li>
 					</ul>
-					This will create a new directory called <b>/LGalaxies2020_PublicRepository-master</b>, hereafter, the <b>"project root directory"</b>.
+					This will create a new directory called <b>/LGalaxies2020_PublicRepository-[branch_name]</b>, hereafter, 
+					the <b>"project root directory"</b>.
 					<li>You can now delete the .zip file, if you wish:</li>
 					<ul style="padding-left:40px">
-						<li><em>rm ./master.zip</em></li>
+						<li><em>rm ./[branch_name].zip</em></li>
 					</ul>
 					<li>Manually add an empty <b>/output</b> folder in the project root directory:</li>
 					<ul style="padding-left:40px">
-						<li><em>cd ./LGalaxies2020_PublicRepository-master</em></li>
+						<li><em>cd ./LGalaxies2020_PublicRepository-[branch_name]</em></li>
 						<li><em>mkdir output</em></li>
 					</ul>
 				</ol>
