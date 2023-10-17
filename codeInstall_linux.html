@@ -704,9 +704,10 @@
 				<FONT size="5"><b>Processing yields from binary_c outputs [Yates2023 branch only]</b></FONT>
 				<br>
 				The Yates+23 version of L-Galaxies 2020 allows the inclusion of chemical yields and supernova rates from
-				binary stellar evolution (BSE) calculations done by the binary_c code. To do this, "ensemble" outputs from binary_c
-				need to be loaded and converted into yield tables that can be read by L-Galaxies. Standard versions of these tables 
-				are already generated and stored in the <b>/YieldTables/binary_c_yields/default</b> folder.
+				binary stellar evolution (BSE) calculations made by the <a href="https://binary\_c.gitlab.io/"><FONT size="3" COLOR="3388AA"> binary_c</FONT></a> code. 
+				To do this, "ensemble" outputs from binary_c need to be loaded and converted into yield tables that can be 
+				read by L-Galaxies. Standard versions of these tables are already generated and stored in the 
+				<b>/YieldTables/binary_c_yields/default</b> folder.
 				However, if a different set of chemical elements is required (only 'H','He','C','N','O','Ne','Mg','Si','S','Ca', and 'Fe' 
 				are loaded by default), or if a new set of binary_c ensembles is used, then new yield tables can be easily generated 
 				by executing the <b>process_binaryc_outputs.py</b> script in the <b>/AuxCode/Python</b> folder.
