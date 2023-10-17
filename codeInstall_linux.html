@@ -703,23 +703,25 @@
 				<br>
 				<FONT size="5"><b>Processing yields from binary_c outputs [Yates2023 branch only]</b></FONT>
 				<br>
-				The Yates+23 version of L-Galaxies 2020 allows the inclusion of chemical yields and supernova rates from
+				The Yates+23 version of L-Galaxies allows the inclusion of chemical yields and supernova rates from
 				binary stellar evolution (BSE) calculations made by the <a href="https://binary\_c.gitlab.io/"><FONT size="3" COLOR="3388AA"> binary_c</FONT></a> code. 
-				To do this, "ensemble" outputs from binary_c need to be loaded and converted into yield tables that can be 
-				read by L-Galaxies. Standard versions of these tables are already generated and stored in the 
+				To do this, "ensemble" outputs from binary_c are loaded and converted into yield tables that can be 
+				read by L-Galaxies.
+				<br><br>
+				Standard versions of these tables are already generated and stored in the 
 				<b>/YieldTables/binary_c_yields/default</b> folder.
-				However, if a different set of chemical elements is required (only 'H','He','C','N','O','Ne','Mg','Si','S','Ca', and 'Fe' 
-				are loaded by default), or if a new set of binary_c ensembles is used, then new yield tables can be easily generated 
-				by executing the <b>process_binaryc_outputs.py</b> script in the <b>/AuxCode/Python</b> folder.
-				<br>
+				However, if a different set of chemical elements is required (N.B. only 'H','He','C','N','O','Ne','Mg','Si','S','Ca', and 'Fe' 
+				are loaded by default), or if you want to use a new set of binary_c ensembles, then new yield tables can be easily generated 
+				by executing the <b>process_binaryc_outputs.py</b> script found in the <b>/AuxCode/Python</b> folder.
+				<br><br>
 				To change the chemical elements/isotoptes considered, simply modify the <b>elements</b> list under "INPUT VARIABLES" in 
 				<b>process_binaryc_outputs.py</b>.
-				<br>
-				To generate yield tables for a new set of binary_c ensembles, simply move the new ensemble .json files into the 
-				<b>/YieldTables/binary_c_yields/new/ensembles</b> folder and turn the <em>USE_NEW_ENSEMBLES</em> switch on in 
+				<br><br>
+				To generate yield tables for a new set of binary_c ensembles, simply place the new ensemble .json files into the 
+				<b>/YieldTables/binary_c_yields/new/ensembles</b> folder and turn on the <em>USE_NEW_ENSEMBLES</em> switch in 
 				<b>process_binaryc_outputs.py</b>.
-				<br>
-				For more information on how to handle binary_c ensemble files, feel free to drop me an email (<b>r.yates3 -at- herts.ac.uk</b>).
+				<br><br>
+				For more information on how to handle binary_c data with L-Galaxies, feel free to drop me an email (<b>r.yates3 -at- herts.ac.uk</b>).
 			</FONT></p>
 			<br>
 		</div>	
