@@ -433,9 +433,14 @@
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				By default, L-Galaxies 2020 outputs are written as binary files.
 				To be read, binary files require prior knowledge of the structure of the data in the file.
-				This is why default L-Galaxies output structures (compatible for python) are provided in the 
+				This is why L-Galaxies output structures (compatible for python) are provided in the 
 				<b>/AuxCode/Python</b> folder (see "Changing which properties are outputted" in STEP 7).
 				<!-- <b>/AuxCode/awk/output/python</b> folder (see "Changing which properties are outputted" in STEP 7). -->
+				The following standard output structures are provided in the "master" or "Yates23" branches:
+				<ul style="padding-left:40px">
+						<li><b>"master"</b>: LGalaxy_snapshots.py, LGalaxy_snapshots_extraSFHs.py, LGalaxy_galtree.py</li>
+						<li><b>"Yates23"</b>: LGalaxy_snapshots_liteOutput.py, LGalaxy_snapshots_normal.py, LGalaxy_ringSFHs.py</li>
+					</ul>
 			</FONT></p>
 			
 			<br>
@@ -625,7 +630,7 @@
 							<li><em>#endif //NO_BULGEMASSRINGS_OUTPUT</em></li>
 					</ul>
 					<li>Save and close the code files</li>
-					<li>Open the output structure you are using (e.g. <b>LGalaxy_snapshots.py</b>, <b>LGalaxy_galtree.py</b>, or one you have created yourself)</li>
+					<li>Open the output structure you are using</li>
 					<li>Remove <em>BulgeMassRings</em> by either setting it to "False" in the <em>properties_used</em> dictionary (at the bottom of the .py file), or directly commenting it out:
 					<ul style="padding-left:40px">
 							<li><em># ('BulgeMassRings',numpy.float32,12),</em></li>
