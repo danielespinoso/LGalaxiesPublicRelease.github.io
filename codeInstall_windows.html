@@ -387,14 +387,16 @@
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				By default, L-Galaxies 2020 outputs are written as binary files.
 				To be read, binary files require prior knowledge of the structure of the data in the file.
-				This is why default L-Galaxies output structures (compatible for python) are provided in the <b>/AuxCode/awk/output/python</b> folder (see "Changing which properties are outputted" in STEP 7).
+				This is why L-Galaxies output structures (compatible for python) are provided in the 
+				<b>/AuxCode/Python</b> folder (see "Changing which properties are outputted" in STEP 7).
 			</FONT></p>
 			
 			<br>
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				L-Galaxies 2020 also comes with a set of simple python scripts to read output files (according to the output structure), convert properties from code units to physical units, select sub-samples, plot a few key relations, etc.
-				These python scripts can be found in <b>/AuxCode/Python</b>.
+				L-Galaxies 2020 also comes with a set of simple python scripts to read output files (according to the output structure), 
+				convert properties from code units to physical units, select sub-samples, plot a few key relations, etc.
+				These python scripts can also be found in <b>/AuxCode/Python</b>.
 			</FONT></p>
 			
 			<br>
@@ -432,7 +434,7 @@
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				<FONT size="5"><b>Default vs. Modified model</b></FONT>
 				<br>
-				Input files (i.e. the .par files) are provided for the Default Model (DM) and Modified Model (MM) versions of L-Galaxies 2020 (see the discussion in <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a> for details).
+				Input files (i.e. the .par files) are provided for the Default Model (DM) and Modified Model (MM) versions of L-Galaxies 2020 (see <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a> for details).
 				In brief, the Default Model allows the majority of material released by supernovae and stellar winds to mix with the ambient ColdGas before some is blown out as galactic winds.
 				The Modified Model allows the majority of this newly-released material to be directly ejected into the surrounding HotGas, without first mixing with the ColdGas.
 				<!-- L-Galaxies 2020 has two standard models for the way supernova and stellar wind ejecta is allowed to mix with the gas in and around galaxies. -->
@@ -569,7 +571,7 @@
 							<li><em>#endif //NO_BULGEMASSRINGS_OUTPUT</em></li>
 					</ul>
 					<li>Save and close the code files</li>
-					<li>Open the output structure you are using (e.g. <b>LGalaxy_snapshots.py</b>, <b>LGalaxy_galtree.py</b>, or one you have created yourself)</li>
+					<li>Open the output structure .py file you are using</li>
 					<li>Remove <em>BulgeMassRings</em> by either setting it to "False" in the <em>properties_used</em> dictionary (at the bottom of the .py file), or directly commenting it out:
 					<ul style="padding-left:40px">
 							<li><em># ('BulgeMassRings',numpy.float32,12),</em></li>
@@ -582,30 +584,52 @@
 				<br>
 				<FONT size="5"><b>Changing which properties are outputted</b></FONT>
 				<br>
-				By default (i.e. when in snapshot mode), L-Galaxies 2020 will output the properties listed in the Python-based "output structure" called <b>LGalaxy_snapshots.py</b>, which is in the <b>/AuxCode/awk/output/python</b> directory.
-				The galaxytree equivalent of this, called <b>LGalaxy_galtree.py</b>, is also provided in the same directory.
-				<!-- A copy of this default snapshot-mode output structure can also be found in <b>/AuxCode/awk/output/python/LGalaxy_snapshots.py</b> -->
-				However, you are free to change which properties are actually outputted by L-Galaxies 2020.
-				<!-- This is best done by creating a "switch", i.e. an <em>#ifdef</em> defined in <b>My_Makefile_options</b> (see above),
-				but simply commenting-out -->
+				The L-Galaxies output structures define which properties are contained in the binary output files.
+				The standard output structures (compatible with python) provided in each of the L-Galaxies 2020 branches are described below.
+			</FONT></p>
+
+			<p style="line-height:1.5; text-align:left"><FONT size="3">
+				<b>"master" branch:</b>
+				<ul style="padding-left:40px">
+					<li><b>LGalaxy_snapshots.py:</b> This is the standard output structure for outputs generated out-of-the-box by the "master" branch of L-Galaxies 2020.
+						It assumes that snapshot mode has been selected and the standard set of model switches are turned on (see above).</li>
+					<li><b>LGalaxy_galtree.py:</b>  This is the standard output structure for outputs generated with the <em>GALAXYTREE</em> switch turned on.</li>
+					<li><b>LGalaxy_snapshots_extraSFHs.py:</b> This is the output structure to use (in snapshot mode) if chemical enrichment histories for individual elements in galaxy rings are required
+						(i.e. if the <em>OUTPUT_RINGS_EXTRA</em> switch is turned on)</li>
+				</ul>
+				<br>
+				<b>"Yates2023" branch:</b>
+				<ul style="padding-left:40px">
+					<li><b>LGalaxy_snapshots_liteOutput.py:</b> This is the standard output structure for outputs generated out-of-the-box by the "Yates2023" branch of L-Galaxies 2020.
+						It assumes that snapshot mode has been selected and the standard set of model switches are turned on (see above), including the <em>LITE_OUTPUT</em> switch, which reduces the number of properties outputted.</li>
+					<li><b>LGalaxy_snapshots_normal.py:</b>  This output structure is for outputs generated in snapshot mode with the <em>LITE_OUTPUT</em> switched turned off.</li>
+					<li><b>LGalaxy_ringSFHs.py:</b> This is the output structure to use (in snapshot mode) if chemical enrichment histories for individual elements in galaxy rings are required
+						(i.e. if the <em>OUTPUT_RINGS_EXTRA</em> switch is turned on). Similar to the LGalaxy_snapshots_extraSFHs.py structure in the "master" branch.</li>
+				</ul>
+			</FONT></p>
+
+			<p style="line-height:1.5; text-align:center"><FONT size="3">				
+				<!--By default (i.e. when in snapshot mode), L-Galaxies 2020 will output the properties listed in the Python-based "output structure" called <b>LGalaxy_snapshots.py</b>, which is in the <b>/AuxCode/awk/output/python</b> directory.
+				The galaxytree equivalent of this, called <b>LGalaxy_galtree.py</b>, is also provided in the same directory.-->
+				You are also free to customise which properties are actually outputted by L-Galaxies 2020.
 				This is done as follows:
 				<ol>
 					<li>Open <b>h_galaxy_output.h</b> in the <b>/code</b> folder</li>
 					<li>In the <em>GALAXY_OUTPUT</em> structure, add/comment-out the property you wish to be outputted/not outputted</li>
-					For example, to remove <em>BulgeMassRings</em>, either put it in a newly-defined <em>#ifdef</em> (see above) or directly comment it out:
+					For example, to remove <em>BulgeMassRings</em>, either put it in a newly-defined <em>#ifndef</em> (see above) or directly comment it out:
 					<ul style="padding-left:40px">
 							<li><em>// float BulgeMassRings[RNUM];</em></li>
 					</ul>
 					<li>Save and close <b>h_galaxy_output.h</b></li>
 					<li>Open <b>save.c</b> in the <b>/code</b> folder</li>
 					<li>In the <em>prepare_galaxy_for_output()</em> function, add/comment-out the property you wish to be outputted/not outputted</li>
-					For example, to remove <em>BulgeMassRings</em>, either put it in a newly-defined <em>#ifdef</em> (see above) or directly comment it out:
+					For example, to remove <em>BulgeMassRings</em>, either put it in a newly-defined <em>#ifndef</em> (see above) or directly comment it out:
 					<ul style="padding-left:40px">
 							<li><em>// o->BulgeMassRings[ll] = g->BulgeMassRings[ll];</em></li>
 					</ul>
 					<li>Save and close <b>save.c</b></li>
-					<li>Open the output structure you are using (e.g. <b>LGalaxy_snapshots.py</b>, <b>LGalaxy_galtree.py</b>, or one you have created yourself)</li>
-					<li>In the <em>LGalaxiesStruct</em> structure, add/comment-out the property you wish to be outputted/not outputted</li>
+					<li>Open the output structure .py file you are using</li>
+					<li>In the structure, add/comment-out the property you wish to be outputted/not outputted</li>
 					For example, to remove <em>BulgeMassRings</em>, set it to "False" in the <em>properties_used</em> dictionary (at the bottom of the .py file), or directly comment it out:
 					<ul style="padding-left:40px">
 							<li><em># ('BulgeMassRings',numpy.float32,12),</em></li>
@@ -614,6 +638,32 @@
 				</ol>
 				Note: The majority of errors occurring when trying to read-in L-Galaxies output binaries into a python script come from a mis-match between the actual output and the output structure.
 				Therefore, make sure you keep your output structure up-to-date with your code!
+			</FONT></p>
+
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<br>
+				<FONT size="5"><b>Processing binary_c data [Yates2023 branch only]</b></FONT>
+				<br>
+				The Yates+23 version of L-Galaxies allows the inclusion of chemical yields and supernova rates from stellar populations containing binary stars,
+				by utilising the binary stellar evolution (BSE) calculations made by the <a href="https://binary\_c.gitlab.io/"><FONT size="3" COLOR="3388AA"> binary_c</FONT></a> code. 
+				To do this, "ensemble" outputs from binary_c are loaded and converted into yield tables that can be read by L-Galaxies.
+				<br><br>
+				Standard versions of these tables are already generated and stored in the <b>/YieldTables/binary_c_yields/default</b> folder.
+				However, if a different set of chemical elements is required (N.B. only 'H','He','C','N','O','Ne','Mg','Si','S','Ca', and 'Fe' 
+				are loaded by default), or if you want to use a new set of binary_c ensembles, then new yield tables can be easily generated 
+				by executing the <b>process_binaryc_outputs.py</b> script found in the <b>/AuxCode/Python</b> folder.
+				<br><br>
+				To change the chemical elements/isotoptes considered, simply modify the <b>elements</b> list under "INPUT VARIABLES" in 
+				<b>process_binaryc_outputs.py</b>. A new <b>h_metals.h</b> header file will automatically be written in the <b>/code</b>
+				folder, which allows the new list of elements/isotopes chosen to be tracked in L-Galaxies.
+				<br><br>
+				To generate yield tables for a new set of binary_c ensembles, simply place the new ensemble .json files into the 
+				<b>/YieldTables/binary_c_yields/new/ensembles</b> folder and turn on the <em>USE_NEW_ENSEMBLES</em> switch in 
+				<b>process_binaryc_outputs.py</b>.
+				<br><br>
+				For more information on how to handle binary_c data with L-Galaxies, feel free to drop me an email (<b>r.yates3 -at- herts.ac.uk</b>).
 			</FONT></p>
 		</div>	
 	</div>	
