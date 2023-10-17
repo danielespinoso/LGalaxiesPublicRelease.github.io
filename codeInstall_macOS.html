@@ -75,21 +75,27 @@
 				<br>
 				<ol>
 					<li>Go to <a href="https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository"><FONT size="3" COLOR="3388AA"> https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository</FONT></a></li>
-					<li>Click the green "Code" drop-down menu, and select "Download ZIP" [~42.2 MB]</li>
-					<li>Move the downloaded file (master.zip) to a suitable base directory.</li>
+					<li>From the drop-down list on the left, select the branch you wish to download:
+					<ul style="padding-left:40px">
+						<li><b>"master"</b> for the Yates+21a version of L-Galaxies 2020</li>
+						<li><b>"Yates23"</b> for the Yates+23 version of L-Galaxies 2020</li>
+					</ul>
+					<li>Click the green "Code" drop-down menu, and select "Download ZIP" [~5-20 MB]</li>
+					<li>Move the downloaded file ([BRANCH_NAME].zip) to a suitable base directory.</li>
 					<li>In the terminal (or otherwise), navigate to that base directory, then unzip the file:</li>
 					<ul style="padding-left:40px">
 						<!-- <li><em>tar -xf ./master.zip</em></li> -->
-						<li><em>unzip ./master.zip</em></li>
+						<li><em>unzip ./[BRANCH_NAME].zip</em></li>
 					</ul>
-					This will create a new directory called <b>/LGalaxies2020_PublicRepository-master</b>, hereafter, the <b>"project root directory"</b>.
+					This will create a new directory called <b>/LGalaxies2020_PublicRepository-[BRANCH_NAME]</b>, hereafter, 
+					the <b>"project root directory"</b>.
 					<li>You can now delete the .zip file, if you wish:</li>
 					<ul style="padding-left:40px">
-						<li><em>rm ./master.zip</em></li>
+						<li><em>rm ./[BRANCH_NAME].zip</em></li>
 					</ul>
 					<li>Manually add an empty <b>/output</b> folder in the project root directory:</li>
 					<ul style="padding-left:40px">
-						<li><em>cd ./LGalaxies2020_PublicRepository-master</em></li>
+						<li><em>cd ./LGalaxies2020_PublicRepository-[BRANCH_NAME]</em></li>
 						<li><em>mkdir output</em></li>
 					</ul>
 				</ol>
@@ -102,55 +108,32 @@
 				<br>
 				<ol>
 					<li>In the terminal, navigate to a directory where you'd like L-Galaxies kept</li>
+					<li>Decide which branch you wish to download:
+					<ul style="padding-left:40px">
+						<li><b>"master"</b> for the Yates+21a version of L-Galaxies 2020</li>
+						<li><b>"Yates23"</b> for the Yates+23 version of L-Galaxies 2020</li>
+					</ul>
 					<li>Download L-Galaxies 2020:</li>
 					<ul style="padding-left:40px">
-						<li><em>curl -O https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository/archive/refs/heads/master.zip</em></li>
+						<li><em>curl -O https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository/ 
+							archive/refs/heads/[BRANCH_NAME].zip</em></li>
 					</ul>
 					<li>Unzip the file:</li>
 					<ul style="padding-left:40px">
-						<li><em>unzip ./master.zip</em></li>
+						<li><em>unzip ./[BRANCH_NAME].zip</em></li>
 					</ul>
-					This will create a new directory called<b>/LGalaxies2020_PublicRepository-master</b>, hereafter, the <b>"project root directory"</b>.
+					This will create a new directory called<b>/LGalaxies2020_PublicRepository-[BRANCH_NAME]</b>, hereafter, the <b>"project root directory"</b>.
 					<li>You can now delete the .zip file, if you wish:</li>
 					<ul style="padding-left:40px">
-						<li><em>rm ./master.zip</em></li>
+						<li><em>rm ./[BRANCH_NAME].zip</em></li>
 					</ul>
 					<li>Manually add an empty <b>/output</b> folder in the project root directory:</li>
 					<ul style="padding-left:40px">
-						<li><em>cd ./LGalaxies2020_PublicRepository-master</em></li>
+						<li><em>cd ./LGalaxies2020_PublicRepository-[BRANCH_NAME]</em></li>
 						<li><em>mkdir output</em></li>
 					</ul>
 				</ol>
 			</FONT></p>
-			
-			<!--
-			<br>
-			
-			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				<b> OPTION 2: Download zip file using wget:</b>
-				<br>
-				<ol>
-					<li>Navigate to a directory where you'd like L-Galaxies kept</li>
-					<li>Download L-Galaxies 2020:</li>
-					<ul style="padding-left:40px">
-						<li><em>wget -P ./ https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository/archive/refs/heads/master.zip</em></li>
-					</ul>
-					<li>Extract to a directory called <b>/LGalaxies2020_PublicRepository-master</b>. Hereafter, this will be called the <b>"project root directory"</b>:</li>
-					<ul style="padding-left:40px">
-						<li><em>unzip ./master.zip</em></li>
-					</ul>
-					<li>You can now delete the .zip file, if you wish:</li>
-					<ul style="padding-left:40px">
-						<li><em>rm ./master.zip</em></li>
-					</ul>
-					<li>Manually add an empty <b>/output</b> folder in the project root directory:</li>
-					<ul style="padding-left:40px">
-						<li><em>cd ./LGalaxies2020_PublicRepository-master</em></li>
-						<li><em>mkdir output</em></li>
-					</ul>
-				</ol>
-			</FONT></p>
-			-->
 			
 			<br>
 			
@@ -162,10 +145,16 @@
 				Once you have Git and a GitHub account, proceed as follows:
 				<ol>
 					<li>In the terminal, navigate to a directory where you'd like L-Galaxies kept</li>
+					<li>Decide which branch you wish to download:
+					<ul style="padding-left:40px">
+						<li><b>"master"</b> for the Yates+21a version of L-Galaxies 2020</li>
+						<li><b>"Yates23"</b> for the Yates+23 version of L-Galaxies 2020</li>
+					</ul>
 					<li>Clone the repository:</li>
 					<ul style="padding-left:40px">
-						<!-- <li><em> cd [PATH TO CHOSEN FOLDER]</em></li> -->
-						<li><em> git clone https://github.com/[GITHUB_USERNAME]/https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository</em></li>
+						<li><em> git clone --branch [BRANCH_NAME] --single-branch https://github.com/[GITHUB_USERNAME]/ 
+							https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository</em></li>
+						<!-- <li><em> git clone https://github.com/[GITHUB_USERNAME]/https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository</em></li> -->
 					</ul>		
 				</ol>		
 			</FONT></p>
