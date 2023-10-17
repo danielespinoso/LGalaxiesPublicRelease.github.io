@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Installing L-Galaxies: Mac OS</title>
+    <meta charset="UTF-8">
+  
+    <link rel="stylesheet" href="style.css">  
+    <link rel="stylesheet" href="topnav.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<meta charset="UTF-8">
+	<meta name="keywords" content="L-Galaxies, LGalaxies, SAM, galaxy, formation, models">
+	<meta name="author" content="Rob Yates">
+	<meta http-equiv="refresh" content="60">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta name="google-site-verification" content="HVG7Wn4SVibWVZmkOcxlBdtRj_cuxOHZfftkt2KPCkg" />
+
+	<meta property="og:title" content="Installing L-Galaxies: Mac OS"/>
+	<meta property="og:description" content="L-Galaxies Model of Galaxy Formation"/>
+	<meta property="og:url" content="https://lgalaxiespublicrelease.github.io">
+	<meta property="og:image" content="https://lgalaxiespublicrelease.github.io/front.png">
+
+	<link rel="icon" href="./front.png">
+
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script> var BaseURLGalformod = "http://galformod.mpa-garching.mpg.de/public/LGalaxies/";</script>
+	
+</head>
+
+	
+<!-- <body style="font-family:lucida grande;color:#3B3B3C"> -->
+<body style="font-family:Arial;color:#3B3B3C">
+
+	<!-- top navigation panel -->
+	<script src="topnav.js"></script>
+
+	<div class="top_logo">
+		<div class="my_heading1">Installing L-Galaxies:<br>Mac OS</div>		
+		<div id="top_logo_mask1"> </div>
+		<div id="top_logo_mask2"> </div>
+		<div id="top_logo_mask3"> </div>
+		<div id="top_logo_mask4"> </div>
+	</div> 
+  
+	
+	
+  	<div class="main_box">  
+
+		<div class="main_box_top">	
+			<p>Reference system</p>
+		</div>
+		
+		<div class="main_box_text_box">  
+			<p style="line-height:1.5; text-align:center"><FONT size="3">		
+				The example Mac OS installation described below was done on the following system: <br>
+				Machine: MacBook Pro 2020 <br>
+				Operating system: macOS Big Sur 11.6.8 <br>
+        			Processor: Intel Core i7, 2300 MHz, quad core <br>
+        			RAM: 16 GB
+			</FONT></p>					
+		</div>	
+	</div>	
+	
+	
+	
+	<div class="main_box"> 
+		<div class="main_box_top">	
+			<p>STEP 1: Download L-Galaxies 2020</p>
+		</div>
+				
+		<div class="main_box_text_box">  
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<b> OPTION 1: Download zip file using browser:</b>
+				<br>
+				<ol>
+					<li>Go to <a href="https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository"><FONT size="3" COLOR="3388AA"> https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository</FONT></a></li>
+					<li>Click the green "Code" drop-down menu, and select "Download ZIP" [~42.2 MB]</li>
+					<li>Move the downloaded file (master.zip) to a suitable base directory.</li>
+					<li>In the terminal (or otherwise), navigate to that base directory, then unzip the file:</li>
+					<ul style="padding-left:40px">
+						<!-- <li><em>tar -xf ./master.zip</em></li> -->
+						<li><em>unzip ./master.zip</em></li>
+					</ul>
+					This will create a new directory called <b>/LGalaxies2020_PublicRepository-master</b>, hereafter, the <b>"project root directory"</b>.
+					<li>You can now delete the .zip file, if you wish:</li>
+					<ul style="padding-left:40px">
+						<li><em>rm ./master.zip</em></li>
+					</ul>
+					<li>Manually add an empty <b>/output</b> folder in the project root directory:</li>
+					<ul style="padding-left:40px">
+						<li><em>cd ./LGalaxies2020_PublicRepository-master</em></li>
+						<li><em>mkdir output</em></li>
+					</ul>
+				</ol>
+			</FONT></p>
+			
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<b> OPTION 2: Download zip file using curl:</b>
+				<br>
+				<ol>
+					<li>In the terminal, navigate to a directory where you'd like L-Galaxies kept</li>
+					<li>Download L-Galaxies 2020:</li>
+					<ul style="padding-left:40px">
+						<li><em>curl -O https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository/archive/refs/heads/master.zip</em></li>
+					</ul>
+					<li>Unzip the file:</li>
+					<ul style="padding-left:40px">
+						<li><em>unzip ./master.zip</em></li>
+					</ul>
+					This will create a new directory called<b>/LGalaxies2020_PublicRepository-master</b>, hereafter, the <b>"project root directory"</b>.
+					<li>You can now delete the .zip file, if you wish:</li>
+					<ul style="padding-left:40px">
+						<li><em>rm ./master.zip</em></li>
+					</ul>
+					<li>Manually add an empty <b>/output</b> folder in the project root directory:</li>
+					<ul style="padding-left:40px">
+						<li><em>cd ./LGalaxies2020_PublicRepository-master</em></li>
+						<li><em>mkdir output</em></li>
+					</ul>
+				</ol>
+			</FONT></p>
+			
+			<!--
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<b> OPTION 2: Download zip file using wget:</b>
+				<br>
+				<ol>
+					<li>Navigate to a directory where you'd like L-Galaxies kept</li>
+					<li>Download L-Galaxies 2020:</li>
+					<ul style="padding-left:40px">
+						<li><em>wget -P ./ https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository/archive/refs/heads/master.zip</em></li>
+					</ul>
+					<li>Extract to a directory called <b>/LGalaxies2020_PublicRepository-master</b>. Hereafter, this will be called the <b>"project root directory"</b>:</li>
+					<ul style="padding-left:40px">
+						<li><em>unzip ./master.zip</em></li>
+					</ul>
+					<li>You can now delete the .zip file, if you wish:</li>
+					<ul style="padding-left:40px">
+						<li><em>rm ./master.zip</em></li>
+					</ul>
+					<li>Manually add an empty <b>/output</b> folder in the project root directory:</li>
+					<ul style="padding-left:40px">
+						<li><em>cd ./LGalaxies2020_PublicRepository-master</em></li>
+						<li><em>mkdir output</em></li>
+					</ul>
+				</ol>
+			</FONT></p>
+			-->
+			
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">		
+				<b> OPTION 3: Download as a local Git repository:</b>
+				<br>
+				This option requires having a <a href="https://github.com/"><FONT size="3" COLOR="3388AA"> GitHub</FONT></a> account and <a href="https://git-scm.com/"><FONT size="3" COLOR="3388AA"> Git</FONT></a> on your Mac OS system.
+				If you don't have Git already, download it following the instructions at: <a href="https://github.com/git-guides/install-git"><FONT size="3" COLOR="3388AA"> https://github.com/git-guides/install-git</FONT></a>.
+				Once you have Git and a GitHub account, proceed as follows:
+				<ol>
+					<li>In the terminal, navigate to a directory where you'd like L-Galaxies kept</li>
+					<li>Clone the repository:</li>
+					<ul style="padding-left:40px">
+						<!-- <li><em> cd [PATH TO CHOSEN FOLDER]</em></li> -->
+						<li><em> git clone https://github.com/[GITHUB_USERNAME]/https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository</em></li>
+					</ul>		
+				</ol>		
+			</FONT></p>
+	
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">		
+				<b> OPTION 4: Download as a local Git repository via the Eclipse IDE:</b>
+				<br>
+				The L-Galaxies 2020 code can also be obtained from GitHub via the <a href="https://www.eclipse.org/ide/"><FONT size="3" COLOR="3388AA"> Eclipse IDE</FONT></a>, which offers a more intuitive way of editing and debugging code using a Graphical User Interface (GUI).
+				To install L-Galaxies 2020 this way, skip straight to STEP 8 below, where information on how to install Eclipse and synchronise it with L-Galaxies 2020 is provided.
+			</FONT></p>
+		</div>
+		
+	</div>	
+		
+	
+	
+	
+	<div class="main_box"> 
+		<div class="main_box_top">	
+			<p>STEP 2: Download spectrophotometric tables and treefiles</p>
+		</div>
+		
+		<div class="main_box_text_box">  
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<ol>
+					<li>Download the standard <a href="https://uhhpc.herts.ac.uk/~ry22aas/SpecPhotTables.tar"><FONT size="3" COLOR="3388AA"> SpecPhotTables</FONT></a> [~1.6 GB] [direct download]</li>
+					<li>Move the downloaded .tar file (SpecPhotTables.tar) into the <b>project root directory</b>.</li>
+					<li>In the terminal, navigate to the <b>project root directory</b>.</li>
+					<li>Untar the file:</li>
+					<ul style="padding-left:40px">
+						<li><em>tar -xf ./SpecPhotTables.tar</em></li>
+					</ul>	
+					This will create a folder called <b>/SpecPhotTables</b> containing the downloaded spectrophotometic tables
+					<li>Download the treefiles (choose one of the following options):</li>
+					Millennium-I:
+					<ul style="padding-left:40px">
+						<li><a href="https://uhhpc.herts.ac.uk/~ry22aas/MR_MergerTrees_5.tar"><FONT size="3" COLOR="3388AA"> Treefile 5</FONT></a> [~804 MB] [direct download]</li>
+						<li><a href="https://uhhpc.herts.ac.uk/~ry22aas/MR_MergerTrees_0-9.tar"><FONT size="3" COLOR="3388AA"> Treefiles 0-9</FONT></a> [~7.5 GB] [direct download]</li>
+						<li><a href="http://galformod.mpa-garching.mpg.de/public/LGalaxies/run_model/MergerTrees/MR_allMergerTrees.tar"><FONT size="3" COLOR="3388AA"> Treefiles 0-511</FONT></a> [~401 GB] [direct download]</li>
+					</ul>
+					Millennium-II:
+					<ul style="padding-left:40px">
+						<li><a href="https://uhhpc.herts.ac.uk/~ry22aas/MRII_MergerTrees_40-79.tar"><FONT size="3" COLOR="3388AA"> Treefiles 40-79</FONT></a> [~6.3 GB] [direct download]</li>
+						<li><a href="https://uhhpc.herts.ac.uk/~ry22aas/MRII_allMergerTrees.tar"><FONT size="3" COLOR="3388AA"> Treefiles 0-511</FONT></a> [~92 GB] [direct download]</li>
+					</ul>
+					<li>Move the downloaded .tar file into the <b>/MergerTrees</b> directory, which is in the <b>project root directory</b>.</li>
+					<li>In the terminal, navigate to the <b>/MergerTrees</b>.</li>
+					<li>Untar the treefiles:</li>
+					<ul style="padding-left:40px">
+						<li><em>tar -xf ./MR[II]_MergerTrees_[TREEFILE_NUMBERS]</em></li>
+					</ul>
+					This will create a folder called either <b>/MR/treedata</b>, <b>/MRII/treedata</b>, or <b>/MRII</b> containing the downloaded treefiles.
+					Note that some macOS systems may try to untar your treefiles directly into a folder with the same name as the tar file itself (e.g. /MR_MergerTrees_5). 
+					In this case, you will either have to move the sub-folders inside back up to /MergerTrees, or change the path that L-Galaxies uses to looks for them in the input file (see STEP 7).
+				</ol>	
+			</FONT></p>
+			<br>
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				NOTE: Because the full set of Millennium-I treefiles (MR_allMergerTrees.tar) are stored at an "http" address, rather than "https", some browsers may prevent it from being downloaded automatically.
+				To get around this (at least in Chrome), right-click the download link above, select "Save link as..." and confirm a destination folder. Then, if the browser says that the file "can't be downloaded securely", click the up arrow next to the download and select "Keep".
+			</FONT></p>
+			
+		</div>	
+	</div>	
+	
+	
+	
+		<div class="main_box"> 
+		<div class="main_box_top">	
+			<p>STEP 3: Check your compiler and C libraries</p>
+		</div>
+		
+		<div class="main_box_text_box">  
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				To compile and run L-Galaxies, a C compiler (e.g. <a href="https://gcc.gnu.org/"><FONT size="3" COLOR="3388AA"> gcc</FONT></a>), the <em>make</em> command, and the GNU Scientific Libraries (<a href="https://www.gnu.org/software/gsl/"><FONT size="3" COLOR="3388AA">GSL</FONT></a>) are required.
+				Mac OS distributions typically come with all three of these installed.
+				You can check if <em>gcc</em> and <em>make</em> are installed on your system using the following commands, which return the directory where they are stored (usually <b>/usr/bin/gcc</b> and <b>/usr/bin/make</b>):
+				<ul style="padding-left:40px">
+						<li><em>which gcc</em></li>
+						<li><em>which make</em></li>
+						
+				</ul>
+			</FONT></p>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				GSL is typically installed in <b>/usr/local/include/gsl</b> (for the header files) and <b>/usr/local/lib</b> (for the libraries).
+				However, if <a href="https://brew.sh/"><FONT size="3" COLOR="3388AA"> Homebrew</FONT></a> was used to install GSL, 
+				it might be found in <b>/opt/homebrew/Cellar/gsl/[VERSION NUMBER]/include</b> (for the header files) and <b>/opt/homebrew/Cellar/gsl/[VERSION NUMBER]/lib</b> (for the libraries) instead.
+			</FONT></p>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				If your system doesn't have <em>gcc</em>, <em>make</em>, and/or GSL, the simplest way to install them on Mac OS is probably via <a href="https://brew.sh/"><FONT size="3" COLOR="3388AA"> Homebrew</FONT></a>.
+				If you have Homebrew, simply enter the following commands into the command line:
+				<ul style="padding-left:40px">
+						<li><em>brew install gcc</em></li>
+						<li><em>brew install make</em></li>
+						<li><em>brew install gsl</em></li>
+				</ul>
+			</FONT></p>
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				This should install them to their default locations (see above).
+			</FONT></p>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				Alternatively, you can manually download the latest version of gcc (gcc-12.2.0) from <a href="https://mirrorservice.org/sites/sourceware.org/pub/gcc/releases/gcc-12.2.0/"><FONT size="3" COLOR="3388AA"> here</FONT></a>, 
+				following the installation instructions provided <a href="https://gcc.gnu.org/install/"><FONT size="3" COLOR="3388AA"> here</FONT></a>.
+				Likewise, the make tool can be downloaded from <a href="https://www.gnu.org/software/make/"><FONT size="3" COLOR="3388AA"> here</FONT></a>.
+				The latest version of GSL (gsl-2.7.1) can be downloaded from <a href="https://www.gnu.org/software/gsl/"><FONT size="3" COLOR="3388AA"> here</FONT></a>, 
+				with installation instructions provided in the README and INSTALL files 
+				and general GSL documentation available <a href="https://www.gnu.org/software/gsl/doc/html/index.html"><FONT size="3" COLOR="3388AA"> here</FONT></a>.			
+			</FONT></p>
+			
+		</div>	
+	</div>	
+	
+	
+	
+	<div class="main_box"> 
+		<div class="main_box_top">	
+			<p>STEP 4: Check the compiler configuration</p>
+		</div>
+				
+		<div class="main_box_text_box">  
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				The L-Galaxies 2020 makefile needs to be told which C compiler to use and where the GSL libraries are stored.
+				This information is provided by the user as a <em>SYSTYPE</em> configuration in the <b>My_Makefile_compilers</b> file, located in the <b>project root directory</b>.
+				<br> <br>
+				By default, the SYSTYPE variable is set to "Linux".
+				You can change this to the default "Mac" configuration by commenting-out <em>SYSTYPE = "Linux"</em> at the top of the file and un-commenting <em>SYSTYPE = "Mac"</em>.
+				This set-up should be suitable for most Mac OS installations.
+				It assumes the gcc compiler is to be used and that the GSL header files and libraries are stored in their default locations: <b>/usr/local/include</b> and <b>/usr/local/lib</b>.
+				If your GSL files are not stored in these locations, you will need to change the <em>GSL_INCL</em> and <em>GSL_LIBS</em> paths accordingly.
+				By default, no compiler optimisation flags are added to this configuration. Feel free to add ones of your own, if you wish.
+				<br> <br>
+				<!-- You can also set-up your own configuration, if you wish!
+				Just remember to re-set the SYSTYPE variable at the top of My_Makefile_compilers too.
+				<br> <br> -->
+				If L-Galaxies 2020 compiles without any errors when you run the <em>make</em> command described in STEP 5 below, you are probably good to go!
+				If not, here are a few common compiler issues and our (unofficial) suggested fixes:
+			</FONT></p>
+	
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<br>
+				<FONT size="5"><b>Common compiler issues</b></FONT>
+				<br>
+				<ol>
+					<li><b>Running with an old C standard:</b> 
+						If your distribution is quite old, it may not be running with the latest C standard.
+						If so, you may need to inform the compiler of this in <b>My_Makefile_compilers</b> by adding the <em>-std</em> flag to the <em>CC</em> call.
+						(e.g. <em>CC  =  gcc -std=C99</em> for systems running with <a href="https://en.wikipedia.org/wiki/C99"><FONT size="3" COLOR="3388AA"> C99</FONT></a>).</li>
+					<br>
+					<li><b>Running with old C libraries:</b> 
+						Likewise, an old distribution may not have a version of the <a href="https://www.gnu.org/software/libc/"><FONT size="3" COLOR="3388AA"> GNU C libraries</FONT></a> (glibc).
+						If so, you may need to install and build new C libraries following the instructions provided <a href="https://sourceware.org/glibc/wiki/Testing/Builds"><FONT size="3" COLOR="3388AA"> here</FONT></a> (which is compilcated!).
+						Alternatively, a quick hack (if you do have a recent version of the GSL libraries, see above), is to replace the <em>#include &ltmath.h&gt</em> statements at the top of each L-Galaxies code .c file with <em>#include &ltgsl/gsl_math.h&gt</em></li>
+					<br>
+					<li><b>Multiple tentative definitions:</b> 
+						If a compilation crashes with an error stating that "multiple tenative definitions of a global variable in different compilation units" are not allowed, you may need to add the <em>-fcommon</em> flag to the <em>CC</em> call in <b>My_Makefile_compilers</b>.
+						Note that this flag is set by default when running with SYSTYPE = "cygwin".</li>
+					<br>
+					<li><b>Shared libraries:</b> 
+						If your system has shared GSL libraries (i.e. .so files), rather than local archived ones (i.e. .a files), you may need to replace the default <em>-static</em> flag for <em>GSL_LIBS</em> in <b>My_Makefile_compilers</b> with a <em>-shared</em> flag.
+						You may also find that the GSL libraries are stored in <b>/usr/include</b> and <b>/usr/lib</b> (rather than <b>/usr/local/include</b> and <b>/usr/local/lib</b>), so should update the paths in <b>My_Makefile_compilers</b> accordingly.</li>
+					<br>
+					<li><b>Shared object errors:</b> 
+						Similarly, if you are getting errors like: "Relocation R_X86_64_32 against undefined symbol '[LGALAXIES_PARAMETER]' can not be used when making a shared object", 
+						then you may need to add the <em>-fPIC</em> flag to the <em>CC</em> call in <b>My_Makefile_compilers</b></li>
+				</ol>
+			</FONT></p>
+			
+		</div>
+		
+	</div>	
+
+
+
+	<div class="main_box"> 
+		<div class="main_box_top">	
+			<p>STEP 5: Compile and run the code</p>
+		</div>
+		
+		<div class="main_box_text_box">  
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				Compiling and running L-Galaxies 2020 is done as follows:
+				<ol>
+					<li>In the terminal, navigate to the project root directory</li>
+					<li>Compile the code:</li>
+					<ul style="padding-left:40px">
+						<li><em> make</em></li>
+					</ul>	
+					<li>Run the code:</li>
+					<ul style="padding-left:40px">
+						<li><em> ./L-Galaxies ./input/[INPUT FILE]</em></li>
+						<!-- <li><b><em> ./L-Galaxies ./input/input_MR_W1_PLANCK_LGals2020_DM.par</em></b></li> -->
+					</ul>
+				</ol>
+			</FONT></p>
+			
+			<br>
+				
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				There are four standard input files to choose from (for info on which to use, see STEP 7):
+				<ul style="padding-left:40px">
+					<li>input_MR_W1_PLANCK_LGals2020_DM.par</li>
+					<li>input_MR_W1_PLANCK_LGals2020_MM.par</li>
+					<li>input_MRII_W1_PLANCK_LGals2020_DM.par</li>
+					<li>input_MRII_W1_PLANCK_LGals2020_MM.par</li>
+				</ul>
+			</FONT></p>
+			
+			<br>
+				
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				Once L-Galaxies 2020 has finished running, the output file(s) generated will be stored in the <b>/output</b> folder.
+				These can be read in to python for analysis as described in STEP 6.<br><br>
+				Straight out of the box, L-Galaxies 2020 will run on treefile 5 of Millennium-I with only redshift 0 data outputted.
+				However, various other standard set-ups are also possible (see STEP 7).
+			</FONT></p>
+		</div>	
+	</div>	
+
+
+
+
+
+
+	<div class="main_box"> 
+		<div class="main_box_top">	
+			<p>STEP 6: Reading and plotting outputs in python</p>
+		</div>
+		
+		<div class="main_box_text_box">  
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				By default, L-Galaxies 2020 outputs are written as binary files.
+				To be read, binary files require prior knowledge of the structure of the data in the file.
+				This is why default L-Galaxies output structures (compatible for python) are provided in the <b>/AuxCode/awk/output/python</b> folder (see "Changing which properties are outputted" in STEP 7).
+			</FONT></p>
+			
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				L-Galaxies 2020 also comes with a set of simple python scripts to read output files (according to the output structure), convert properties from code units to physical units, select sub-samples, plot a few key relations, etc.
+				These python scripts can be found in <b>/AuxCode/Python</b>.
+				(For those who prefer to handle data in IDL, there are some IDL scripts available for reading-in/plotting L-Galaxies outputs.
+				If you are interested in getting a copy of these, feel free to speak to me at the workshop, or drop me an email: <b>r.yates3 -at- herts.ac.uk</b>)
+			</FONT></p>
+			
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				To run the python scripts on the default output produced by L-Galaxies 2020, simply execute the <b>main_lgals.py</b> file.
+				This will generate a pickled version of the L-Glaxies 2020 output (.npy file) in the <b>/output</b> folder, as well as some plots of key galaxy population relations in the <b>/figures</b> folder.
+				<b>main_lgals.py</b> also contains a number of switches which can be used to modify how/what data is read-in and plotted.
+			</FONT></p>
+						
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				For more information on how to use/modify these python scripts, feel free to speak to me at the workshop, or drop me an email (<b>r.yates3 -at- herts.ac.uk</b>).
+			</FONT></p>	
+		</div>
+	</div>	
+			
+		
+
+
+	<div class="main_box"> 
+		<div class="main_box_top">	
+			<p>STEP 7: Changing the model  [OPTIONAL]</p>
+		</div>
+		
+		<div class="main_box_text_box">  
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<FONT size="5"><b>Default vs. Modified model</b></FONT>
+				<br>
+				Input files (i.e. the .par files) are provided for the Default Model (DM) and Modified Model (MM) versions of L-Galaxies 2020 (see the discussion in <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a> for details).
+				In brief, the Default Model allows the majority of material released by supernovae and stellar winds to mix with the ambient ColdGas before some is blown out as galactic winds.
+				The Modified Model allows the majority of this newly-released material to be directly ejected into the surrounding HotGas, without first mixing with the ColdGas.
+				<!-- L-Galaxies 2020 has two standard models for the way supernova and stellar wind ejecta is allowed to mix with the gas in and around galaxies. -->
+				<!-- In the "Default Model", galactic outflows are predominanlty of ambient ISM metallicity, whereas in the "Modified Model", galactic outflows are predominantly metal-rich (see the discussion in <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a> for more details). -->
+				<!-- These two models each have their own input file (when running on Millennium-I): -->
+				Depending on which model you want to use, the corresponding input file is one of the following:
+				<ul style="padding-left:40px">
+					<li>input_MR_W1_PLANCK_LGals2020_DM.par</li>
+					<li>input_MR_W1_PLANCK_LGals2020_MM.par</li>
+				</ul>
+				Note that these input files are for runs on the Millenium-I merger trees. If you want to run on Millennium-II instead, see below.
+				
+			</FONT></p>
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<br>
+				<FONT size="5"><b>Millennium-I vs. Millennium-II</b></FONT>
+				<br>
+				By default, L-Galaxies 2020 will try to run on Millennium-I merger trees. To switch to Millennium-II, make sure you've downloaded some Millennium-II treefiles (see STEP 2), and then do the following:
+				<ol>
+					<li>Open the <b>My_Makefile_options</b> file in the project root directory</li>
+					<li>Uncomment the <em>MRII</em> switch</li>
+					<li>Save and close <b>My_Makefile_options</b></li>
+					<li>Use the default model (DM) or modified model (MM) Millennium-II input files as the argument when running the code (see STEP 5 above):</li>
+						<ul style="padding-left:40px">
+							<li>input_MRII_W1_PLANCK_LGals2020_DM.par</li>
+							<li>input_MRII_W1_PLANCK_LGals2020_MM.par</li>
+						</ul>
+				</ol>
+				
+				<!--
+				For example, the user can choose which N-body simulation to run on (MR and MRII), 
+				and which set of baryonic parameters to consider (see the discussion on the "default model (DM)" and "modified model (MM)" in <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a>) 
+				Four standard "input files" files are provided (in the /inputs folder in the project root directory) to cover these four basic combinations:
+				<ul style="padding-left:40px">
+					<li>input_MR_W1_PLANCK_LGals2020_DM.par</li>
+					<li>input_MR_W1_PLANCK_LGals2020_MM.par</li>
+					<li>input_MRII_W1_PLANCK_LGals2020_DM.par</li>
+					<li>input_MRII_W1_PLANCK_LGals2020_MM.par</li>
+				</ul>
+				You can select one of these input files by adding it as the argument when running the L-Galaxies executable (see above).
+				To run on Millennium-II, you will also need to uncomment the "MRII" switch in the <b>My_Makefile_options</b> file in the project root directory.
+				-->
+			</FONT></p>
+			<br>
+
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<br>
+				<FONT size="5"><b>Snapshot vs. Galaxytree mode</b></FONT>
+				<br>
+				Snapshot mode (the default for L-Galaxies 2020) will only output data for a user-defined set of redshifts (i.e. snapshots).
+				Galaxytree mode will instead output data from all snapshots, along with the IDs needed to link a given galaxy to its progenitors and descendents (note that this generates much larger output files).
+			</FONT></p>
+			<p style="line-height:1.5; text-align:left"><FONT size="3">
+				To use/modify snapshot mode:
+				<ol>
+					<li>Open <b>desired_output_redshifts.txt</b> in the /inputs folder</li>
+					<li>Add the redshifts you wish to be outputted to the top of this file, one on each line, with an empty line at the end of your list (L-Galaxies will match these to their nearest snapshots automatically)</li>
+					<li>Open the <b>My_Makefile_options</b> file in the project root directory</li>
+					<li>Set the <em>NOUT</em> parameter to equal the number of redshifts you set to be outputted in <b>desired_output_redshifts.txt</b></li>
+					<li>Make sure that the <em>GALAXYTREE</em> switch is commented-out</li>
+					<li>Save and close <b>My_Makefile_options</b></li>
+					<li>Compile and run L-Galaxies 2020 as described in STEP 5</li>
+				</ol>
+				<br>
+				To use galaxytree mode:
+				<ol>
+					<li>Open the <b>My_Makefile_options</b> file in the project root directory</li>
+					<li>Uncomment the <em>GALAXYTREE</em> switch</li>
+					<li>Save and close <b>My_Makefile_options</b></li>
+					<li>Compile and run L-Galaxies 2020 as described in STEP 5</li>
+				</ol>
+				
+				<!-- For simplicity, the L-Galaxies 2020 code is initially set-up to run on treefile 5 of Millennium-I in single-snapshot mode using the default model parameters. -->	
+			</FONT></p>
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<br>
+				<FONT size="5"><b>Changing the output file name</b></FONT>
+				<br>
+				<ol>
+					<li>Open the input file you wish to use (see above) in the /inputs folder</li>
+					<li>Change <em>FileNameGalaxies</em> to an appropriate name. This will be the prefix in the name of the output file(s) that L-Galaxies generates.</li>		
+					<li>Save and close the input file</li>
+					<li>Compile and run L-Galaxies 2020 as described in STEP 5</li>
+				</ol>
+			</FONT></p>
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<br>
+				<FONT size="5"><b>Changing the treefiles used</b></FONT>
+				<br>
+				<ol>
+					<li>Open the input file you wish to use (see above) in the /inputs folder</li>
+					<li>Set <em>FirstFile</em> to the first treefile you wish to use</li>
+					<li>Set <em>LastFile</em> to the last treefile you wish to use</li>
+					<li>Save and close the input file</li>
+					<li>Compile and run L-Galaxies 2020 as described in STEP 5</li>
+				</ol>
+			</FONT></p>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				To run L-Galaxies 2020 on the full set of Millennium-I or II trees, set <em>FirstFile</em> to 0 and <em>LastFile</em> to 511.
+				For testing purposes on Millennium-I, treefile 5 alone is normally sufficient.
+				For quick but statistically-significant runs on Millennium-I, treefiles 0-9 are normally sufficient.
+				For quick but statistically-significant runs on Millennium-II, treefiles 40-79 are normally sufficient.
+			</FONT></p>
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<br>
+				<FONT size="5"><b>Model switches</b></FONT>
+				<br>
+				L-Galaxies 2020 comes with a series of pre-defined model options (or "switches") that change e.g. the physics models used, the treefiles used, which properties are tracked/outputted, etc.
+				These switches are defined in the <b>My_Makefile_options</b> file in the project root directory.
+				There meanings should be quite self explanatory, but if you are unsure, feel free to ask!
+				You are also able to add your own switches to your version of the code.
+				These should be defined in <b>My_Makefile_options</b> and then utilised in the necessary code files via "ifdef statements" (or equivalent).
+				For example, to create a switch which prevents the property <em>BulgeMassRings</em> from being outputted:
+				<ol>
+					<li>Open <b>My_Makefile_options</b> in the <b>project root directory</b></li>
+					<li>Add the following line:</li>
+					<ul style="padding-left:40px">
+							<li><em>OPT += -DNO_BULGEMASSRINGS_OUTPUT</em></li>
+					</ul>
+					<li>Save and close <b>My_Makefile_options</b></li>
+					<li>Put the following ifdef statement around the instances of <em>BulgeMassRings</em> in <b>h_galaxy_output.h</b> and <b>save.c</b> (see below for more details):</li>
+					<ul style="padding-left:40px">
+							<li><em>#ifndef NO_BULGEMASSRINGS_OUTPUT</em></li>
+							<li><em>...</em></li>
+							<li><em>#endif //NO_BULGEMASSRINGS_OUTPUT</em></li>
+					</ul>
+					<li>Save and close the code files</li>
+					<li>Open the output structure you are using (e.g. <b>LGalaxy_snapshots.py</b>, <b>LGalaxy_galtree.py</b>, or one you have created yourself)</li>
+					<li>Remove <em>BulgeMassRings</em> by either setting it to "False" in the <em>properties_used</em> dictionary (at the bottom of the .py file), or directly commenting it out:
+					<ul style="padding-left:40px">
+							<li><em># ('BulgeMassRings',numpy.float32,12),</em></li>
+					</ul>
+				</ol>
+			</FONT></p>
+			<br>
+					
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<br>
+				<FONT size="5"><b>Changing which properties are outputted</b></FONT>
+				<br>
+				By default (i.e. when in snapshot mode), L-Galaxies 2020 will output the properties listed in the Python-based "output structure" called <b>LGalaxy_snapshots.py</b>, which is in the <b>/AuxCode/awk/output/python</b> directory.
+				The galaxytree equivalent of this, called <b>LGalaxy_galtree.py</b>, is also provided in the same directory.
+				<!-- A copy of this default snapshot-mode output structure can also be found in <b>/AuxCode/awk/output/python/LGalaxy_snapshots.py</b> -->
+				However, you are free to change which properties are actually outputted by L-Galaxies 2020.
+				<!-- This is best done by creating a "switch", i.e. an <em>#ifdef</em> defined in <b>My_Makefile_options</b> (see above),
+				but simply commenting-out -->
+				This is done as follows:
+				<ol>
+					<li>Open <b>h_galaxy_output.h</b> in the <b>/code</b> folder</li>
+					<li>In the <em>GALAXY_OUTPUT</em> structure, add/comment-out the property you wish to be outputted/not outputted</li>
+					For example, to remove <em>BulgeMassRings</em>, either put it in a newly-defined <em>#ifdef</em> (see above) or directly comment it out:
+					<ul style="padding-left:40px">
+							<li><em>// float BulgeMassRings[RNUM];</em></li>
+					</ul>
+					<li>Save and close <b>h_galaxy_output.h</b></li>
+					<li>Open <b>save.c</b> in the <b>/code</b> folder</li>
+					<li>In the <em>prepare_galaxy_for_output()</em> function, add/comment-out the property you wish to be outputted/not outputted</li>
+					For example, to remove <em>BulgeMassRings</em>, either put it in a newly-defined <em>#ifdef</em> (see above) or directly comment it out:
+					<ul style="padding-left:40px">
+							<li><em>// o->BulgeMassRings[ll] = g->BulgeMassRings[ll];</em></li>
+					</ul>
+					<li>Save and close <b>save.c</b></li>
+					<li>Open the output structure you are using (e.g. <b>LGalaxy_snapshots.py</b>, <b>LGalaxy_galtree.py</b>, or one you have created yourself)</li>
+					<li>In the <em>LGalaxiesStruct</em> structure, add/comment-out the property you wish to be outputted/not outputted</li>
+					For example, to remove <em>BulgeMassRings</em>, set it to "False" in the <em>properties_used</em> dictionary (at the bottom of the .py file), or directly comment it out:
+					<ul style="padding-left:40px">
+							<li><em># ('BulgeMassRings',numpy.float32,12),</em></li>
+					</ul>
+					The property in question will now be included/removed from the output file generated by L-Galaxies 2020.
+				</ol>
+				Note: The majority of errors occurring when trying to read-in L-Galaxies output binaries into a python script come from a mis-match between the actual output and the output structure.
+				Therefore, make sure you keep your output structure up-to-date with your code!
+			</FONT></p>
+		</div>	
+	</div>	
+
+
+
+	<div class="main_box"> 
+		<div class="main_box_top">	
+			<p>STEP 8: Running L-Galaxies in the Eclipse IDE  [OPTIONAL]</p>
+		</div>
+				
+		<div class="main_box_text_box">  
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				Although L-Galaxies 2020 can be used with any basic word processor and the command line, 
+				using an Interactive Development Environment (IDE) can make modifying, compiling, running, and debugging code significantly easier and more efficient.
+				This can save a lot of time and energy in the long run.
+				Therefore, we recommend an IDE (that is compatible with C makefile projects) is used when working with L-Galaxies.
+				Below, we outline how to download, install, and synchronise the Java-based <a href="https://www.eclipse.org/ide/"><FONT size="3" COLOR="3388AA"> Eclipse IDE</FONT></a> for L-Galaxies, which has already been extensively tried and tested with the code.	
+			</FONT></p>
+			
+			<br>
+			
+			<p style="line-height:1.5; text-align:left"><FONT size="3">
+				<b>Check C compiler and libraries:</b>
+				<ol>
+					<li>If you haven't already, complete STEP 3 above to install the <em>gcc</em> compiler, <em>make</em>, and GSL.</li>
+				</ol>
+			</FONT></p>
+			
+			<br>
+			
+			<p style="line-height:1.5; text-align:left"><FONT size="3">
+				<b>Install jdk:</b>
+				<br>
+				Eclipse is a java-based IDE, so it needs the <a href="https://en.wikipedia.org/wiki/Java_Development_Kit"><FONT size="3" COLOR="3388AA"> Java Development Kit (JDK)</FONT></a> to run.
+				You can check if JDK is already installed on your system by running <em>java -version</em> in the command line.
+				If this command returns information on a Java "Runtime Environment", you probably have a working version of JDK installed.
+				If you don't have JDK, you can install the latest version as a private user as follows:
+				<ol>
+					<li>Go to: <a href="https://www.oracle.com/java/technologies/downloads/#jdk19-mac"><FONT size="3" COLOR="3388AA"> https://www.oracle.com/java/technologies/downloads/#jdk19-mac</FONT></a></li>
+					<li>Click the download link for the Java SE Development Kit 19.0.1 x64 DMG Installer</li>
+					<li>Double-click the downloaded .dmg file. Double-click the exported .pkg file</li>
+					<li>Install to the default location: <b>/Library/Java/JavaVirtualMachines/jdk-19.jdk/Contents/Home/</b></li>
+				</ol>
+			</FONT></p>
+			
+			<br>
+			
+			<p style="line-height:1.5; text-align:left"><FONT size="3">
+				<b>Install Eclipse IDE:</b>
+				<ol>
+					<li>Go to: <a href="https://www.eclipse.org/downloads/packages/installer"><FONT size="3" COLOR="3388AA"> https://www.eclipse.org/downloads/packages/installer</FONT></a></li>
+					<li>Click the download link for the Eclipse 2022-09 R x86_64 Installer for macOS (probably the x86_64 version, unless you have AArch64 system architecture)</li>
+					<li>Once downloaded, execute the installer (called <b>eclipse-inst-jre-mac64.dmg</b>)</li>
+					<li>Select: <b>Eclipse IDE for C/C++ Developers</b></li>
+					<li>Confirm: Java 17+ VM: <b>/Library/Java/JavaVirtualMachines/jdk-19.jdk/Contents/Home</b> and Installation Folder: <b>/Users/[username]/eclipse/cpp-2022-09</b></li>
+					<li>Click "install"</li>
+					<li>Accept the user agreement</li>
+					<li>Once it's installed, click "launch"</li>
+					<li>Confirm: Workspace: <b>Users/[username]/eclipse-workspace</b> and click "launch" again.</li>
+				</ol>
+			</FONT></p>
+						
+			<br>
+			
+			<p style="line-height:1.5; text-align:left"><FONT size="3">
+				<b>Clone L-Galaxies 2020 repository:</b>
+				<ol>
+					<li>"Hide" the welcome screen</li>
+					<li>In the Eclipse IDE, click the "Open Perspective" button in the top right corner (symbol of a GUI interface with a plus sign)</li>
+					<li>Select "Git"</li>
+					<li>Click "Clone a Git Repository" (left)</li>
+					<li>Enter the L-Galaxies 2020 repository URI: <b>https://github.com/LGalaxiesPublicRelease/LGalaxies2020_PublicRepository</b></li>
+					<li>Click "Next"</li>
+					<li>Make sure "master" is selected and click "Next"</li>
+					<li>Confirm the destination directory (this will become your git-synchronised <b>project root directory</b>).</li>
+					<li>Click "Finish"</li>
+					Eclipse will now clone a local version of the L-Galaxies 2020 repository (progress bar in the bottom right corner)
+					<li>Once cloned, two-finger click the name of the project in the left-hand panel (<b>LGalaxies2020_PublicRepository</b>)</li>
+					<li>Click "Import projects..."</li>
+					<li>In the new window, click "Finish"</li>
+					The L-Galaxies 2020 code is now ready to be used in the standard "C/C++ Perspective" in Eclipse.
+				</ol>				
+			</FONT></p>
+						
+			<br>
+			
+			<p style="line-height:1.5; text-align:left"><FONT size="3">
+				<b>Define as a makefile project:</b>
+				<ol>
+					<li>Click the "C/C++ Perspective" button in the top right corner (symbol of a GUI interface with a letter "C")</li>
+					<li>Click on the project name in the left-hand panel (<b>LGalaxies2020_PublicRepository</b>), so that it's highlighted</li>
+					<li>Press Ctrl+n on the keyboard</li>
+					<li>Select: "Convert to C/C++ project (Adds C/C++ Nature)" and click "Next"</li>
+					<li>Under "Convert to C or C++", select "C project"</li>
+					<li>Under "Project Options", select "Makefile project" and the "MacOSX GCC" toolchain</li>
+					<li>Click "Finish"</li>
+				</ol>
+			</FONT></p>
+						
+			<br>
+			
+			<p style="line-height:1.5; text-align:left"><FONT size="3">
+				<b>Set-up a run configuration:</b>
+				<ol>
+					<li>In the "C/C++ perspective", click the project name in the left-hand panel (<b>LGalaxies2020_PublicRepository</b>), so that it's highlighted</li>
+					<li>From the top menu bar, select "Run" > "Run configurations..."</li>
+					<li>In the new window (left-hand panel), click "C/C++ Allpication"</li>
+					<li>Click the "New Launch configuration" button (symbol of a blank page with a plus sign)</li>
+					<li>In the right-hand panel, set "Name" to: "LGalaxies2020_PublicRepository" (i.e. delete " Default")</li>
+					<li>Set "C/C++ Application" to: "L-Galaxies"</li>
+					<li>Click the "Arguments" tab (right-hand panel)</li>
+					<li>Under "Program arguments", add the local path to your preferred input file (e.g. <b>./input/input_MR_W1_PLANCK_LGals2020_DM.par</b>)</li>
+					<li>Click "Apply", then click "Close"</li>
+				</ol>
+			</FONT></p>
+						
+			<br>
+			
+			<p style="line-height:1.5; text-align:left"><FONT size="3">
+				<b>Add an output folder:</b>
+				<ol>
+					<li>In the "C/C++ perspective", two-finger click the project name in the left-hand panel (<b>LGalaxies2020_PublicRepository</b>)</li>
+					<li>Select "New" > "Folder"</li>
+					<li>In the new window, set Folder name as "output"</li>
+					<li>Click "Finish"</li>
+				</ol>
+			</FONT></p>
+									
+			<br>
+			
+			<p style="line-height:1.5; text-align:left"><FONT size="3">
+				<b>Download treefiles and specphot tables:</b>
+				<ol>
+					<li>If you haven't already, complete STEP 2 above for this cloned L-Galaxies 2020 repository</li>
+				</ol>
+			</FONT></p>
+							
+			<br>
+			
+			<p style="line-height:1.5; text-align:left"><FONT size="3">
+				<b>Check compiler configuration:</b>
+				<ol>
+					<li>Complete STEP 4 above to check the gcc compiler is configured correctly for L-Galaxies 2020 on your system. 
+						For example, you may need to set the SYSTYPE to "Mac" in <b>My_Makefile_compilers</b>.</li>
+				</ol>
+			</FONT></p>
+							
+			<br>
+			
+			<p style="line-height:1.5; text-align:left"><FONT size="3">
+				<b>Compile and run in Eclipse:</b>
+				<ol>
+					<li>In the "C/C++ perspective", click the project name in the left-hand panel (<b>LGalaxies2020_PublicRepository</b>), so that it's highlighted</li>
+					<li>To compile: Click the <b>"Build"</b> button in the top left corner (symbol of a hammer)</li>
+					<li>To run: Click the <b>"Run"</b> button in the top left corner (symbol of a green "play" sign)</li>
+				</ol>
+			</FONT></p>					
+		</div>
+		
+	</div>	
+	    
+</body>
+</html>
