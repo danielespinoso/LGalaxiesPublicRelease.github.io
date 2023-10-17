@@ -436,11 +436,11 @@
 				This is why L-Galaxies output structures (compatible for python) are provided in the 
 				<b>/AuxCode/Python</b> folder (see "Changing which properties are outputted" in STEP 7).
 				<!-- <b>/AuxCode/awk/output/python</b> folder (see "Changing which properties are outputted" in STEP 7). -->
-				The following standard output structures are provided in the "master" or "Yates23" branches:
+				The following standard output structures are provided in either the "master" or "Yates23" branches, respectively:
 				<ul style="padding-left:40px">
-						<li><b>"master"</b>: LGalaxy_snapshots.py, LGalaxy_snapshots_extraSFHs.py, LGalaxy_galtree.py</li>
-						<li><b>"Yates23"</b>: LGalaxy_snapshots_liteOutput.py, LGalaxy_snapshots_normal.py, LGalaxy_ringSFHs.py</li>
-					</ul>
+					<li><b>"master"</b>: LGalaxy_snapshots.py, LGalaxy_snapshots_extraSFHs.py, LGalaxy_galtree.py</li>
+					<li><b>"Yates23"</b>: LGalaxy_snapshots_liteOutput.py, LGalaxy_snapshots_normal.py, LGalaxy_ringSFHs.py</li>
+				</ul>
 			</FONT></p>
 			
 			<br>
@@ -643,6 +643,27 @@
 				<br>
 				<FONT size="5"><b>Changing which properties are outputted</b></FONT>
 				<br>
+				The L-Galaxies output structures define which properties are contained in the binary output files.
+				The following standard output structures (compatible with python) are provided in each of the L-Galaxies 2020 branches:
+				<br>
+				<b>"master"</b>
+				<ul style="padding-left:40px">
+					<li><b>LGalaxy_snapshots.py:</b> This is the standard output structure for outputs generated out-of-the-box by the "master" branch of L-Galaxies 2020.
+						It assumes that snapshot mode has been selected and the standard set of model switches are turned on (see above).</li>
+					<li><b>LGalaxy_galtree.py:</b>  This is the standard output structure for outputs generated with the <em>GALAXYTREE</em> switch turned on.</li>
+					<li><b>LGalaxy_snapshots_extraSFHs.py:</b> This is output structure to use (in snapshot mode) if chemical enrichment histories for individual elements in galaxy rings are required
+						(i.e. if the OUTPUT_RINGS_EXTRA switch is turned on)</li>
+				</ul>
+				<br>
+				<b>"Yates2023"</b>
+				<ul style="padding-left:40px">
+					<li><b>LGalaxy_snapshots_liteOutput.py:</b> This is the standard output structure for outputs generated out-of-the-box by the "Yates2023" branch of L-Galaxies 2020.
+						It assumes that snapshot mode has been selected and the standard set of model switches are turned on (see above), including the <em>LITE_OUTPUT</em> switch, which reduces the number of properties outputted.</li>
+					<li><b>LGalaxy_snapshots_normal.py:</b>  This </li>
+					<li><b>LGalaxy_ringSFHs.py:</b> This </li>
+				</ul>
+				
+				
 				By default (i.e. when in snapshot mode), L-Galaxies 2020 will output the properties listed in the Python-based "output structure" called <b>LGalaxy_snapshots.py</b>, which is in the <b>/AuxCode/awk/output/python</b> directory.
 				The galaxytree equivalent of this, called <b>LGalaxy_galtree.py</b>, is also provided in the same directory.
 				<!-- A copy of this default snapshot-mode output structure can also be found in <b>/AuxCode/awk/output/python/LGalaxy_snapshots.py</b> -->
