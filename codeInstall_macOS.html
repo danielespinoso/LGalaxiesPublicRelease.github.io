@@ -391,35 +391,92 @@
 		</div>
 		
 		<div class="main_box_text_box">  
+			<!--
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				By default, L-Galaxies 2020 outputs are written as binary files.
 				To be read, binary files require prior knowledge of the structure of the data in the file.
-				This is why L-Galaxies output structures (compatible for python) are provided in the 
-				<b>/AuxCode/Python</b> folder (see "Changing which properties are outputted" in STEP 7).
-				<!-- <b>/AuxCode/awk/output/python</b> folder (see "Changing which properties are outputted" in STEP 7). -->
-				<!-- The following standard output structures are provided in either the "master" or "Yates23" branches, respectively:
-				<ul style="padding-left:40px">
-					<li><b>"master"</b>: LGalaxy_snapshots.py, LGalaxy_snapshots_extraSFHs.py, LGalaxy_galtree.py</li>
-					<li><b>"Yates23"</b>: LGalaxy_snapshots_liteOutput.py, LGalaxy_snapshots_normal.py, LGalaxy_ringSFHs.py</li>
-				</ul> -->
+				This is why L-Galaxies output structures are provided in the 
+				<b>/AuxCode/Python</b> folder for use in python (see "Changing which properties are outputted" in STEP 7).
+			</FONT></p>
+			
+			<br>
+			-->
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				L-Galaxies 2020 comes with a set of simple python scripts to read L-Galaxies output files.
+				This is done by reading-in the output files (which are in binary format) using the "output structure" provided (see "Changing which properties are outputted" in STEP 7).
+				They also convert properties from code units to physical units, generate galaxy samples, and plot a few key relations.
+				These scripts and output structures can be found in <b>/AuxCode/Python</b>.
 			</FONT></p>
 			
 			<br>
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				L-Galaxies 2020 also comes with a set of simple python scripts to read output files (according to the output structure), 
-				convert properties from code units to physical units, select sub-samples, plot a few key relations, etc.
-				These python scripts can also be found in <b>/AuxCode/Python</b>.
-			</FONT></p>
-			
-			<br>
-			
-			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				To run the python scripts on the default output produced by L-Galaxies 2020, simply execute the <b>main_lgals.py</b> file.
-				This will generate a pickled version of the L-Galaxies 2020 output (.npy file) in the <b>/output</b> folder, as well as some plots of key galaxy population relations in the <b>/figures</b> folder.
-				<b>main_lgals.py</b> also contains a number of switches which can be used to modify how/what data is read-in and plotted.
+				To run these python scripts on the standard output from L-Galaxies 2020 out-of-the-box, simply execute the <b>main_lgals.py</b> file.
+				This will generate a galaxy sample (using the selection criteria discussed below) and save it to an .npy file in the <b>/output/samples</b> folder,
+				and will produce some plots in the <b>/figures</b> folder. To modify <b>main_lgals.py</b> to work with other output files or to generate different samples, see below.
 			</FONT></p>
 						
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<FONT size="3"><b>Switches</b></FONT>
+				<br>
+				The <b>main_lgals.py</b> file contains a number of switches under "USER DEFINED INPUTS" which can be used to modify how/what data is read-in and made into samples.
+				For example:
+				<ul style="padding-left:40px">
+					<li><b>LOAD_SAMPLE:</b> If on, a sample of galaxies is loaded from a a pre-made .npy file. If off, L-Galaxies outputs are read in and a new sample and .npy file are made</li>
+					<li><b>COMBINE_MODELS:</b> If on, Millennium and Millennium-II versions of the same model are combined</li>
+					<li><b>STELLAR_MASS_CUT:</b> If on, only galaxies above the value given by <em>StellarMassRes</em> (see below) will be selected.</li>
+					<li><b>CALC_SFH_INFO:</b> If on, star-formation history (SFH) info will be calculated and added to the sample dictionaries. This can be slow, so only use if SFHs are needed</li>
+					<li><b>GENERAL_PLOTS:</b> If on, general plots are produced, such as the SMF, MZR, etc.</li>
+					
+				</ul>
+			</FONT></p>
+									
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<FONT size="3"><b>Sample Info</b></FONT>
+				<br>
+				The type of L-Galaxies output to be read, and type of sample you want to generate, can also be set in <b>main_lgals.py</b> via the following variables:
+				<ul style="padding-left:40px">
+					<li><b>COSMOLOGY:</b> Choose from: 'WMAP1', 'Planck'</li>
+					<li><b>SIMULATION:</b> Choose from: 'Mil-I', 'Mil-II' </li>
+					<li><b>FILE_TYPE:</b> Choose from: 'snapshots', 'galtree'</li>
+					<li><b>REDSHIFT:</b> Must match the redshift of the output file you want to read-in (to within 2 decimal places)</li>
+					<li><b>STRUCT_TYPE:</b> The output structure to be used when reading-in the L-Galaxies outputs (see "Changing which properties are outputted" in STEP 7)</li>
+					<li><b>VERSION:</b> This string should match the suffix at the end of the L-Galaxies output file (e.g. 'test1')</li>
+					<li><b>SOLAR_ABUNDANCE_SET:</b> Sets which solar abundances are assumed for plotting. Choose from: 'A09', 'GAS07', 'AG89_phot', 'AG89_mete'</li>
+					<li><b>SAMPLE_TYPE:</b> Choose from: 'All', 'Discs', 'ETGs', 'Dwarfs' (see below)</li>
+				</ul>
+			</FONT></p>
+
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<FONT size="3"><b>Sample Types</b></FONT>
+				<br>
+				There are four default sample types you can select when generating a sample from the L-Galaxies output file using <b>main_lgals.py</b>:
+				<ul style="padding-left:40px">
+					<li><b>All:</b> Simply select all galaxies above the user-defined minimum stellar mass</li>
+					<li><b>Discs:</b> Select disc-dominant, star-forming galaxies only</li>
+					<li><b>ETGs:</b> Select bulge-dominant galaxies below the Star Forming Main Sequence (SFMS) only</li>
+					<li><b>Dwarfs:</b> Select galaxies below log(M*/Msun) = 9.0 but above the subhalo resolution limit only</li>
+				</ul>
+				For more info on the exact selection criteria for these different sample types, see the <b>make_lgals_sample.py</b> file.
+			</FONT></p>
+						
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				Note that the plots generated by these python scripts require latex syntax for some of the axis labels. 
+				If your Linux installation does not have (la)tex capabilities, you may need to install (some) of the following packages:
+				<ul style="padding-left:40px">
+					<li><em>sudo apt-get install texlive dvipng texlive-latex-extra texlive-fonts-recommended cm-super</em></li>
+				</ul>
+			</FONT></p>	
+			
 			<br>
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
