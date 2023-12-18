@@ -459,7 +459,7 @@
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				<FONT size="3"><b>Switches</b></FONT>
 				<br>
-				The <b>main_lgals.py</b> file also contains a number of switches under "USER DEFINED INPUTS" which can be used to modify how/what data is read-in and plotted.
+				The <b>main_lgals.py</b> file contains a number of switches under "USER DEFINED INPUTS" which can be used to modify how/what data is read-in and made into samples.
 				For example:
 				<ul style="padding-left:40px">
 					<li><b>LOAD_SAMPLE:</b> If on, a sample of galaxies is loaded from a a pre-made .npy file. If off, L-Galaxies outputs are read in and a new sample and .npy file are made</li>
@@ -487,6 +487,21 @@
 					<li><b>SOLAR_ABUNDANCE_SET:</b> Sets which solar abundances are assumed for plotting. Choose from: 'A09', 'GAS07', 'AG89_phot', 'AG89_mete'</li>
 					<li><b>SAMPLE_TYPE:</b> Choose from: 'All', 'Discs', 'ETGs', 'Dwarfs' (see below)</li>
 				</ul>
+			</FONT></p>
+
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<FONT size="3"><b>Sample Types</b></FONT>
+				<br>
+				There are four default sample types you can select when generating a sample from the L-Galaxies output file using <b>main_lgals.py</b>:
+				<ul style="padding-left:40px">
+					<li><b>All:</b> Simply select all galaxies above the user-defined minimum stellar mass</li>
+					<li><b>Discs:</b> Select disc-dominant, star-forming galaxies only</li>
+					<li><b>ETGs:</b> Select bulge-dominant galaxies below the Star Forming Main Sequence (SFMS) only</li>
+					<li><b>Dwarfs:</b> Select galaxies below log(M*/Msun) = 9.0 but above the subhalo resolution limit only</li>
+				</ul>
+				For more info on the exact selection criteria for these different sample types, see the <b>make_lgals_sample.py</b> file.
 			</FONT></p>
 						
 			<br>
