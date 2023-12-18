@@ -457,8 +457,7 @@
 			<br>
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				<br>
-				<FONT size="5"><b>Switches</b></FONT>
+				<FONT size="3"><b>Switches</b></FONT>
 				<br>
 				The <b>main_lgals.py</b> file also contains a number of switches under "USER DEFINED INPUTS" which can be used to modify how/what data is read-in and plotted.
 				For example:
@@ -469,6 +468,24 @@
 					<li><b>CALC_SFH_INFO:</b> If on, star-formation history (SFH) info will be calculated and added to the sample dictionaries. This can be slow, so only use if SFHs are needed</li>
 					<li><b>GENERAL_PLOTS:</b> If on, general plots are produced, such as the SMF, MZR, etc.</li>
 					
+				</ul>
+			</FONT></p>
+									
+			<br>
+			
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				<FONT size="3"><b>Sample Info</b></FONT>
+				<br>
+				The type of L-Galaxies output to be read, and type of sample you want to generate, can also be set in <b>main_lgals.py</b> via the following variables:
+				<ul style="padding-left:40px">
+					<li><b>COSMOLOGY:</b> Choose from: 'WMAP1', 'Planck'</li>
+					<li><b>SIMULATION:</b> Choose from: 'Mil-I', 'Mil-II' </li>
+					<li><b>FILE_TYPE:</b> Choose from: 'snapshots', 'galtree'</li>
+					<li><b>REDSHIFT:</b> Must match the redshift of the output file you want to read-in (to within 2 decimal places)</li>
+					<li><b>STRUCT_TYPE:</b> The output structure to be used when reading-in the L-Galaxies outputs (see "Changing which properties are outputted" in STEP 7)</li>
+					<li><b>VERSION:</b> This string should match the suffix at the end of the L-Galaxies output file (e.g. 'test1')</li>
+					<li><b>SOLAR_ABUNDANCE_SET:</b> Sets which solar abundances are assumed for plotting. Choose from: 'A09', 'GAS07', 'AG89_phot', 'AG89_mete'</li>
+					<li><b>SAMPLE_TYPE:</b> Choose from: 'All', 'Discs', 'ETGs', 'Dwarfs' (see below)</li>
 				</ul>
 			</FONT></p>
 						
