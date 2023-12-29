@@ -58,7 +58,9 @@
 				subject to a given set of observational constraints. To compile L-Galaxies in MCMC mode, set the compiler flag DMCMC in the Makefile options, or set 
 				<em>"include Makefile_options/Makefile_options_MCMC"</em> in <b>Makefile</b> to use a set of compatible Makefile options. It is advised to compile and run MCMC in parallel mode, 
 				using OpenMPI.
-
+				</FONT></p>
+			<br>
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				<br>
 				<FONT size="5"><b>Parameters</b></FONT>
 				<br>
@@ -68,32 +70,34 @@
 				<br>
 				First, some parameters that tell the code where to look for inputs:
 				<ul style="padding-left:40px">
-					<li><em>MCMCParameterPriorsAndSwitches</em>: The main file, specifying all the model parameters which can be sampled in the MCMC, with their initial value and allowed prior ranges. 
+					<li><b>MCMCParameterPriorsAndSwitches:</b> The main file, specifying all the model parameters which can be sampled in the MCMC, with their initial value and allowed prior ranges. 
 						Also specified is whether each parameter is physical or cosmological (see later). The sampling switch should be set to 1 for every parameter that should be varied/fit, 
 						and 0 for every other one. The parameters which are not to be sampled are kept fixed to their values in the .par file, not to the values in this file. If there are already 
 						existing MCMC chain outputs (files output/senna*.txt), the code will assume those should be continued and overwrite the initial parameter values with those at the end of 
 						the existing chain.
 					</li>
-					<li><em>MCMCObsConstraints</em>: This file specifies which observational constraints should be used and at which redshifts. The format for each file is an integer N specifying the 
+					<li><b>MCMCObsConstraints:</b> This file specifies which observational constraints should be used and at which redshifts. The format for each file is an integer N specifying the 
 						number of unique observables, an integer M specifying the number of different redshifts, followed by M redshift values, then N observable names with the type of test to apply 
 						the fit to and M flags for the different redshifts. The type of test can be "chi_sq", "maxlike" or "binomial", and is inherent to each type of data set (and should therefore 
 						not be varied independent of the constraining data). The M flags that follow for each constraint and test should be 1 for redshifts where the constraint should be applied and 
 						0 otherwise. For example, you can choose to constrain the data by the stellar mass function at redshifts 0 and 2, and the red fraction at redshift 0.4 and 1.
 					</li>
-					<li><em>MCMCWeightsObsConstraints</em>: By default, any constraint included by the previous file gets the same weight in the final likelihood (namely, 1). However, by changing the 
+					<li><b>MCMCWeightsObsConstraints:</b> By default, any constraint included by the previous file gets the same weight in the final likelihood (namely, 1). However, by changing the 
 						numbers in this file these weights can be varied. For example, by default the stellar mass function at z=0 gets a weight of 10.
 					</li>
-					<li><em>ObsConstraintsDir</em>: Directory containing observational constraints in plain text, named by their observable and the redshift it applies to. The format for each file is an 
+					<li><b>ObsConstraintsDir:</b> Directory containing observational constraints in plain text, named by their observable and the redshift it applies to. The format for each file is an 
 						integer N specifying the number of lines, then N lines with data. For data with a chi-squared or general max-likelihood distribution, the format per line is the left bin edge, 
 						the right bin edge, the mean value in the bin and the error (typically 1 sigma). For binomial distributions, the format per line is the mean value, the top value, and the bottom 
 						value. If you want to add any constraints yourself, add them to this directory, add a line for them to both the MCMCObsConstraints and MCMCWeightsObsConstraints files, and 
 						increase the number at the top of both those files.
 					</li>
-					<li><em>CosmologyTablesDir</em>: This is where the tables could be found for scaling simulations outputs to other cosmologies – not actually used anymore, so this directory need not exist.
+					<li><b>CosmologyTablesDir:</b> This is where the tables could be found for scaling simulations outputs to other cosmologies – not actually used anymore, so this directory need not exist.
 					</li>
-					<li><em>MCMCHaloModelDir</em>: The directory housing the files needed to constrain the model with clustering data.
+					<li><b>MCMCHaloModelDir:</b> The directory housing the files needed to constrain the model with clustering data.
 					</li>
 				</ul>
+				</FONT></p>
+			<br>
 
 <!--
 Next up are settings for the actual MCMC:
