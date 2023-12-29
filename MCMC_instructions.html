@@ -35,7 +35,7 @@
 	<script src="topnav.js"></script>
 
 	<div class="top_logo">
-		<div class="my_heading1">Installing L-Galaxies:<br>Linux</div>		
+		<div class="my_heading1">Using MCMC mode</div>		
 		<div id="top_logo_mask1"> </div>
 		<div id="top_logo_mask2"> </div>
 		<div id="top_logo_mask3"> </div>
@@ -52,20 +52,69 @@
 		
 		<div class="main_box_text_box">  
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				<FONT size="5"><b>Default vs. Modified model</b></FONT>
+				<FONT size="5"><b>Setting up</b></FONT>
 				<br>
-				Input files (i.e. the .par files) are provided for the Default Model (DM) and Modified Model (MM) versions of L-Galaxies 2020 (see <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a> for details).
-				In brief, the Default Model allows the majority of material released by supernovae and stellar winds to mix with the ambient ColdGas before some is blown out as galactic winds.
-				The Modified Model allows the majority of this newly-released material to be directly ejected into the surrounding HotGas, without first mixing with the ColdGas.
-				<!-- L-Galaxies 2020 has two standard models for the way supernova and stellar wind ejecta is allowed to mix with the gas in and around galaxies. -->
-				<!-- In the "Default Model", galactic outflows are predominanlty of ambient ISM metallicity, whereas in the "Modified Model", galactic outflows are predominantly metal-rich (see the discussion in <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.4474Y/abstract"><FONT size="3" COLOR="3388AA"> Yates+21a</FONT></a> for more details). -->
-				<!-- These two models each have their own input file (when running on Millennium-I): -->
-				Depending on which model you want to use, the corresponding input file is one of the following:
+				When L-Galaxies is run in MCMC mode, the code will explore likelihood space in an attempt to find the best-fit values for a given (sub)set of model parameters, 
+				subject to a given set of observational constraints. To compile L-Galaxies in MCMC mode, set the compiler flag DMCMC in the Makefile options, or set 
+				<em>"include Makefile_options/Makefile_options_MCMC"</em> in <b>Makefile</b> to use a set of compatible Makefile options. It is advised to compile and run MCMC in parallel mode, 
+				using OpenMPI.
+
+				<br>
+				<FONT size="5"><b>Parameters</b></FONT>
+				<br>
+				There are several additional parameters that need to be passed to L-Galaxies in MCMC mode. An example parameter file for L-Galaxies 2020 is provided in 
+				<b>/input/MCMC_inputs/input_mcmc_LGals2020_MR_W1_PLANCK.par</b>. Comparing this file with a non-MCMC parameter file in <b>/input</b>, you may notice two things: 
+				the parameters <em>"FirstFile"</em> and <em>"LastFile"</em> are not needed, and there is a new category <em>"Variables needed for the MCMC"</em>. Let's go through this new category.
+				<br>
+				First, some parameters that tell the code where to look for inputs:
 				<ul style="padding-left:40px">
-					<li>input_MR_W1_PLANCK_LGals2020_DM.par</li>
-					<li>input_MR_W1_PLANCK_LGals2020_MM.par</li>
+					<li><em>MCMCParameterPriorsAndSwitches</em>: The main file, specifying all the model parameters which can be sampled in the MCMC, with their initial value and allowed prior ranges. 
+						Also specified is whether each parameter is physical or cosmological (see later). The sampling switch should be set to 1 for every parameter that should be varied/fit, 
+						and 0 for every other one. The parameters which are not to be sampled are kept fixed to their values in the .par file, not to the values in this file. If there are already 
+						existing MCMC chain outputs (files output/senna*.txt), the code will assume those should be continued and overwrite the initial parameter values with those at the end of 
+						the existing chain.
+					</li>
+					<li><em>MCMCObsConstraints</em>: This file specifies which observational constraints should be used and at which redshifts. The format for each file is an integer N specifying the 
+						number of unique observables, an integer M specifying the number of different redshifts, followed by M redshift values, then N observable names with the type of test to apply 
+						the fit to and M flags for the different redshifts. The type of test can be "chi_sq", "maxlike" or "binomial", and is inherent to each type of data set (and should therefore 
+						not be varied independent of the constraining data). The M flags that follow for each constraint and test should be 1 for redshifts where the constraint should be applied and 
+						0 otherwise. For example, you can choose to constrain the data by the stellar mass function at redshifts 0 and 2, and the red fraction at redshift 0.4 and 1.
+					</li>
+					<li><em>MCMCWeightsObsConstraints</em>: By default, any constraint included by the previous file gets the same weight in the final likelihood (namely, 1). However, by changing the 
+						numbers in this file these weights can be varied. For example, by default the stellar mass function at z=0 gets a weight of 10.
+					</li>
+					<li><em>ObsConstraintsDir</em>: Directory containing observational constraints in plain text, named by their observable and the redshift it applies to. The format for each file is an 
+						integer N specifying the number of lines, then N lines with data. For data with a chi-squared or general max-likelihood distribution, the format per line is the left bin edge, 
+						the right bin edge, the mean value in the bin and the error (typically 1 sigma). For binomial distributions, the format per line is the mean value, the top value, and the bottom 
+						value. If you want to add any constraints yourself, add them to this directory, add a line for them to both the MCMCObsConstraints and MCMCWeightsObsConstraints files, and 
+						increase the number at the top of both those files.
+					</li>
+					<li><em>CosmologyTablesDir</em>: This is where the tables could be found for scaling simulations outputs to other cosmologies – not actually used anymore, so this directory need not exist.
+					</li>
+					<li><em>MCMCHaloModelDir</em>: The directory housing the files needed to constrain the model with clustering data.
+					</li>
 				</ul>
-				Note that these input files are for runs on the Millenium-I merger trees. If you want to run on Millennium-II instead, see below.
+
+<!--
+Next up are settings for the actual MCMC:
+- ChainLength: Maximum length of the Markov chain of each thread before the code terminates. The current best-fit parameters and likelihood are output to disk at every step, so you can always restart the chain from where it left off or expand it further. It is advised to do several thousand steps, as there will be a burn-in phase of several hundred steps (depending on the sampling space chosen).
+- Sample_Physical_Parameters: Set to 0 to ignore sampling flags for parameters labelled as "Physical" in MCMCParameterPriorsAndSwitches.
+- Sample_Cosmological_Parameters: Set to 0 to ignore sampling flags for parameters labelled as "Cosmological" in MCMCParameterPriorsAndSwitches.
+- Time_Dependant_PhysPar: Set to 0 to ignore redshift evolution of all parameters (typo kept for backwards compatibility).
+- MCMCMode: Set to 0 for normal MCMC behaviour (sampling ergodically), or to 1 to only accept steps that improve the likelihood.
+- MCMC_LogStep_Size: This sets the size of one standard deviation of the log-normal used to randomly select the next proposed set of parameters. Typical values are 0.05-0.15.
+- MCMC_Initial_Par_Displacement: This sets the size of one standard deviation of the very first log-normal step in parameter space, centered on the parameters set in MCMCParameterPriorsAndSwitches. This value is ignored if the code detects any previous chain outputs in the output folder, in which case it will assume an existing chain should be continued (restart). Typical values are 0.1-0.3.
+- MCMC_Minimum_Obs_Error: Sets a minimum to all errors used in observational constraints, in terms of the fractional deviation from the mean.
+- AddedErrOnMass: Sets a scatter on mass (in dex) to mimic observational uncertainties and compensate for Eddington bias.
+
+Finally, the last group of parameters determine the sample of halo merger trees that are used by L-Galaxies:
+- MCMCSampleDir: The directory where to read the representative halo sample from. Only one file (per snapshot) is used in each run.
+- MCMCSampleFilePrefix: The prefix of the file containing the chosen sample, which is assumed to be followed by "sample_allz_nh_".
+- MCMCSampleFile: A number specifying the sample file to use, appended to the above. Appended to this in turn is the snapshot number, followed by ".dat". For example, for MCMCSampleDir equal to "MCMC/Samples/",  MCMCSampleFilePrefix equal to "cut_optimal" and MCMCSampleFile equal to "100", when generating galaxies for snapshot 60 the code will attempt to read the tree IDs from "MCMC/Samples/cut_optimalsample_allz_nh_10060.dat". The columns in the file are the FOF IDs, two dummy columns, and the weight to give this halo (e.g. the number of similar haloes represented by this halo).
+- MCMCTreeSampleFile: The extension of the "treedata" file in which the representative sample can be found. For example, for the default trees, snapshot 63 and a MCMCTreeSampleFile equal to 2100, the code will attempt to read "MergerTrees/MR/treedata/trees_063.2100".
+
+While running the code in MCMC mode, L-Galaxies will output the step in the chain, the current set of parameters and the likelihood due to the individual selected observational constraints to screen. The total minus log-likelihood and log values of the current parameter set will be output to the output directory in "senna*.txt" files (preceded by the chain weight, which is typically 1), one file per thread (and one line per step in the chain). It will also output explicitly when a new set of parameters is accepted. By reading all likelihoods and parameters from the output chains (after the burn-in phase), you can not only find the best-fit set of parameters (those with the lowest minus log-likelihood), but also get an idea of what the total likelihood landscape looks like.
+-->
 				
 			</FONT></p>
 			<br>			
