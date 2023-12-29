@@ -67,28 +67,28 @@
 				There are several additional parameters that need to be passed to L-Galaxies in MCMC mode. An example parameter file for L-Galaxies 2020 is provided in 
 				<b>/input/MCMC_inputs/input_mcmc_LGals2020_MR_W1_PLANCK.par</b>. Comparing this file with a non-MCMC parameter file in <b>/input</b>, you may notice two things: 
 				the parameters <em>"FirstFile"</em> and <em>"LastFile"</em> are not needed, and there is a new category <em>"Variables needed for the MCMC"</em>. Let's go through this new category.
-				<br>
-				First, some parameters that tell the code where to look for inputs:
+				First, some files and parameters that tell the code where to look for inputs:
 				<ul style="padding-left:40px">
 					<li><b>MCMCParameterPriorsAndSwitches:</b> The main file, specifying all the model parameters which can be sampled in the MCMC, with their initial value and allowed prior ranges. 
 						Also specified is whether each parameter is physical or cosmological (see later). The sampling switch should be set to 1 for every parameter that should be varied/fit, 
 						and 0 for every other one. The parameters which are not to be sampled are kept fixed to their values in the .par file, not to the values in this file. If there are already 
-						existing MCMC chain outputs (files output/senna*.txt), the code will assume those should be continued and overwrite the initial parameter values with those at the end of 
+						existing MCMC chain outputs (files called <b>output/senna*.txt</b>), the code will assume those should be continued and overwrite the initial parameter values with those at the end of 
 						the existing chain.
 					</li>
-					<li><b>MCMCObsConstraints:</b> This file specifies which observational constraints should be used and at which redshifts. The format for each file is an integer N specifying the 
-						number of unique observables, an integer M specifying the number of different redshifts, followed by M redshift values, then N observable names with the type of test to apply 
-						the fit to and M flags for the different redshifts. The type of test can be "chi_sq", "maxlike" or "binomial", and is inherent to each type of data set (and should therefore 
-						not be varied independent of the constraining data). The M flags that follow for each constraint and test should be 1 for redshifts where the constraint should be applied and 
-						0 otherwise. For example, you can choose to constrain the data by the stellar mass function at redshifts 0 and 2, and the red fraction at redshift 0.4 and 1.
+					<li><b>MCMCObsConstraints:</b> This file specifies which observational constraints should be used and at which redshifts. The format for each file is an integer <em>N</em> specifying the 
+						number of unique observables, an integer <em>M</em> specifying the number of different redshifts, followed by <em>M</em> redshift values, then <em>N</em> observable names with the 
+						type of test to apply the fit to and <em>M</em> flags for the different redshifts. The type of test can be <em>"chi_sq"</em>, <em>"maxlike"</em> or <em>"binomial"</em>, and is inherent 
+						to each type of data set (and should therefore not be varied independent of the constraining data). The <em>M</em> flags that follow for each constraint and test should be 1 for redshifts 
+						where the constraint should be applied and 0 otherwise. For example, you can choose to constrain the data by the stellar mass function at redshifts 0 and 2, and the red fraction at redshift 
+						0.4 and 1.
 					</li>
 					<li><b>MCMCWeightsObsConstraints:</b> By default, any constraint included by the previous file gets the same weight in the final likelihood (namely, 1). However, by changing the 
 						numbers in this file these weights can be varied. For example, by default the stellar mass function at z=0 gets a weight of 10.
 					</li>
 					<li><b>ObsConstraintsDir:</b> Directory containing observational constraints in plain text, named by their observable and the redshift it applies to. The format for each file is an 
-						integer N specifying the number of lines, then N lines with data. For data with a chi-squared or general max-likelihood distribution, the format per line is the left bin edge, 
+						integer <em>N</em> specifying the number of lines, then <em>N</em> lines with data. For data with a chi-squared or general max-likelihood distribution, the format per line is the left bin edge, 
 						the right bin edge, the mean value in the bin and the error (typically 1 sigma). For binomial distributions, the format per line is the mean value, the top value, and the bottom 
-						value. If you want to add any constraints yourself, add them to this directory, add a line for them to both the MCMCObsConstraints and MCMCWeightsObsConstraints files, and 
+						value. If you want to add any constraints yourself, add them to this directory, add a line for them to both the <b>MCMCObsConstraints</b> and <b>MCMCWeightsObsConstraints</b> files, and 
 						increase the number at the top of both those files.
 					</li>
 					<li><b>CosmologyTablesDir:</b> This is where the tables could be found for scaling simulations outputs to other cosmologies – not actually used anymore, so this directory need not exist.
