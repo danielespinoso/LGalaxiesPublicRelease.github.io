@@ -49,7 +49,8 @@
 		
 		<div class="main_box_text_box">  
 			<p style="font-size:1em; line-height:1.5; text-align:center">
-			   Ongoing
+			   Published<br>
+				<a href="https://ui.adsabs.harvard.edu/abs/2024MNRAS.527.6292Y/abstract">The impact of binary stars on the dust and metal evolution of galaxies</a>
 			</p>
 					
 		</div>	
@@ -65,7 +66,7 @@
 		
 		<div class="main_box_text_box">  
 			<p style="font-size:1em; line-height:1.5; text-align:center">
-			   Rob Yates, David Hendriks, Aswin Vijayan, Rob Izzard, Payel Das, Peter Thomas
+			   Rob Yates, David Hendriks, Aswin Vijayan, Rob Izzard, Peter Thomas, Payel Das
 			</p>
 					
 		</div>	
@@ -81,6 +82,7 @@
 		
 		<div class="main_box_text_box">  
 			<p style="font-size:1em; line-height:1.5; ">
+				<!--
 				<b>Dust:</b> We will implement an updated version of the Vijayan+19 dust production/destruction model into L-Galaxies 2020, thereby 
 				combining it with the radially-resolved rings formalism and improved GCE modelling. Recipes for the survival of dust in the hot CGM 
 				will also be incorporated.<br>
@@ -89,7 +91,19 @@
 				wider range of chemical elements and enrichment sources (novae, Wolf-Rayet stars, SNe-1bc, NS-NS mergers, etc).
 				<br><br>
 				Results form these two implementations will be compared to the latest observations of dust and chemistry at a range of redshifts.
-				<!-- We propose to incorporate models for dust formation/destruction, binary stellar evolution (BSE), and exotic element production (e.g. r-process elements such as gold) from hypernovae, NS mergers, and PI-SNe into the main L-Galaxies 2020 code. This will make the model much better equipped for high redshift studies, where dust depletion/obscuration, massive star lifetimes/yields, and enrichment/energy injection from exotic transients all play an important role. -->
+				-->
+				We present detailed implementations of (i) binary stellar evolution (BSE; using BINARY_C) and (ii) dust production and destruction into 
+				the cosmological semi-analytic galaxy evolution simulation, L-GALAXIES. This new version of L-GALAXIES is compared to a version assuming 
+				only single stars and to global and spatially-resolved observational data across a range of redshifts (z). We find that binaries have a 
+				negligible impact on the stellar masses, gas masses, and star formation rates of galaxies if the total mass ejected by massive stars is 
+				unchanged. This is because massive stars determine the strength of supernova (SN) feedback, which in turn regulates galaxy growth. Binary 
+				effects, such as common envelope ejection and novae, affect carbon and nitrogen enrichment in galaxies; however, heavier alpha elements 
+				are more affected by the choice of SN and wind yields. Unlike many other simulations, the new L-GALAXIES reproduces observed dust-to-metal 
+				(DTM) and dust-to-gas (DTG) ratios at z ~ 0-4. This is mainly due to shorter dust accretion time-scales in dust-rich environments. However, 
+				dust masses are under-predicted at z ≳ 4, highlighting the need for enhanced dust production at early times in simulations, possibly 
+				accompanied by increased star formation. On sub-galactic scales, there is very good agreement between L-GALAXIES and observed dust and 
+				metal radial profiles at z = 0. A drop in DTM ratio is also found in diffuse low-metallicity regions, contradicting the assumption of a 
+				universal value. We hope that this work serves as a useful template for BSE implementations in other cosmological simulations in future.
         		</p>
 					
 		</div>	
