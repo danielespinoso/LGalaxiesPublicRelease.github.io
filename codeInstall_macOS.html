@@ -391,30 +391,19 @@
 		</div>
 		
 		<div class="main_box_text_box">  
-			<!--
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				By default, L-Galaxies 2020 outputs are written as binary files.
-				To be read, binary files require prior knowledge of the structure of the data in the file.
-				This is why L-Galaxies output structures are provided in the 
-				<b>/AuxCode/Python</b> folder for use in python (see "Changing which properties are outputted" in STEP 7).
-			</FONT></p>
-			
-			<br>
-			-->
-			
-			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				L-Galaxies 2020 comes with a set of simple python scripts to read L-Galaxies output files.
-				This is done by reading-in the output files (which are in binary format) using the "output structure" provided (see "Changing which properties are outputted" in STEP 7).
-				They also convert properties from code units to physical units, generate galaxy samples, and plot a few key relations.
-				These scripts and output structures can be found in <b>/AuxCode/Python</b>.
+				L-Galaxies 2020 comes with a set of simple python scripts to read L-Galaxies output files (which, by default, are in binary format).
+				This is done using the "output structure" provided (see "Changing which properties are outputted" in STEP 7).
+				These python scripts also convert properties from code units to physical units, generate galaxy samples, and plot a few key relations.
+				The scripts and output structures are in <b>/AuxCode/Python</b>.
 			</FONT></p>
 			
 			<br>
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
-				To run these python scripts on the standard output from L-Galaxies 2020 out-of-the-box, simply execute the <b>main_lgals.py</b> file.
-				This will generate a galaxy sample (using the selection criteria discussed below) and save it to an .npy file in the <b>/output/samples</b> folder,
-				and will produce some plots in the <b>/figures</b> folder. To modify <b>main_lgals.py</b> to work with other output files or to generate different samples, see below.
+				To run these python scripts on your L-Galaxies output, simply execute the <b>main_lgals.py</b> file.
+				This will generate a galaxy sample (using the selection criteria discussed below) which is saved to an .npy file in the <b>/output/samples</b> folder. It will also
+				produce some plots in the <b>/figures</b> folder. To modify how <b>main_lgals.py</b> works, see below.
 			</FONT></p>
 						
 			<br>
