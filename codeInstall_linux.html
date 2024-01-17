@@ -361,6 +361,8 @@
 						If your distribution is quite old, it may not be running with the latest C standard.
 						If so, you may need to inform the compiler of this in <b>My_Makefile_compilers</b> by adding the <em>-std</em> flag to the <em>CC</em> call.
 						(e.g. <em>CC  =  gcc -std=C99</em> for systems running with <a href="https://en.wikipedia.org/wiki/C99"><FONT size="3" COLOR="3388AA"> C99</FONT></a>).</li>
+						When doing this, you may also need to manually define some extra constants in <b>h_params.h</b> that are not part of the standard math.h library in older C versions. 
+						For example: <em>#define M_PI 3.14159265358979323846</em>
 					<br>
 					<li><b>Running with old C libraries:</b> 
 						Likewise, an old distribution may not have a version of the <a href="https://www.gnu.org/software/libc/"><FONT size="3" COLOR="3388AA"> GNU C libraries</FONT></a> (glibc).
