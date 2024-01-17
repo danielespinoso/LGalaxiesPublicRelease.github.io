@@ -207,7 +207,7 @@
 						<li><em>tar -xf ./SpecPhotTables.tar</em></li>
 					</ul>	
 					This will create a folder called <b>/SpecPhotTables</b> containing the downloaded spectrophotometic tables
-					<li>Download the treefiles (choose one of the following options):</li>
+					<li>The Millennium-I and Millennium-II treefiles have been pre-packaged into different sets, depending on how much of the full simulation volume you want to use. You can choose from:</li>
 					Millennium-I:
 					<ul style="padding-left:40px">
 						<li><a href="https://uhhpc.herts.ac.uk/~ry22aas/MR_MergerTrees_5.tar"><FONT size="3" COLOR="3388AA"> Treefile 5</FONT></a> [~804 MB] [direct download]</li>
@@ -221,6 +221,15 @@
 						<li><a href="https://uhhpc.herts.ac.uk/~ry22aas/MRII_MergerTrees_40-79.tar"><FONT size="3" COLOR="3388AA"> Treefiles 40-79</FONT></a> [~6.3 GB] [direct download]</li>
 						<li><a href="https://uhhpc.herts.ac.uk/~ry22aas/MRII_allMergerTrees.tar"><FONT size="3" COLOR="3388AA"> Treefiles 0-511</FONT></a> [~92 GB] [direct download]</li>
 					</ul>
+					<li>Download your chosen treefile set either by clicking the link above or in the command line using:</li>
+					<ul style="padding-left:40px">
+						<li><em>wget https://uhhpc.herts.ac.uk/~ry22aas/MR[II]_MergerTrees_[TREEFILE_NUMBERS].tar</em></li>
+					</ul>
+					for the sub-volume sets, or:
+					<ul style="padding-left:40px">
+						<li><em>wget https://uhhpc.herts.ac.uk/~ry22aas/MR[II]_allMergerTrees.tar</em></li>
+					</ul>
+					for the full-volume sets.
 					<li>Move the downloaded .tar file into the <b>/MergerTrees</b> directory, which is in the <b>project root directory</b>.</li>
 					<li>In the terminal, navigate to the <b>/MergerTrees</b>.</li>
 					<li>Untar the treefiles:</li>
