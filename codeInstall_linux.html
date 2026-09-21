@@ -833,34 +833,33 @@
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				<br>
-				<FONT size="5"><b>Changing chemical elements considered [Yates2023 branch only]</b></FONT>
+				<FONT size="5"><b>Changing chemical elements to track [Yates2023 branch only]</b></FONT>
 				<br>
 				The Yates23 version of L-Galaxies allows the inclusion of chemical yields for 118 chemical elements (totaling 487 individual 
 				isotopes) from stellar populations calculated utilising the binary stellar evolution (BSE) code, 
 				<a href="https://binary\_c.gitlab.io/"><FONT size="3" COLOR="3388AA"> binary_c</FONT></a>. 
 				To do this, "ensemble" outputs from binary_c are loaded and converted into yield tables that can be read by L-Galaxies.
 				<br><br>
-				Standard tables are already generated and stored in the <b>/YieldTables/binary_c_yields/default/</b> folder which contain the following elements: 
-				['H','He','C','N','O','Ne','Mg','Si','S','Ca','Fe']. Therefore, if a different set of chemical elements (or isotopes) is required, or if you 
-				want to use a new set of binary_c ensembles, new binary_c yield tables can be easily generated and used, as follows:
+				Standard tables are pre-generated and stored in <b>/YieldTables/binary_c_yields/default/</b>. These contain the following elements: 
+				['H','He','C','N','O','Ne','Mg','Si','S','Ca','Fe']. If a different set of chemical elements (or isotopes) is required, or if you 
+				want to use a new set of binary_c ensembles, new yield tables can be easily generated and used, as follows:
 				<br><br>			
 				<ol>
 				<li><b>Modify the element list in process_binaryc_outputs.py:</b></li>
 					<ul style="padding-left:40px">
-						<li>In <b>./AuxCode/Python/process_binaryc_outputs.py</b>, modify the elements array (line ~ 76) to include the elements and isotopes you want</li>
-						<li>The fewer elements you include in this array, the quicker L-Galaxies will run and the smaller the output files will be. However, we recommend you 
-							keep at least the following elements in thelist, so that everything runs properly: ['H', 'He', 'C', 'O', 'Mg', 'Si', 'Fe']</li>
-						<li>Note, if you also want to generate the yield tables for a completely new set of binary_c ensembles (rather than the standard ones), simply place the new ensemble .json files into the 
+						<li>In <b>./AuxCode/Python/process_binaryc_outputs.py</b>, modify the elements array (line ~ 76) to include the elements and isotopes you want.</li>
+						<li>Note: The fewer elements you include in this array, the quicker L-Galaxies will run and the smaller the output files will be. However, the list 
+							must include at least ['H','He'] (for the infall model), and the following are also required for the dust model: ['C','O','Mg','Si','Fe'].</li>
+						<li>If you also want to generate the yield tables for a completely new set of binary_c ensembles (rather than the standard ones), simply place the new ensemble .json files into the 
 							<b>/YieldTables/binary_c_yields/new/ensembles</b> folder and set <em>USE_NEW_ENSEMBLES = 1</em> in <b>process_binaryc_outputs.py</b> before running this script.</li>
 					</ul>
 				</ol>
 				<ol>
 				<li><b>Run the process_binaryc_outputs.py script:</b></li>
 					<ul style="padding-left:40px">
-						<li>This will generate a new set of yield tables in <b>./YieldTables/binary_c_yields/new/</b> containing your new list of elements.</li>
+						<li>This will generate your new set of yield tables and place them in <b>./YieldTables/binary_c_yields/new/</b>, along with a .txt file containing useful metadata.</li>
 						<li>A new <b>h_metals.h</b> file will also be created in the <b>./code/</b> folder, which L-Galaxies will automatically use. 
-							The old metals header file will automatically be copied to <b>h_metals_old.h</b>, for reference. Metadata on the yield tables created 
-							is also saved to a .txt file in <b>./YieldTables/binary_c_yields/new/</b></li>
+							The old metals header file will automatically be copied to <b>h_metals_old.h</b>, for reference.</li>
 					</ul>
 				</ol>
 				<ol>
@@ -869,8 +868,8 @@
 						<li>This will tell L-Galaxies to read-in the new yield tables, rather than the standard ones.</li>
 					</ul>
 				</ol>
-				You should then be able to make and run L-Galaxies as usual (see STEP 5). The python scripts included to read, process, and plot output data (see STEP 6) will automatically
-				read the new chemical element list and handle them correctly.
+				You should then be able to make and run L-Galaxies as usual (see STEP 5). The L-Galaxies python scripts to read, process, and plot output data (see STEP 6) will automatically
+				read the new chemical element list and handle everything correctly.
 				<br><br>
 				For more information on how to handle binary_c data with L-Galaxies, feel free to drop me an email (<b>r.yates3 -at- herts.ac.uk</b>).
 			</FONT></p>
