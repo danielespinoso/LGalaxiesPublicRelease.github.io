@@ -258,6 +258,12 @@
 				However, if <a href="https://brew.sh/"><FONT size="3" COLOR="3388AA"> Homebrew</FONT></a> was used to install GSL, 
 				it might be found in <b>/opt/homebrew/Cellar/gsl/[VERSION NUMBER]/include</b> (for the header files) and <b>/opt/homebrew/Cellar/gsl/[VERSION NUMBER]/lib</b> (for the libraries) instead.
 			</FONT></p>
+
+			<p style="line-height:1.5; text-align:center"><FONT size="3">
+				Similarly your HDF5 installation may be in <a href="https://brew.sh/"><FONT size="3" COLOR="3388AA"> Homebrew</FONT></a> was used to install GSL, 
+				it might be found in <b>/opt/homebrew/include</b> or <b>/opt/homebrew/Cellar/hdf5/[VERSION NUMBER]/include</b> (for the header files) and 
+				<b>/opt/homebrew/lib</b> or <b>/opt/homebrew/Cellar/hdf5/[VERSION NUMBER]/lib</b> (for the libraries).
+			</FONT></p>
 			
 			<p style="line-height:1.5; text-align:center"><FONT size="3">
 				If your system doesn't have <em>gcc</em>, <em>make</em>, GSL, or HDF5, the simplest way to install them on Mac OS is probably via <a href="https://brew.sh/"><FONT size="3" COLOR="3388AA"> Homebrew</FONT></a>.
@@ -762,7 +768,7 @@
 				Standard tables are pre-generated and stored in <b>/YieldTables/binary_c_yields/default/</b>. These contain the following elements: 
 				['H','He','C','N','O','Ne','Mg','Si','S','Ca','Fe']. If a different set of chemical elements (or isotopes) is required, or if you 
 				want to use a new set of binary_c ensembles, new yield tables can be easily generated and used, as follows:
-				<br><br>			
+				<br>
 				<ol>
 				<li><b>Modify the element list in process_binaryc_outputs.py:</b></li>
 					<ul style="padding-left:40px">
